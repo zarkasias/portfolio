@@ -72,7 +72,7 @@ export const gridItems = [
 export const workExperience = [
   {
     id: 1,
-    title: "Senior Frontend Engineer",
+    title: "Senior Frontend Developer",
     desc: [
       "Develop UI Components",
       "Migrating Components from Javascript to TypeScript",
