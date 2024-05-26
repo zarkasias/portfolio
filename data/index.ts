@@ -126,6 +126,7 @@ export const socialMedia = [
   // },
   {
     id: 3,
+    link: "https://linkedin.com/in/davidmachambers",
     img: "/link.svg",
   },
 ];
