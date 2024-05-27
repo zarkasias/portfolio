@@ -8,10 +8,11 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I aim to deliver a product that meets your vision",
-    description: "",
+    title: "Deliver a product that meets your vision",
+    description:
+      "Having spent the better part of 27 years developing websites and application UI in an ever changing technology field.  I bring the right breadth of knowledge combined with a hunger and passion to continue learning.",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
+    imgClassName: "w-full h-full opacity-40",
     titleClassName: "justify-end",
     img: "/forest.png",
     spareImg: "",
@@ -49,7 +50,7 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently working on a ThreeJS interactive portfolio",
+    title: "Stay tuned for informative and opinionated blog posts",
     description: "Whats New",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -85,8 +86,9 @@ export const workExperience = [
     id: 2,
     title: "Freelance Frontend Developer",
     desc: [
-      "Write Typescript components for Nextjs App",
-      "Ensured responsiveness, and added comonents specifically for mobile version",
+      "Write Typescript components for Nextjs Application",
+      "Ensured UI responsiveness",
+      "Addition of components specifically for mobile version",
     ],
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp4.svg",

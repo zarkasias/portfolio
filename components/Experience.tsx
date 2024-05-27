@@ -38,7 +38,7 @@ export const Experience = () => {
                   {card.title}
                 </h1>
                 <div className="text-start text-white-100 mt-3 font-semibold">
-                  <ul className="list-disc">
+                  <ul className="list-none">
                     {card.desc.map((item, i) => (
                       <li className="py-2" key={i}>
                         {item}

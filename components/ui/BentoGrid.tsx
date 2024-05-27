@@ -110,7 +110,7 @@ export const BentoGridItem = ({
           "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 pb-5"
         )}
       >
-        <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10">
+        <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10 pb-2">
           {description}
         </div>
         <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10">
@@ -121,7 +121,7 @@ export const BentoGridItem = ({
 
         {id === 3 && (
           <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-            <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
+            <div className="flex flex-col gap-3 md:gap-3 lg:gap-6">
               {leftLists.map((item, i) => (
                 <span
                   key={i}
@@ -132,7 +132,7 @@ export const BentoGridItem = ({
               ))}
               <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
             </div>
-            <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
+            <div className="flex flex-col gap-3 md:gap-3 lg:gap-4">
               <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
               {rightLists.map((item, i) => (
                 <span
