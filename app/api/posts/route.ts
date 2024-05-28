@@ -22,9 +22,9 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET(res: NextResponse) {
-  return NextResponse.json(
-    { message: "This method is not allowed" },
-    { status: 405 }
-  );
-}
+// export async function GET(res: NextResponse) {
+//   return NextResponse.json(
+//     { message: "This method is not allowed" },
+//     { status: 405 }
+//   );
+// }
