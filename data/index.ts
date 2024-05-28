@@ -10,7 +10,7 @@ export const gridItems = [
     id: 1,
     title: "Deliver a product that meets your vision",
     description:
-      "Having spent the better part of 27 years developing websites and application UI in an ever changing technology field.  I bring the right breadth of knowledge combined with a hunger and passion to continue learning.",
+      "With 27 years of experience, I've been instrumental in the development of numerous successful websites and applications.  Throughout my career, I've embraced new technologies to stay relevant and ensure my skills remain valuable. This passion for continuous learning fuels my desire to contribute to innovative and impactful projects.",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full opacity-40",
     titleClassName: "justify-end",
