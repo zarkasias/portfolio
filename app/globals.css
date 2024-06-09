@@ -101,9 +101,9 @@
 }
 
 .pop-effect {
-  animation: pop 4s ease-in-out infinite;
-  text-shadow: 0 0 5px rgba(0, 0, 255, 0.5), 0 0 8px rgba(0, 0, 255, 0.5),
-    0 0 11px rgba(0, 0, 255, 0.5);
+  animation: pop 6s ease-in-out infinite;
+  text-shadow: 0 0 5px rgba(0, 0, 255, 0.5), 0 0 7px rgba(0, 0, 255, 0.5),
+    0 0 9px rgba(0, 0, 255, 0.5);
   transition: text-shadow 0.3s ease-in-out;
 }
 

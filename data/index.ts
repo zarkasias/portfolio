@@ -70,6 +70,88 @@ export const gridItems = [
   },
 ];
 
+export const improvedExperience = [
+  {
+    id: 1,
+    title: "Consulting",
+    role: "Senior Frontend Developer",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+    clients: [
+      {
+        name: "Orchestro.ai",
+        desc: [
+          "Develop Sections and Components for React project",
+          "Helping to transition application to NextJs with a monorepo and introduction of Storybook for existing and future components",
+          "Removal of ChakraUI and introduced TailwindCSS",
+        ],
+      },
+      {
+        name: "Aurite.ai",
+        desc: [
+          "Built UI Components for a NextJs project using TypeScript",
+          "Created new sections for the application directly from Figma",
+          "Ensured entire application was responsive and added menus and footers for mobile version",
+        ],
+      },
+      {
+        name: "LEGACY",
+        desc: [
+          "Develop UI Components in React application",
+          "Migrating Components from Javascript to TypeScript",
+          "Added Storybook in order to maintain Component library",
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "SAP",
+    className: "md:col-span-2",
+    thumbnail: "/exp2.svg",
+    roles: [
+      {
+        name: "Product Owner",
+        desc: [
+          "Responsible for defining development tasks and clarifying business requirements for Development team",
+          "Primary point of contact with DevOps for migration from Jenkins pipelines to Azure/Piper pipelines",
+          "Ensured successful configuration, deployment and maintenance of approximately 20 applications.",
+        ],
+      },
+      {
+        name: "Development Expert",
+        desc: [
+          "Developed the UI using SAP UI5 for multiple versions of Rules, Actions and Alerts which were part of a suite of IoT applications",
+          "Development of UI for additional IoT applications for Geofencing and Smart Sensing",
+          "Worked cross team as a UI Expert to support in development of applications",
+          "Worked on the UI for Connected Goods and Smart Vending applications.  Worked directly with UX to enhance and improve sections of the applications",
+          "Built 10+ Application Demos for Customer Co-Innovation Projects",
+        ],
+      },
+      {
+        name: "Senior Developer",
+        desc: [
+          "Member of Development team for SAP Control Tower",
+          "Development of Charts and Dashboards, and creation of a navigation framework",
+          "Part of a team that developed an Ad-hoc designer, so that users could create and edit charts directly in the UI.  This concept was patented in May of 2013",
+          "Developed the UI in Flex for SAP Carbon Impact.  This was a rebuild of thee application Clear Standards that I worked as part of a startup company that SAP purchased",
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Clear Standards",
+    className: "md:col-span-2",
+    thumbnail: "/exp4.svg",
+    desc: [
+      "Developed a solution to enable organizations to measure, mitigate and monetize greenhouse gas",
+      "Responsible for the development of the Corporate Website and Application UI in Ruby on Rails",
+      "Functioned as Release Manager/Scrum Master of development team",
+    ],
+  },
+];
+
 export const workExperience = [
   {
     id: 1,
@@ -90,7 +172,7 @@ export const workExperience = [
       "Ensured UI responsiveness",
       "Addition of components specifically for mobile version",
     ],
-    className: "md:col-span-2", // change to md:col-span-2
+    className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },
   {
@@ -101,7 +183,7 @@ export const workExperience = [
       "Mentorship role for Frontend Development Interns",
       "Development of reusable components that were used across a suite of applications",
     ],
-    className: "md:col-span-2", // change to md:col-span-2
+    className: "md:col-span-2",
     thumbnail: "/exp3.svg",
   },
   {
