@@ -38,12 +38,12 @@ export const Experience = () => {
                   {card.title}
                 </h2>
                 {card.role && (
-                  <h1 className="text-start text-xl md:text-2xl mt-4 font-bold">
+                  <h1 className="text-start text-xl text-white-200 md:text-2xl mt-4 font-bold">
                     {card.role}
                   </h1>
                 )}
                 {card.clients && (
-                  <div className="text-start mt-4 font-semibold w-[80%]">
+                  <div className="text-start mt-4 font-semibold w-full md:w-[80%]">
                     {card.clients.map((item, i) => (
                       <div className="py-4" key={i}>
                         <p className="text-xl font-bold text-white-400">
@@ -65,7 +65,7 @@ export const Experience = () => {
                 )}
 
                 {card.roles && (
-                  <div className="text-start mt-4 font-semibold w-[80%]">
+                  <div className="text-start mt-4 font-semibold w-full md:w-[80%]">
                     {card.roles.map((item, i) => (
                       <div className="py-4" key={i}>
                         <p className="text-xl font-bold text-white-400">
