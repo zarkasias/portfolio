@@ -25,20 +25,23 @@ export const Hero = () => {
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
-        <div className="relative flex justify-center mb-20 z-10">
+        <div className="relative flex justify-center mb-10 z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col justify-center items-center">
-            <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-              A seasoned developer who thrives on collaboration
-            </h2>
+            <div className="flex items-center w-[85%] justify-between mb-5">
+              <img src="/cclogo.png" width="90px" height="90px" />
+              <p className="uppercase text-center text-blue-200 md:tracking-widest font-bold text-lg lg:text-3xl pop-effect">
+                Chambers Consulting
+              </p>
+            </div>
 
             <TextGenerateEffect
               className="text-center text-[40px] md:text-5xl lg:text-6xl"
               words="Creating Seamless and Interactive User Experiences"
             />
 
-            <p className="uppercase text-center text-blue-200 md:tracking-widest my-6 font-bold text-lg lg:text-3xl pop-effect">
-              Chambers Consulting
-            </p>
+            <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
+              A seasoned developer who thrives on collaboration
+            </h2>
 
             <a href="#about">
               <MagicButton

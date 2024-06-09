@@ -110,12 +110,25 @@ export const BentoGridItem = ({
           "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 pb-5"
         )}
       >
-        <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10 pb-2">
-          {description}
-        </div>
-        <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10">
-          {title}
-        </div>
+        {id === 1 ? (
+          <>
+            <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10">
+              {title}
+            </div>
+            <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10 pb-2">
+              {description}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10 pb-2">
+              {description}
+            </div>
+            <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10">
+              {title}
+            </div>
+          </>
+        )}
 
         {id === 2 && <GridGlobe />}
 
