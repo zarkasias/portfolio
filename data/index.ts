@@ -131,7 +131,7 @@ export const improvedExperience = [
       {
         name: "Senior Developer",
         desc: [
-          "Member of Development team for SAP Control Tower",
+          "Member of the Development team for SAP Control Tower",
           "Development of Charts and Dashboards, and creation of a navigation framework",
           "Part of a team that developed an Ad-hoc designer, so that users could create and edit charts directly in the UI.  This concept was patented in May of 2013",
           "Developed the UI in Flex for SAP Carbon Impact.  This was a rebuild of the application Clear Standards that I worked as part of a startup company that SAP purchased",
