@@ -36,6 +36,7 @@ export const BentoGridItem = ({
   imgClassName,
   titleClassName,
   spareImg,
+  link,
 }: {
   id: number;
   className?: string;
@@ -45,6 +46,7 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
   spareImg: string;
+  link?: string;
 }) => {
   const leftLists = ["ReactJS", "Angular", "Typescript"];
   const rightLists = ["VueJS", "NextJS", "NodeJS"];
@@ -61,7 +63,7 @@ export const BentoGridItem = ({
   };
 
   const handleCopy = () => {
-    const text = "david.chambers.developer@gmail.com";
+    const text = "david@chambers-consulting.dev";
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
@@ -117,6 +119,17 @@ export const BentoGridItem = ({
             </div>
             <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10 pb-2">
               {description}
+            </div>
+          </>
+        ) : link ? (
+          <>
+            <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10 pb-2">
+              {description}
+            </div>
+            <div className="font-sans text-lg lg:text-3xl max-w-80 z-10 truncate overflow-hidden">
+              <a className="text-blue-400 underline decoration-1" href={link}>
+                {title}
+              </a>
             </div>
           </>
         ) : (

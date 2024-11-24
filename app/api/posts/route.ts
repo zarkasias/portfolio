@@ -22,9 +22,14 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// export async function GET(res: NextResponse) {
-//   return NextResponse.json(
-//     { message: "This method is not allowed" },
-//     { status: 405 }
-//   );
-// }
+export async function GET() {
+  try {
+    const posts = await prisma.post.findMany();
+    return NextResponse.json(posts, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to fetch posts" },
+      { status: 500 }
+    );
+  }
+}

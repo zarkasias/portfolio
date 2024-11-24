@@ -13,6 +13,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ onSubmit, className }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit({ entry, title });
+    resetPost();
+  };
+
+  const resetPost = () => {
+    setTitle("");
+    setEntry("");
   };
 
   return (
