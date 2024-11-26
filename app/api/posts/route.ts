@@ -88,8 +88,7 @@ export async function PUT(req: NextRequest) {
     }
 
     const validSections = sections.filter(
-      (section: any) =>
-        section.subtitle.trim() !== "" && section.content.trim() !== ""
+      (section: any) => section.content.trim() !== ""
     );
 
     if (validSections.length === 0) {
@@ -109,9 +108,12 @@ export async function PUT(req: NextRequest) {
     });
 
     return NextResponse.json(updatedPost, { status: 200 });
-  } catch (error) {
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
     return NextResponse.json(
-      { error: "Failed to update post" },
+      { error: "An unknown error occurred" },
       { status: 500 }
     );
   }

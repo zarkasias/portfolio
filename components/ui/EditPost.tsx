@@ -3,17 +3,11 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
-
-interface Section {
-  subtitle: string;
-  content: string;
-}
-
-interface EditPostProps {
-  postId?: string; // `postId` is optional
-}
+import { EditPostProps, Section } from "@/app/types/blogInterface";
+import { useRouter } from "next/navigation";
 
 const EditPost = ({ postId }: EditPostProps) => {
+  const router = useRouter();
   const [post, setPost] = useState({
     title: "",
     sections: [{ subtitle: "", content: "" }] as Section[],
@@ -21,7 +15,7 @@ const EditPost = ({ postId }: EditPostProps) => {
 
   useEffect(() => {
     if (postId) {
-      fetch(`/api/posts/${postId}`)
+      fetch(`/api/posts?id=${postId}`)
         .then((res) => res.json())
         .then((data) => setPost(data))
         .catch((error) => console.error("Error fetching post:", error));
@@ -63,8 +57,7 @@ const EditPost = ({ postId }: EditPostProps) => {
 
     // Validate sections
     const validSections = post.sections.filter(
-      (section) =>
-        section.subtitle.trim() !== "" && section.content.trim() !== ""
+      (section) => section.content.trim() !== ""
     );
 
     if (validSections.length === 0) {
@@ -73,13 +66,17 @@ const EditPost = ({ postId }: EditPostProps) => {
     }
 
     const method = postId ? "PUT" : "POST";
-    const url = postId ? `/api/put` : `/api/posts`;
+    const url = postId ? `/api/posts` : `/api/posts`;
 
     try {
       const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...post, sections: validSections, id: postId }),
+        body: JSON.stringify({
+          ...post,
+          sections: validSections,
+          id: Number(postId),
+        }),
       });
 
       if (response.ok) {
@@ -88,6 +85,11 @@ const EditPost = ({ postId }: EditPostProps) => {
           title: "",
           sections: [{ subtitle: "", content: "" }],
         });
+        if (postId) {
+          router.push(`/blog/${postId}`);
+        } else {
+          router.push("/blogs");
+        }
       } else {
         const errorData = await response.json();
         console.error("Error response:", errorData);
@@ -125,14 +127,14 @@ const EditPost = ({ postId }: EditPostProps) => {
                 type="text"
                 name="subtitle"
                 value={section.subtitle}
-                className="border-2 border-gray-500 h-10"
+                className="border-2 border-gray-500 h-10 p-2"
                 onChange={(e) => handleChange(e, index)}
               />
               <label className="py-2">Content</label>
               <textarea
                 name="content"
                 value={section.content}
-                className="border-2 border-gray-500 h-40"
+                className="border-2 border-gray-500 h-40 p-2"
                 onChange={(e) => handleChange(e, index)}
               />
               <button

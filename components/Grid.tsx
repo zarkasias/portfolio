@@ -18,7 +18,7 @@ const Grid = () => {
                 ? {
                     ...item,
                     title: latestPost.title,
-                    link: `/blogs`,
+                    link: `/blog/${latestPost.id}`,
                   }
                 : item
             )
