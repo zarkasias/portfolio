@@ -1,12 +1,13 @@
-import { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import animationData from "@/data/confetti.json";
-import GridGlobe from "./GridGlobe";
 import Lottie from "react-lottie";
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
+
+const GridGlobe = lazy(() => import("./GridGlobe"));
 
 export const BentoGrid = ({
   className,
@@ -143,7 +144,11 @@ export const BentoGridItem = ({
           </>
         )}
 
-        {id === 2 && <GridGlobe />}
+        {id === 2 && (
+          <Suspense fallback={<div>Loading...</div>}>
+            <GridGlobe />
+          </Suspense>
+        )}
 
         {id === 3 && (
           <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">

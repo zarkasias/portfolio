@@ -5,9 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { EditPostProps, Section } from "@/app/types/blogInterface";
 import { useRouter } from "next/navigation";
-import ReactQuill from "react-quill";
+import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import "@/app/css/quill.css";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const EditPost = ({ postId }: EditPostProps) => {
   const router = useRouter();

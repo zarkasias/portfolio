@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 import { gridItems as staticGriditems } from "@/data";
@@ -5,11 +6,19 @@ import axios from "axios";
 
 const Grid = () => {
   const [gridItems, setGridItems] = useState(staticGriditems);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchLatestPost = async () => {
+      setIsLoading(true);
       try {
-        const { data } = await axios.get("/api/posts");
+        const { data } = await axios.get("/api/posts", {
+          signal: controller.signal,
+        });
+
+        // Only update if we got valid data
         if (data && data.length > 0) {
           const latestPost = data[data.length - 1];
           setGridItems((prevItems) =>
@@ -25,11 +34,25 @@ const Grid = () => {
           );
         }
       } catch (error) {
-        console.error("Failed to fetch latest post: ", error);
+        // Only log if it's not an abort error
+        if (!axios.isCancel(error)) {
+          console.error("Failed to fetch latest post: ", error);
+        }
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchLatestPost();
+    // Delay the fetch slightly to prioritize initial render
+    const timeoutId = setTimeout(() => {
+      fetchLatestPost();
+    }, 100);
+
+    // Cleanup function
+    return () => {
+      controller.abort();
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
@@ -50,7 +73,7 @@ const Grid = () => {
             <BentoGridItem
               id={id}
               key={id}
-              title={title}
+              title={isLoading && id === 5 ? "Loading..." : title}
               description={description}
               className={className}
               img={img}

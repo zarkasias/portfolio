@@ -28,7 +28,7 @@ export const Hero = () => {
         <div className="relative flex justify-center mb-10 z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col justify-center items-center">
             <div className="flex items-center w-[70%] justify-between mb-5">
-              <img src="/cclogo-new.png" width="90px" height="90px" />
+              <img src="/cclogo-new.png" width={90} height={90} />
               <p className="uppercase text-center text-blue-200 md:tracking-widest font-bold text-lg lg:text-4xl pop-effect">
                 Chambers Consulting
               </p>

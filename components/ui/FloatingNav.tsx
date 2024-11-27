@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import {
   motion,
   AnimatePresence,
@@ -21,7 +22,6 @@ export const FloatingNav = ({
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-
   const [visible, setVisible] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
