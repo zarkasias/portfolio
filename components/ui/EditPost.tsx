@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { EditPostProps, Section } from "@/app/types/blogInterface";
 import { useRouter } from "next/navigation";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import "@/app/css/quill.css";
 
 const EditPost = ({ postId }: EditPostProps) => {
   const router = useRouter();
@@ -101,6 +104,14 @@ const EditPost = ({ postId }: EditPostProps) => {
     }
   };
 
+  const handleQuillChange = (value: string, index: number) => {
+    setPost((prev) => {
+      const updatedSections = [...prev.sections];
+      updatedSections[index].content = value;
+      return { ...prev, sections: updatedSections };
+    });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="bg-gray-600 p-6 rounded-md border-2 border-gray-200">
@@ -110,7 +121,7 @@ const EditPost = ({ postId }: EditPostProps) => {
             type="text"
             name="title"
             value={post.title}
-            className="border-2 border-gray-500 h-10"
+            className="border-2 border-gray-500 h-10 p-2"
             onChange={handleChange}
           />
         </div>
@@ -131,15 +142,22 @@ const EditPost = ({ postId }: EditPostProps) => {
                 onChange={(e) => handleChange(e, index)}
               />
               <label className="py-2">Content</label>
-              <textarea
+              {/* <textarea
                 name="content"
                 value={section.content}
                 className="border-2 border-gray-500 h-40 p-2"
                 onChange={(e) => handleChange(e, index)}
-              />
+              /> */}
+              <div className="bg-black-100 h-44">
+                <ReactQuill
+                  value={section.content}
+                  onChange={(value) => handleQuillChange(value, index)}
+                  className="h-32"
+                />
+              </div>
               <button
                 type="button"
-                className="flex items-center justify-end py-2"
+                className="flex items-center justify-end pt-4 py-2"
                 onClick={() => removeSection(index)}
                 title="Remove Section"
               >

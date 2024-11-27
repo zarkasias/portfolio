@@ -5,7 +5,7 @@ import Head from "next/head";
 import EditPost from "@/components/ui/EditPost";
 import Header from "@/components/ui/BlogHeader";
 
-const AddBlog = () => {
+const AddBlogPage = () => {
   return (
     <>
       <Header />
@@ -27,4 +27,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default AddBlogPage;

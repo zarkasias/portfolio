@@ -16,8 +16,7 @@ export async function POST(req: NextRequest) {
     }
 
     const validSections = sections.filter(
-      (section: any) =>
-        section.subtitle.trim() !== "" && section.content.trim() !== ""
+      (section: any) => section.content.trim() !== ""
     );
 
     if (validSections.length === 0) {
