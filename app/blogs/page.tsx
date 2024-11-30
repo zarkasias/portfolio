@@ -28,8 +28,11 @@ const BlogPage = () => {
   };
 
   const handleSort = () => {
-    setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
-    setPosts((posts) => sortPosts(posts, sortDirection));
+    setSortDirection((prev) => {
+      const newDirection = prev === "asc" ? "desc" : "asc";
+      setPosts((posts) => sortPosts(posts, newDirection));
+      return newDirection;
+    });
   };
 
   useEffect(() => {
