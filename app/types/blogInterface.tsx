@@ -7,6 +7,7 @@ export interface Blog {
   id: number;
   title: string;
   sections: Section[];
+  createdAt: string;
   author: string;
 }
 

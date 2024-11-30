@@ -47,6 +47,7 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = Number(searchParams.get("id"));
+  const term = searchParams.get("search");
 
   if (id) {
     try {
@@ -58,6 +59,30 @@ export async function GET(req: NextRequest) {
     } catch (error) {
       return NextResponse.json(
         { error: "Failed to fetch post" },
+        { status: 500 }
+      );
+    }
+  }
+
+  if (term) {
+    try {
+      const posts = await prisma.post.findMany({
+        where: {
+          title: {
+            contains: term || "",
+            mode: "insensitive",
+          },
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+
+      return NextResponse.json(posts);
+    } catch (error) {
+      console.error("Failed to search posts:", error);
+      return NextResponse.json(
+        { error: "Failed to search posts" },
         { status: 500 }
       );
     }
