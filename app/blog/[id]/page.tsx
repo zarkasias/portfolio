@@ -28,13 +28,13 @@ export async function generateMetadata(
           data.sections?.[0]?.content?.substring(0, 200) || "Blog post",
         url: `https://chambers-consulting.dev/blog/${id}`,
         // Add image if you have one in your blog data
-        images: [
-          {
-            url: data.image || "https://chambers-consulting.dev/cclogo-new.png",
-            width: 32,
-            height: 32,
-          },
-        ],
+        // images: [
+        //   {
+        //     url: data.image || "https://chambers-consulting.dev/cclogo-new.png",
+        //     width: 32,
+        //     height: 32,
+        //   },
+        // ],
       },
     };
   } catch (error) {
