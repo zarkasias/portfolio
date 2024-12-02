@@ -5,9 +5,46 @@ import { ThemeProvider } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// export const metadata: Metadata = {
+//   title: "Chambers Consulting",
+//   description: "Creating Seamless and Interactive User Experiences",
+// };
+
 export const metadata: Metadata = {
-  title: "Chambers Consulting",
-  description: "Creating Seamless and Interactive User Experiences",
+  title: "David Chambers | Front End Development Consultant",
+  description:
+    "Expert Front End Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
+  keywords: [
+    "Front End Development",
+    "React",
+    "TypeScript",
+    "Technical Consulting",
+    "Web Development",
+    "David Chambers",
+    "Software Engineering",
+  ],
+  authors: [{ name: "David Chambers" }],
+  creator: "David Chambers",
+  openGraph: {
+    type: "website",
+    title: "David Chambers | Front End Development Consultant",
+    description:
+      "Expert Front End Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
+    images: [
+      {
+        url: "/cclogo-new.png",
+        width: 32,
+        height: 32,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "David Chambers | Front End Development Consultant",
+    description:
+      "Expert Front End Development & Technical Consulting by David Chambers",
+    images: ["/cclogo-new.png"],
+  },
 };
 
 export default function RootLayout({
