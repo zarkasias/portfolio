@@ -14,4 +14,14 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   sections  Json
+  comments Comment[]
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  author    String
+  createdAt DateTime @default(now())
+  postId    Int
+  post      Post     @relation(fields: [postId], references: [id])
 }

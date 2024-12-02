@@ -11,6 +11,13 @@ export interface Blog {
   author: string;
 }
 
+export interface Comment {
+  id: number;
+  content: string;
+  createdAt: string;
+  author: string;
+}
+
 export interface EditPostProps {
   postId?: string;
 }
