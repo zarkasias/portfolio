@@ -27,7 +27,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { postId, content } = body;
+    let { postId, content, author } = body;
 
     if (!postId || !content) {
       return NextResponse.json(
@@ -36,17 +36,26 @@ export async function POST(request: Request) {
       );
     }
 
+    postId = parseInt(postId, 10);
+    if (isNaN(postId)) {
+      return NextResponse.json(
+        { error: "Post ID must be an integer" },
+        { status: 400 }
+      );
+    }
+
     const comment = await prisma.comment.create({
       data: {
         content,
         postId,
-        author: "Anonymous", // You can modify this to use actual user data
+        author: author || "Anonymous",
         createdAt: new Date(),
       },
     });
 
     return NextResponse.json(comment);
   } catch (error) {
+    console.error("Error creating comment:", error);
     return NextResponse.json(
       { error: "Failed to create comment" },
       { status: 500 }
