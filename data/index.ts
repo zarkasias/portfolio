@@ -1,17 +1,16 @@
 export const navItems = [
-  { name: "About", link: "#about" },
-  { name: "Experience", link: "#experience" },
-  { name: "Approach", link: "#approach" },
+  { name: "About", link: "/about" },
+  { name: "Services", link: "/services" },
   { name: "Blog", link: "/blogs" },
-  { name: "Contact", link: "#contact" },
+  { name: "Contact", link: "/contact" },
 ];
 
 export const gridItems = [
   {
     id: 1,
-    title: "Delivering great software products that meet your vision",
+    title: "Senior Frontend Developer with 27+ Years of Experience",
     description:
-      "With 27 years of experience, I've been instrumental in the development of numerous successful websites and applications.  Throughout my career, I've embraced new technologies to stay relevant and ensure my skills remain valuable. This passion for continuous learning fuels my desire to contribute to innovative and impactful projects.",
+      "Specializing in modern web development with React, Next.js, and TypeScript. I create exceptional digital experiences that combine technical excellence with beautiful design.",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full opacity-40",
     titleClassName: "justify-end",
@@ -20,39 +19,41 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm able to accomodate your time schedule",
-    description: "",
+    title: "Available for New Projects",
+    description: "Flexible scheduling to accommodate your project needs",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-start",
-    img: "",
+    img: "/calendar.svg",
     spareImg: "",
+    link: "/contact"
   },
   {
     id: 3,
-    title: "Technology stack",
-    description: "I'm always learning",
+    title: "Expert Services",
+    description: "Frontend Development • Technical Consulting • UI Implementation • Application Modernization",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-center",
-    img: "",
+    img: "/services.svg",
     spareImg: "",
+    link: "/services"
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development.",
-    description: "",
+    title: "Latest Projects",
+    description: "View my recent work and case studies",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-start",
-    img: "/grid.svg",
+    img: "/projects.svg",
     spareImg: "/b4.svg",
+    link: "/projects"
   },
-
   {
     id: 5,
-    title: "Blog posts coming soon...",
-    description: "Latest Blog Entry",
+    title: "Insights & Articles",
+    description: "Technical insights and development best practices",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-center",
@@ -62,13 +63,14 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to start a project together?",
-    description: "",
+    title: "Let's Build Something Amazing Together",
+    description: "Get in touch to discuss your project",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-    img: "",
+    img: "/contact.svg",
     spareImg: "",
+    link: "/contact"
   },
 ];
 
@@ -216,3 +218,65 @@ export const socialMedia = [
     img: "/link.svg",
   },
 ];
+
+export const services = [
+  {
+    id: 1,
+    title: "Web Development & UI Implementation",
+    description: "Get a fast, modern, and user-friendly website that looks great and performs even better. I build responsive, high-performance web applications with seamless UI/UX, ensuring an engaging experience on any device.",
+    icon: "/icons/programing.png",
+    features: [
+      "Responsive Design",
+      "Component Libraries",
+      "Figma to Code",
+      "Animation & Interactions",
+      "SEO & Performance Optimization",
+      "Cross-browser Compatibility",
+      "Accessibility (a11y)"
+    ]
+  },
+  {
+    id: 2,
+    title: "E-Commerce Development",
+    description: "Launch and scale your online store with a high-performance, conversion-focused e-commerce platform. I build secure, scalable, and feature-rich stores that provide seamless shopping experiences.",
+    icon: "/icons/shopping.png",
+    features: [
+      "Custom Online Store Development",
+      "Shopify, WooCommerce, & Custom Solutions",
+      "Payment Gateway Integration",
+      "Product Management Systems",
+      "Cart & Checkout Optimization",
+      "Performance & Security Enhancements"
+    ]
+  },
+  {
+    id: 3,
+    title: "Technical Consulting",
+    description: "Need expert guidance on your website or app? I help businesses choose the right technology, optimize performance, and ensure clean, maintainable code—reducing long-term costs and improving scalability.",
+    icon: "/icons/communication.png",
+    features: [
+      "Architecture Planning",
+      "Code Reviews",
+      "Tech Stack Selection",
+      "Team Mentoring",
+      "Best Practices Implementation",
+      "Performance Audits"
+    ]
+  },
+  {
+    id: 4,
+    title: "Application Modernization",
+    description: "Is your website outdated or slow? I transform legacy applications into high-performance, secure, and scalable solutions that align with modern web standards.",
+    icon: "/icons/technology.png",
+    features: [
+      "Legacy Code Migration",
+      "JavaScript to TypeScript",
+      "Performance Optimization",
+      "Modern Framework Adoption",
+      "Code Refactoring",
+      "Technical Debt Resolution"
+    ]
+  }
+];
+
+

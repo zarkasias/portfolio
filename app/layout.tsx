@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://chambers-consulting.dev'),
   title: "David Chambers | Front End Development Consultant",
   description:
     "Expert Front End Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
@@ -53,15 +54,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} dark:bg-[#04071D] bg-[#04071D]`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
+          forcedTheme="dark"
           disableTransitionOnChange
         >
           {children}

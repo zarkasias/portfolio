@@ -6,9 +6,9 @@ import Link from "next/link";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 
-import Header from "@/components/ui/BlogHeader";
-import Copyright from "@/components/ui/Copyright";
+import PageLayout from "../../components/layout/PageLayout";
 import BlogTableHeader from "@/components/ui/BlogTableHeader";
+import Copyright from "@/components/ui/Copyright";
 
 import { Blog } from "@/app/types/blogInterface";
 
@@ -28,11 +28,11 @@ const BlogPage = () => {
   };
 
   const handleSort = () => {
-    setSortDirection((prev) => {
-      const newDirection = prev === "asc" ? "desc" : "asc";
-      setPosts((posts) => sortPosts(posts, newDirection));
-      return newDirection;
-    });
+    setSortDirection(prev => prev === "desc" ? "asc" : "desc");
+  };
+
+  const handleSearch = (term: string) => {
+    setSearchTerm(term);
   };
 
   useEffect(() => {
@@ -74,43 +74,43 @@ const BlogPage = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow pt-8 pb-10 lg:pt-12 lg:pb-14 max-w-5xl mx-auto px-6 my-6">
-        <div className="w-full min-w-[320px] sm:min-w-[768px]">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4 text-left">
-            Insights & Ideas
-          </h1>
-          <BlogTableHeader onSearch={debouncedSearch} onSort={handleSort} />
-          <div className="mt-6 space-y-6">
-            {loading ? (
-              <div className="flex justify-center items-center w-full">
-                <ThreeDots color="#00BFFF" height={80} width={80} />
-              </div>
-            ) : posts.length > 0 ? (
-              posts.map((post: any) => (
-                <article
-                  key={post.id}
-                  className="bg-gray-800 p-6 rounded-lg shadow-lg"
-                >
-                  <Link href={`/blog/${post.id}`}>
-                    <h2 className="text-blue-500 text-xl font-semibold mb-2">
-                      {post.title}
-                    </h2>
-                    <p className="text-sm text-gray-500 mt-2">
-                      {new Date(post.createdAt).toLocaleDateString()}
-                    </p>
-                  </Link>
-                </article>
-              ))
-            ) : (
-              <p className="text-gray-400">No posts available.</p>
-            )}
+    <PageLayout className="pt-24 md:w-[60%]" showFooterBlurb={false}>
+      <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4">Insights & Ideas</h1>
+      <BlogTableHeader onSearch={debouncedSearch} onSort={handleSort} />
+      <div className="flex flex-col gap-8">
+
+<div className="mt-6 space-y-6">
+        {loading ? (
+          <div className="flex justify-center py-8">
+            <ThreeDots color="#3B82F6" height={50} width={50} />
           </div>
-        </div>
-      </main>
+        ) : posts.length > 0 ? (
+          <div className="grid gap-6">
+            {posts.map((post) => (
+              <article
+              key={post.id}
+              className="bg-gray-800 p-6 rounded-lg shadow-lg"
+            >
+              <Link href={`/blog/${post.id}`}>
+                <h2 className="text-blue-500 text-xl font-semibold mb-2">
+                  {post.title}
+                </h2>
+                <p className="text-sm text-gray-500 mt-2">
+                  {new Date(post.createdAt).toLocaleDateString()}
+                </p>
+              </Link>
+            </article>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-8 text-gray-400">
+            No posts found
+          </div>
+        )}
+      </div>
+      </div>
       <Copyright />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -1,55 +1,43 @@
-import { FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "./ui/MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
 export const Hero = () => {
   return (
-    <div className="relative pb-20">
-      <div className="relative">
-        <Spotlight
-          className="absolute -top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight
-          className="absolute top-10 left-full h-[80vh] w-[50vw]"
-          fill="purple"
-        />
-        <Spotlight
-          className="absolute top-28 left-80 h-[80vh] w-[50vw]"
-          fill="blue"
-        />
-      </div>
+    <div className="relative mt-24 overflow-hidden">
+      {/* Spotlights */}
+      <Spotlight
+        className="fixed -top-40 -left-10 md:-left-32 md:-top-20"
+        fill="white"
+      />
+      <Spotlight
+        className="fixed -right-20 top-10 md:right-0 h-[80vh] w-[50vw]"
+        fill="purple"
+      />
+      <Spotlight
+        className="fixed top-28 left-1/4 h-[80vh] w-[50vw]"
+        fill="blue"
+      />
 
-      <div className="relative h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-center justify-center">
-        {/* Radial gradient for the container to give a faded look */}
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-
-        <div className="relative flex justify-center mb-10 z-10">
-          <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col justify-center items-center">
-            <div className="flex items-center w-[70%] justify-between mb-5">
-              <img src="/cclogo-new.png" width={90} height={90} />
-              <p className="uppercase text-center text-blue-200 md:tracking-widest font-bold text-lg lg:text-4xl pop-effect">
-                Chambers Consulting
-              </p>
-            </div>
-
-            <TextGenerateEffect
-              className="text-center text-[40px] md:text-5xl lg:text-6xl"
-              words="Creating Seamless and Interactive User Experiences"
-            />
-
-            <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-              A seasoned developer who thrives on collaboration
-            </h2>
-
-            <a href="#about">
-              <MagicButton
-                title="More About Us"
-                icon={<FaLocationArrow />}
-                position="right"
+      {/* Content */}
+      <div className="relative h-[32vh] md:h-[56vh] w-full bg-gray-200/4 rounded-lg dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-start pt-4 md:pt-10 justify-start">
+        <div className="relative flex justify-center mb-5 z-10 w-full">
+          <div className="max-w-[90%] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
+            <div className="flex-1 min-w-0">
+              <TextGenerateEffect
+                className="text-[20px] mt-10 md:text-4xl lg:text-5xl"
+                words="Crafting Digital Experiences That Drive Business Growth"
               />
-            </a>
+            </div>
+            
+            <div className="flex-1 min-w-0">
+              <img 
+                src="/hero_new.jpg" 
+                className="rounded-lg border-2 border-gray-900 w-full shadow-lg h-auto max-w-[600px] mx-auto" 
+                width={646} 
+                height={360}
+                alt="Hero image"
+              />
+            </div>
           </div>
         </div>
       </div>

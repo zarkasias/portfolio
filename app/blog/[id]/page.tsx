@@ -1,6 +1,7 @@
 import { Metadata, ResolvingMetadata } from "next/types";
 import axios from "axios";
 import BlogClient from "./BlogClient";
+import PageLayout from "@/components/layout/PageLayout";
 
 type Props = {
   params: { id: string };
@@ -40,11 +41,15 @@ export async function generateMetadata(
   } catch (error) {
     return {
       title: "Blog Post",
-      description: "Blog post content",
+      description: "Loading blog post...",
     };
   }
 }
 
 export default function BlogPage() {
-  return <BlogClient />;
+  return (
+    <PageLayout className="pt-24 md:w-[60%]" showFooterBlurb={false}>
+      <BlogClient />
+    </PageLayout>
+  );
 }

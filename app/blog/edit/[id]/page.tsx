@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import EditPost from "@/components/ui/EditPost";
-import Header from "@/components/ui/BlogHeader";
+import PageLayout from "@/components/layout/PageLayout";
 
 interface EditBlogPageProps {
   params: {
@@ -12,8 +12,7 @@ interface EditBlogPageProps {
 
 const EditBlogPage = ({ params }: EditBlogPageProps) => {
   return (
-    <>
-      <Header />
+    <PageLayout className="pt-14 md:w-[68%]">
       <div>
         <Head>
           <title>Edit Blog Post</title>
@@ -28,7 +27,7 @@ const EditBlogPage = ({ params }: EditBlogPageProps) => {
           </div>
         </div>
       </div>
-    </>
+      </PageLayout>
   );
 };
 

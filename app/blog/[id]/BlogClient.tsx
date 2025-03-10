@@ -9,9 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { ThreeDots } from "react-loader-spinner";
 
-import Header from "@/components/ui/BlogHeader";
-import Copyright from "@/components/ui/Copyright";
-
 export default function BlogClient() {
   const router = useRouter();
   const { id } = useParams();
@@ -73,8 +70,7 @@ export default function BlogClient() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow pt-8 pb-10 lg:pt-12 lg:pb-14 max-w-5xl mx-auto px-6 my-6">
+      <main className="flex-grow pb-10 max-w-5xl mx-auto px-6 my-6">
         <div className="w-full min-w-[320px] sm:min-w-[768px]">
           {loading ? (
             <div className="flex justify-center items-center w-full">
@@ -186,7 +182,6 @@ export default function BlogClient() {
           </div>
         </div>
       </main>
-      <Copyright />
     </div>
   );
 }

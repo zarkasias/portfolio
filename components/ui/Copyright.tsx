@@ -4,9 +4,9 @@ const Copyright = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
+    <div className="flex mt-6 md:flex-row flex-col justify-between items-center">
       <p className="md:text-base text-sm md:font-normal font-light opacity-70">
-        Copyright © {currentYear} David Chambers
+        Copyright © {currentYear} Chambers Consulting
       </p>
 
       <div className="flex items-center md:gap-3 gap-6">
