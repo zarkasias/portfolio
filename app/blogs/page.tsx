@@ -109,7 +109,6 @@ const BlogPage = () => {
         )}
       </div>
       </div>
-      <Copyright />
     </PageLayout>
   );
 };

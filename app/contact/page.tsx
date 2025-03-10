@@ -61,14 +61,14 @@ export default function ContactPage() {
 
               <div className="bg-neutral-800/50 rounded-xl p-4 backdrop-blur-sm">
               <div className="flex gap-4">
-              <img src="/icons/linkedin.png" alt="LinkedIn" className="w-10 h-10" />
-                <div className="flex flex-col">
+              <img src="/icons/linkedin.png" alt="LinkedIn" className="w-10 h-10 flex-shrink-0" />
+                <div className="flex flex-col min-w-0">
                 <h3 className="text-lg font-semibold mb-1">LinkedIn</h3>
                 <a 
                   href="https://linkedin.com/in/davidmachambers" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                  className="text-blue-400 hover:text-blue-300 transition-colors break-all"
                 >
                   linkedin.com/in/davidmachambers
                 </a>

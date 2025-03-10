@@ -9,7 +9,7 @@ export default function Home() {
     <PageLayout className="pt-4 md:pt-8">
       <Hero />
 
-      <section className="py-20">
+      <section className="pt-8 md:py-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Is Your Website Working for Your Business?
