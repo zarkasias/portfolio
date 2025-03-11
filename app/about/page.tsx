@@ -1,6 +1,23 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import PageLayout from "@/components/layout/PageLayout";
 import { improvedExperience } from "@/data";
+
+export const metadata: Metadata = {
+  title: "About David Chambers | Senior Frontend Development Consultant",
+  description: "With over 27 years of experience in web development, David Chambers specializes in building accessible, high-performance web applications that drive business growth.",
+  openGraph: {
+    title: "About David Chambers | Senior Frontend Development Consultant",
+    description: "With over 27 years of experience in web development, David Chambers specializes in building accessible, high-performance web applications that drive business growth.",
+    images: [
+      {
+        url: "/images/logos/cclogo-new.png",
+        width: 32,
+        height: 32,
+      },
+    ],
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -56,7 +73,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-6">
           <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
             <div className="flex flex-row items-center gap-4 mb-4">
-                <img src="/icons/techno-excellence.png" alt="Technical Excellence" className="w-10 h-10" />
+                <img src="/images/icons/techno-excellence.png" alt="Technical Excellence" className="w-10 h-10" />
                 <h3 className="text-xl font-bold">Technical Excellence</h3>
             </div>
             <p className="text-gray-400">
@@ -66,7 +83,7 @@ export default function AboutPage() {
           </div>
           <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
             <div className="flex flex-row items-center gap-4 mb-4">
-                <img src="/icons/mobile-access.png" alt="Accessibility First" className="w-10 h-10" />
+                <img src="/images/icons/mobile-access.png" alt="Accessibility First" className="w-10 h-10" />
                 <h3 className="text-xl font-bold">Accessibility First</h3>
             </div>
             <p className="text-gray-400">
@@ -76,7 +93,7 @@ export default function AboutPage() {
           </div>
           <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
             <div className="flex flex-row items-center gap-4 mb-4">
-                <img src="/icons/forecasting.png" alt="Business Focus" className="w-10 h-10" />
+                <img src="/images/icons/forecasting.png" alt="Business Focus" className="w-10 h-10" />
                 <h3 className="text-xl font-bold">Business Focus</h3>
             </div>
             <p className="text-gray-400">
@@ -86,7 +103,7 @@ export default function AboutPage() {
           </div>
           <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
             <div className="flex flex-row items-center gap-4 mb-4">
-                <img src="/icons/online-learning.png" alt="Continuous Learning" className="w-10 h-10" />
+                <img src="/images/icons/online-learning.png" alt="Continuous Learning" className="w-10 h-10" />
                 <h3 className="text-xl font-bold">Continuous Learning</h3>
             </div>
             <p className="text-gray-400">

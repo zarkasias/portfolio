@@ -37,7 +37,7 @@ export const GetStartedButton = ({ isMobile = false }: { isMobile?: boolean }) =
         className={buttonClass}
       >
         <div className="flex items-center gap-2">
-          <img src="/icons/rocket.png" alt="Launch" className="w-6 h-6" />
+          <img src="/images/icons/rocket.png" alt="Launch" className="w-6 h-6" />
           <span className="text-sm">Get Started</span>
           {!isMobile && (
             <span className={`ml-2 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}>

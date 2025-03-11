@@ -31,7 +31,7 @@ export async function generateMetadata(
         // Add image if you have one in your blog data
         images: [
           {
-            url: data.image || "https://chambers-consulting.dev/cclogo-new.png",
+            url: data.image || "https://chambers-consulting.dev/images/logos/cclogo-new.png",
             width: 16,
             height: 16,
           },

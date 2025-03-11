@@ -5,10 +5,6 @@ import { ThemeProvider } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata: Metadata = {
-//   title: "Chambers Consulting",
-//   description: "Creating Seamless and Interactive User Experiences",
-// };
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chambers-consulting.dev'),
@@ -33,7 +29,7 @@ export const metadata: Metadata = {
       "Expert Front End Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
     images: [
       {
-        url: "/cclogo-new.png",
+        url: "/images/logos/cclogo-new.png",
         width: 32,
         height: 32,
       },
@@ -44,7 +40,7 @@ export const metadata: Metadata = {
     title: "David Chambers | Front End Development Consultant",
     description:
       "Expert Front End Development & Technical Consulting by David Chambers",
-    images: ["/cclogo-new.png"],
+    images: ["/images/logos/cclogo-new.png"],
   },
 };
 

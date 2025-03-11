@@ -14,7 +14,7 @@ export const gridItems = [
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full opacity-40",
     titleClassName: "justify-end",
-    img: "/forest.png",
+    img: "/images/backgrounds/forest.png",
     spareImg: "",
   },
   {
@@ -24,7 +24,7 @@ export const gridItems = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-start",
-    img: "/calendar.svg",
+    img: "/images/icons/rocket.png",
     spareImg: "",
     link: "/contact"
   },
@@ -35,7 +35,7 @@ export const gridItems = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-center",
-    img: "/services.svg",
+    img: "/images/icons/coding.png",
     spareImg: "",
     link: "/services"
   },
@@ -46,7 +46,7 @@ export const gridItems = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-start",
-    img: "/projects.svg",
+    img: "/images/icons/website.png",
     spareImg: "/b4.svg",
     link: "/projects"
   },
@@ -80,7 +80,7 @@ export const improvedExperience = [
     title: "Consulting",
     role: "Senior Frontend Developer",
     className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    thumbnail: "/images/experience/exp1.svg",
     clients: [
       {
         name: "Orchestro.ai",
@@ -112,7 +112,7 @@ export const improvedExperience = [
     id: 2,
     title: "SAP",
     className: "md:col-span-2",
-    thumbnail: "/exp2.svg",
+    thumbnail: "/images/experience/exp2.svg",
     roles: [
       {
         name: "Product Owner",
@@ -147,7 +147,7 @@ export const improvedExperience = [
     id: 3,
     title: "Clear Standards",
     className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    thumbnail: "/images/experience/exp4.svg",
     desc: [
       "Developed a solution to enable organizations to measure, mitigate and monetize greenhouse gas",
       "Responsible for the development of the Corporate Website and Application UI in Ruby on Rails",
@@ -166,7 +166,7 @@ export const workExperience = [
       "Maintain Component library in StoryBook",
     ],
     className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    thumbnail: "/images/experience/exp1.svg",
   },
   {
     id: 2,
@@ -177,7 +177,7 @@ export const workExperience = [
       "Addition of components specifically for mobile version",
     ],
     className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    thumbnail: "/images/experience/exp4.svg",
   },
   {
     id: 3,
@@ -188,7 +188,7 @@ export const workExperience = [
       "Development of reusable components that were used across a suite of applications",
     ],
     className: "md:col-span-2",
-    thumbnail: "/exp3.svg",
+    thumbnail: "/images/experience/exp3.svg",
   },
   {
     id: 4,
@@ -199,7 +199,7 @@ export const workExperience = [
       "Ensured successful configuration, deployment and maintenance of approximately 20 applications.",
     ],
     className: "md:col-span-2",
-    thumbnail: "/exp2.svg",
+    thumbnail: "/images/experience/exp2.svg",
   },
 ];
 
@@ -215,7 +215,7 @@ export const socialMedia = [
   {
     id: 3,
     link: "https://linkedin.com/in/davidmachambers",
-    img: "/link.svg",
+    img: "/images/icons/link.svg",
   },
 ];
 
@@ -224,7 +224,7 @@ export const services = [
     id: 1,
     title: "Web Development & UI Implementation",
     description: "Get a fast, modern, and user-friendly website that looks great and performs even better. I build responsive, high-performance web applications with seamless UI/UX, ensuring an engaging experience on any device.",
-    icon: "/icons/programing.png",
+    icon: "/images/icons/programing.png",
     features: [
       "Responsive Design",
       "Component Libraries",
@@ -239,7 +239,7 @@ export const services = [
     id: 2,
     title: "E-Commerce Development",
     description: "Launch and scale your online store with a high-performance, conversion-focused e-commerce platform. I build secure, scalable, and feature-rich stores that provide seamless shopping experiences.",
-    icon: "/icons/shopping.png",
+    icon: "/images/icons/shopping.png",
     features: [
       "Custom Online Store Development",
       "Shopify, WooCommerce, & Custom Solutions",
@@ -253,7 +253,7 @@ export const services = [
     id: 3,
     title: "Technical Consulting",
     description: "Need expert guidance on your website or app? I help businesses choose the right technology, optimize performance, and ensure clean, maintainable code—reducing long-term costs and improving scalability.",
-    icon: "/icons/communication.png",
+    icon: "/images/icons/communication.png",
     features: [
       "Architecture Planning",
       "Code Reviews",
@@ -267,7 +267,7 @@ export const services = [
     id: 4,
     title: "Application Modernization",
     description: "Is your website outdated or slow? I transform legacy applications into high-performance, secure, and scalable solutions that align with modern web standards.",
-    icon: "/icons/technology.png",
+    icon: "/images/icons/technology.png",
     features: [
       "Legacy Code Migration",
       "JavaScript to TypeScript",

@@ -93,16 +93,17 @@ Website: ${formData.website}
   }
 
   return (
-    <PageLayout className="pt-24 md:w-[80%] mx-auto" showFooterBlurb={false}>
-      <div className="px-4">
+    <PageLayout className="pt-24 md:w-[80%] mx-auto">
+      <section className="text-center mb-12 px-4">
         <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4">
-          Get Your Free Website Audit
+          Free Website Audit | Improve Your Site&apos;s Performance
         </h1>
         <p className="text-xl text-gray-400 mb-8">
-          Discover how your website can work harder for your business. Get actionable insights on performance, 
-          accessibility, and user experience to help drive more conversions.
+          Get actionable insights to improve your website&apos;s performance, accessibility, and user experience.
         </p>
+      </section>
 
+      <div className="px-4">
         <div className="grid md:grid-cols-2 gap-12">
           <form onSubmit={handleSubmit} className="space-y-10">
             <div>
@@ -178,7 +179,7 @@ Website: ${formData.website}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 relative flex-shrink-0">
                     <Image 
-                      src="/icons/performance.png" 
+                      src="/images/icons/performance.png" 
                       alt="Performance" 
                       fill
                       className="object-contain"
@@ -193,7 +194,7 @@ Website: ${formData.website}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 relative flex-shrink-0">
                     <Image 
-                      src="/icons/mobile-access.png" 
+                      src="/images/icons/mobile-access.png" 
                       alt="Accessibility" 
                       fill
                       className="object-contain"
@@ -208,7 +209,7 @@ Website: ${formData.website}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 relative flex-shrink-0">
                     <Image 
-                      src="/icons/action.png" 
+                      src="/images/icons/action.png" 
                       alt="Recommendations" 
                       fill
                       className="object-contain"

@@ -11,9 +11,9 @@ export default function Home() {
 
       <section className="pt-8 md:py-20">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Is Your Website Working for Your Business?
-          </h2>
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">
+          Is Your Website Working for Your Business?
+          </h1>
           <p className="text-xl md:text-2xl text-gray-400 mb-12">
             Many small businesses struggle with websites that don&apos;t deliver results. 
             Let&apos;s change that.
@@ -23,7 +23,7 @@ export default function Home() {
           <div className="bg-neutral-800/40 rounded-xl p-8 backdrop-blur-sm">
             <div className="w-full md:w-14 h-14 relative flex-shrink-0 mb-4">
               <Image
-                src="/icons/information.png"
+                src="/images/icons/information.png"
                 alt="information"
                 fill
                 className="object-contain"
@@ -39,7 +39,7 @@ export default function Home() {
           <div className="bg-neutral-800/40 rounded-xl p-8 backdrop-blur-sm">
             <div className="w-full md:w-14 h-14 relative flex-shrink-0 mb-4">
               <Image
-                src="/icons/growth.png"
+                src="/images/icons/growth.png"
                 alt="growth"
                 fill
                 className="object-contain"
@@ -55,7 +55,7 @@ export default function Home() {
           <div className="bg-neutral-800/40 rounded-xl p-8 backdrop-blur-sm md:col-span-2 lg:col-span-1">
             <div className="w-full md:w-14 h-14 relative flex-shrink-0 mb-4">
               <Image
-                src="/icons/ai-technology.png"
+                src="/images/icons/ai-technology.png"
                 alt="audit"
                 fill
                 className="object-contain"

@@ -31,7 +31,7 @@ export const Hero = () => {
             
             <div className="flex-1 min-w-0">
               <img 
-                src="/hero_new.jpg" 
+                src="/images/backgrounds/hero_new.jpg" 
                 className="rounded-lg border-2 border-gray-900 w-full shadow-lg h-auto max-w-[600px] mx-auto" 
                 width={646} 
                 height={360}

@@ -67,7 +67,7 @@ export const FloatingNav = ({
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
                 <Image
-                  src="/cclogo-new.png"
+                  src="/images/logos/cclogo-new.png"
                   alt="Logo"
                   width={40}
                   height={40}
