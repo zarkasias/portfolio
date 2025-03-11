@@ -1,5 +1,6 @@
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import Image from "next/image";
 
 export const Hero = () => {
   return (
@@ -30,12 +31,13 @@ export const Hero = () => {
             </div>
             
             <div className="flex-1 min-w-0">
-              <img 
+              <Image 
                 src="/images/backgrounds/hero_new.jpg" 
                 className="rounded-lg border-2 border-gray-900 w-full shadow-lg h-auto max-w-[600px] mx-auto" 
                 width={646} 
                 height={360}
-                alt="Hero image"
+                alt="Hero image showing modern web development"
+                priority
               />
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const GetStartedButton = ({ isMobile = false }: { isMobile?: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,13 @@ export const GetStartedButton = ({ isMobile = false }: { isMobile?: boolean }) =
         className={buttonClass}
       >
         <div className="flex items-center gap-2">
-          <img src="/images/icons/rocket.png" alt="Launch" className="w-6 h-6" />
+          <Image 
+            src="/images/icons/rocket.png" 
+            alt="Launch" 
+            width={24} 
+            height={24} 
+            className="w-6 h-6" 
+          />
           <span className="text-sm">Get Started</span>
           {!isMobile && (
             <span className={`ml-2 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}>

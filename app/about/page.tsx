@@ -73,8 +73,14 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-6">
           <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
             <div className="flex flex-row items-center gap-4 mb-4">
-                <img src="/images/icons/techno-excellence.png" alt="Technical Excellence" className="w-10 h-10" />
-                <h3 className="text-xl font-bold">Technical Excellence</h3>
+              <Image 
+                src="/images/icons/techno-excellence.png" 
+                alt="Technical Excellence" 
+                width={40}
+                height={40}
+                className="w-10 h-10" 
+              />
+              <h3 className="text-xl font-bold">Technical Excellence</h3>
             </div>
             <p className="text-gray-400">
               We believe in writing clean, maintainable code that stands the test of time. 
@@ -83,8 +89,14 @@ export default function AboutPage() {
           </div>
           <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
             <div className="flex flex-row items-center gap-4 mb-4">
-                <img src="/images/icons/mobile-access.png" alt="Accessibility First" className="w-10 h-10" />
-                <h3 className="text-xl font-bold">Accessibility First</h3>
+              <Image 
+                src="/images/icons/mobile-access.png" 
+                alt="Accessibility First" 
+                width={40}
+                height={40}
+                className="w-10 h-10" 
+              />
+              <h3 className="text-xl font-bold">Accessibility First</h3>
             </div>
             <p className="text-gray-400">
               Web applications should be accessible to everyone. We build with accessibility 
@@ -93,8 +105,14 @@ export default function AboutPage() {
           </div>
           <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
             <div className="flex flex-row items-center gap-4 mb-4">
-                <img src="/images/icons/forecasting.png" alt="Business Focus" className="w-10 h-10" />
-                <h3 className="text-xl font-bold">Business Focus</h3>
+              <Image 
+                src="/images/icons/forecasting.png" 
+                alt="Business Focus" 
+                width={40}
+                height={40}
+                className="w-10 h-10" 
+              />
+              <h3 className="text-xl font-bold">Business Focus</h3>
             </div>
             <p className="text-gray-400">
               Technology should drive business growth. We focus on solutions that not only 
@@ -103,8 +121,14 @@ export default function AboutPage() {
           </div>
           <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
             <div className="flex flex-row items-center gap-4 mb-4">
-                <img src="/images/icons/online-learning.png" alt="Continuous Learning" className="w-10 h-10" />
-                <h3 className="text-xl font-bold">Continuous Learning</h3>
+              <Image 
+                src="/images/icons/online-learning.png" 
+                alt="Continuous Learning" 
+                width={40}
+                height={40}
+                className="w-10 h-10" 
+              />
+              <h3 className="text-xl font-bold">Continuous Learning</h3>
             </div>
             <p className="text-gray-400">
               The web evolves constantly, and so do we. We stay current with the latest 

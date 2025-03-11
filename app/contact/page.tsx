@@ -66,7 +66,13 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div className="bg-neutral-800/50 rounded-xl p-4 backdrop-blur-sm">
               <div className="flex gap-4">
-              <img src="/images/icons/message.png" alt="General Inquiries" className="w-10 h-10" />
+                <Image 
+                  src="/images/icons/message.png" 
+                  alt="General Inquiries" 
+                  width={40}
+                  height={40}
+                  className="w-10 h-10" 
+                />
                 <div className="flex flex-col">
                 <h3 className="text-lg font-semibold mb-1">General Inquiries</h3>
                 <a href="mailto:info@chambers-consulting.dev" className="text-blue-400 hover:text-blue-300 transition-colors">
@@ -78,7 +84,13 @@ export default function ContactPage() {
 
               <div className="bg-neutral-800/50 rounded-xl p-4 backdrop-blur-sm">
               <div className="flex gap-4">
-              <img src="/images/icons/linkedin.png" alt="LinkedIn" className="w-10 h-10 flex-shrink-0" />
+                <Image 
+                  src="/images/icons/linkedin.png" 
+                  alt="LinkedIn" 
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 flex-shrink-0" 
+                />
                 <div className="flex flex-col min-w-0">
                 <h3 className="text-lg font-semibold mb-1">LinkedIn</h3>
                 <a 
