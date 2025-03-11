@@ -108,7 +108,7 @@ export default function BlogClient() {
                             {section.subtitle}
                           </h3>
                           <div
-                            className="text-gray-200 mt-2 prose prose-invert"
+                            className="text-gray-200 mt-2 prose prose-invert max-w-none prose-a:text-blue-500 prose-a:no-underline hover:prose-a:text-blue-400 hover:prose-a:underline prose-p:text-gray-200 [&_a]:text-blue-500 [&_a:hover]:text-blue-400 [&_a]:transition-colors"
                             dangerouslySetInnerHTML={{
                               __html: section.content,
                             }}
