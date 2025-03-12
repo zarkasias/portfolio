@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import RouteChangeTracker from "@/components/analytics/RouteChangeTracker";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
-
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chambers-consulting.dev'),
@@ -65,6 +66,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className={`${inter.className} dark:bg-[#04071D] bg-[#04071D]`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
@@ -73,6 +77,7 @@ export default function RootLayout({
           forcedTheme="dark"
           disableTransitionOnChange
         >
+          <RouteChangeTracker />
           {children}
         </ThemeProvider>
       </body>
