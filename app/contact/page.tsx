@@ -110,7 +110,7 @@ export default function ContactPage() {
           {/* Forest Image Section */}
           <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden border-2 border-neutral-700">
             <Image
-              src="/forest.png"
+              src="/images/backgrounds/forest.png"
               alt="Forest landscape"
               fill
               className="object-cover"
