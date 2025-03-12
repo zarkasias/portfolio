@@ -11,6 +11,20 @@ export const metadata: Metadata = {
   title: "David Chambers | Front End Development Consultant",
   description:
     "Expert Front End Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
+  icons: {
+    icon: [
+      { url: '/favicon/favicon.ico' },
+      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { url: '/favicon/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon/web-app-manifest-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
   keywords: [
     "Front End Development",
     "React",
@@ -51,9 +65,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/logo.png" sizes="any" />
-      </head>
       <body className={`${inter.className} dark:bg-[#04071D] bg-[#04071D]`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
