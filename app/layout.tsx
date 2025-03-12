@@ -66,10 +66,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <GoogleAnalytics />
-      </head>
       <body className={`${inter.className} dark:bg-[#04071D] bg-[#04071D]`} suppressHydrationWarning>
+        <GoogleAnalytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
