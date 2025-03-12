@@ -19,6 +19,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@prisma/client": "^5.14.0",
+    "@react-pdf/renderer": "^4.3.0",
     "@vercel/postgres": "^0.8.0",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",

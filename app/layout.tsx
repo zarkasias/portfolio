@@ -50,11 +50,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
       </head>
-      <body className={`${inter.className} dark:bg-[#04071D] bg-[#04071D]`}>
+      <body className={`${inter.className} dark:bg-[#04071D] bg-[#04071D]`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

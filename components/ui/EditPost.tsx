@@ -9,23 +9,98 @@ import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import "@/app/css/quill.css";
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+const ReactQuill = dynamic(() => import("react-quill"), { 
+  ssr: false,
+  loading: () => <div className="h-32 bg-gray-700 animate-pulse rounded" />
+});
+
+const modules = {
+  toolbar: [
+    [{ 'header': [1, 2, false] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+    ['link'],
+    ['clean']
+  ],
+  clipboard: {
+    matchVisual: false
+  }
+};
+
+const formats = [
+  'header',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'bullet', 'indent',
+  'link'
+];
+
+interface PostData {
+  title: string;
+  sections: { subtitle: string; content: string }[];
+  tags?: string[];
+}
 
 const EditPost = ({ postId }: EditPostProps) => {
   const router = useRouter();
-  const [post, setPost] = useState({
+  const [post, setPost] = useState<PostData>({
     title: "",
-    sections: [{ subtitle: "", content: "" }] as Section[],
+    sections: [{ subtitle: "", content: "" }],
+    tags: [],
   });
+  const [loading, setLoading] = useState(!!postId);
+  const [tagInput, setTagInput] = useState("");
+
+  // Common tags for frontend development
+  const suggestedTags = [
+    "React",
+    "TypeScript",
+    "Next.js",
+    "Frontend",
+    "Web Development",
+    "Performance",
+    "Accessibility",
+    "UI/UX",
+  ];
 
   useEffect(() => {
     if (postId) {
-      fetch(`/api/posts?id=${postId}`)
-        .then((res) => res.json())
-        .then((data) => setPost(data))
-        .catch((error) => console.error("Error fetching post:", error));
+      const fetchPost = async () => {
+        try {
+          const response = await fetch(`/api/posts?id=${postId}`);
+          if (response.ok) {
+            const data = await response.json();
+            setPost({
+              title: data.title,
+              sections: data.sections,
+              tags: data.tags || [],
+            });
+          }
+        } catch (error) {
+          console.error("Failed to fetch post:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchPost();
     }
   }, [postId]);
+
+  const addTag = (tag: string) => {
+    if (tag.trim() && !post.tags?.includes(tag.trim())) {
+      setPost(prev => ({
+        ...prev,
+        tags: [...(prev.tags || []), tag.trim()]
+      }));
+      setTagInput("");
+    }
+  };
+
+  const removeTag = (tagToRemove: string) => {
+    setPost(prev => ({
+      ...prev,
+      tags: prev.tags?.filter(tag => tag !== tagToRemove) || []
+    }));
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -89,6 +164,7 @@ const EditPost = ({ postId }: EditPostProps) => {
         setPost({
           title: "",
           sections: [{ subtitle: "", content: "" }],
+          tags: [],
         });
         if (postId) {
           router.push(`/blog/${postId}`);
@@ -115,25 +191,72 @@ const EditPost = ({ postId }: EditPostProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="bg-gray-600 p-6 rounded-md border-2 border-gray-200">
-        <div className="flex flex-col">
-          <label className="py-4 text-3xl">Title</label>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <input
+          type="text"
+          value={post.title}
+          onChange={(e) => setPost({ ...post, title: e.target.value })}
+          placeholder="Post Title"
+          className="w-full p-2 bg-gray-700 rounded-lg text-white"
+          required
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium mb-2">Tags</label>
+        <div className="flex flex-wrap gap-2 p-4 bg-gray-700 rounded-lg min-h-[50px]">
+          {post.tags?.map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1.5 bg-gray-600 text-white rounded-full flex items-center gap-2"
+            >
+              {tag}
+              <button
+                type="button"
+                onClick={() => removeTag(tag)}
+                className="text-gray-300 hover:text-white text-lg leading-none"
+              >
+                ×
+              </button>
+            </span>
+          ))}
           <input
             type="text"
-            name="title"
-            value={post.title}
-            className="border-2 border-gray-500 h-10 p-2"
-            onChange={handleChange}
+            value={tagInput}
+            onChange={(e) => setTagInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                addTag(tagInput);
+              }
+            }}
+            placeholder="Add tags... (press Enter)"
+            className="flex-grow min-w-[150px] bg-transparent text-white outline-none placeholder-gray-400"
           />
         </div>
-        <div>
-          <h3 className="py-4 text-3xl">Sections</h3>
+        <div className="flex flex-wrap gap-2 mt-3">
+          <p className="text-sm text-gray-400 w-full mb-1">Suggested tags:</p>
+          {suggestedTags.map((tag) => (
+            <button
+              key={tag}
+              type="button"
+              onClick={() => addTag(tag)}
+              className="px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-500 bg-gray-600 rounded-full transition-colors"
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-gray-600 p-6 rounded-md border-2 border-gray-200">
+        <div className="flex flex-col">
+          <label className="py-4 text-3xl">Sections</label>
           {post.sections.map((section, index) => (
             <div
               key={index}
-              className="flex flex-col"
-              style={{ marginBottom: "1rem" }}
+              className="flex flex-col mb-4"
             >
               <label className="py-2">Subtitle</label>
               <input
@@ -144,16 +267,13 @@ const EditPost = ({ postId }: EditPostProps) => {
                 onChange={(e) => handleChange(e, index)}
               />
               <label className="py-2">Content</label>
-              {/* <textarea
-                name="content"
-                value={section.content}
-                className="border-2 border-gray-500 h-40 p-2"
-                onChange={(e) => handleChange(e, index)}
-              /> */}
               <div className="bg-black-100 h-44">
                 <ReactQuill
                   value={section.content}
                   onChange={(value) => handleQuillChange(value, index)}
+                  modules={modules}
+                  formats={formats}
+                  theme="snow"
                   className="h-32"
                 />
               </div>
@@ -182,13 +302,13 @@ const EditPost = ({ postId }: EditPostProps) => {
             Add Section
           </button>
         </div>
-        <button
-          className="my-8 p-2 flex items-center bg-red-500 rounded"
-          type="submit"
-        >
-          {postId ? "Update Post" : "Create Post"}
-        </button>
       </div>
+      <button
+        className="my-8 p-2 flex items-center bg-red-500 rounded"
+        type="submit"
+      >
+        {postId ? "Update Post" : "Create Post"}
+      </button>
     </form>
   );
 };

@@ -71,7 +71,7 @@ export default function BlogClient() {
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow pb-10 max-w-5xl mx-auto px-6 my-6">
-        <div className="w-full min-w-[320px] sm:min-w-[768px]">
+        <div className="w-full">
           {loading ? (
             <div className="flex justify-center items-center w-full">
               <ThreeDots color="#00BFFF" height={80} width={80} />
@@ -96,6 +96,19 @@ export default function BlogClient() {
                   <p className="text-gray-400 mt-0 text-sm">
                     Author: {blog?.author}
                   </p>
+
+                  {blog?.tags && blog.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {blog.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-gray-700 text-gray-300 rounded-full text-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
 
                   {blog?.sections && blog?.sections.length > 0 ? (
                     <div className="mt-4 space-y-4">

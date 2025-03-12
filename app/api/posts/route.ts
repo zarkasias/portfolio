@@ -1,11 +1,11 @@
 import { prisma } from "@/server/db/client";
-
 import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from '@prisma/client';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { title, sections, author = "David Chambers" } = body;
+    const { title, sections, tags = [], author = "David Chambers" } = body;
 
     // Validate input
     if (!title || !sections || !Array.isArray(sections)) {
@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
       data: {
         title,
         sections: validSections,
+        tags,
         author,
       },
     });
@@ -48,6 +49,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = Number(searchParams.get("id"));
   const term = searchParams.get("search");
+  const tag = searchParams.get("tag");
 
   if (id) {
     try {
@@ -64,34 +66,32 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  if (term) {
-    try {
-      const posts = await prisma.post.findMany({
-        where: {
-          title: {
-            contains: term || "",
-            mode: "insensitive",
-          },
-        },
-        orderBy: {
-          createdAt: "desc",
-        },
-      });
-
-      return NextResponse.json(posts);
-    } catch (error) {
-      console.error("Failed to search posts:", error);
-      return NextResponse.json(
-        { error: "Failed to search posts" },
-        { status: 500 }
-      );
-    }
-  }
-
   try {
-    const posts = await prisma.post.findMany();
+    let whereClause: any = {};
+    
+    if (term) {
+      whereClause.title = {
+        contains: term,
+        mode: "insensitive",
+      };
+    }
+
+    if (tag) {
+      whereClause.tags = {
+        has: tag,
+      };
+    }
+
+    const posts = await prisma.post.findMany({
+      where: whereClause,
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
     return NextResponse.json(posts, { status: 200 });
   } catch (error) {
+    console.error("Failed to fetch posts:", error);
     return NextResponse.json(
       { error: "Failed to fetch posts" },
       { status: 500 }
@@ -102,7 +102,7 @@ export async function GET(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   try {
     const body = await req.json();
-    const { id, title, sections, author } = body;
+    const { id, title, sections, tags } = body;
 
     if (!id || !title || !sections || !Array.isArray(sections)) {
       return NextResponse.json(
@@ -122,17 +122,37 @@ export async function PUT(req: NextRequest) {
       );
     }
 
-    const updatedPost = await prisma.post.update({
-      where: { id },
-      data: {
-        title,
-        sections: validSections,
-        updatedAt: new Date(),
-      },
+    // First, find the existing post
+    const existingPost = await prisma.post.findUnique({
+      where: { id: Number(id) },
     });
 
-    return NextResponse.json(updatedPost, { status: 200 });
+    if (!existingPost) {
+      return NextResponse.json(
+        { error: "Post not found" },
+        { status: 404 }
+      );
+    }
+
+    // Update the post with all fields including tags
+    const updatedPost = await prisma.$executeRaw`
+      UPDATE "Post"
+      SET title = ${title},
+          sections = ${JSON.stringify(validSections)}::jsonb,
+          tags = ${Array.isArray(tags) ? tags : []}::text[],
+          "updatedAt" = NOW()
+      WHERE id = ${Number(id)}
+      RETURNING *;
+    `;
+
+    // Fetch the updated post
+    const finalPost = await prisma.post.findUnique({
+      where: { id: Number(id) },
+    });
+
+    return NextResponse.json(finalPost, { status: 200 });
   } catch (error: unknown) {
+    console.error('Update error:', error);
     if (error instanceof Error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }

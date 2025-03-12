@@ -9,6 +9,7 @@ export interface Blog {
   sections: Section[];
   createdAt: string;
   author: string;
+  tags?: string[];
 }
 
 export interface Comment {
