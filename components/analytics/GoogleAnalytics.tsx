@@ -10,39 +10,23 @@ export default function GoogleAnalytics() {
     return null;
   }
 
-  const onLoad = () => {
-    console.log('Google Analytics loaded successfully');
-  };
-
-  const onError = (error: Error) => {
-    console.error('Google Analytics failed to load:', error);
-  };
-
   return (
     <>
       <Script
-        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        onLoad={onLoad}
-        onError={onError}
+        strategy="afterInteractive"
       />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
-        onLoad={onLoad}
-        onError={onError}
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-              debug_mode: true
-            });
-          `,
-        }}
-      />
+      >
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+        `}
+      </Script>
     </>
   );
 } 
