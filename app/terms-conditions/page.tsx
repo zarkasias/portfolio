@@ -41,12 +41,12 @@ const TermsAndConditions: React.FC = () => {
           
           <h2 className="text-2xl font-semibold text-white mt-8 mb-4">4. Your Content</h2>
           <p className="text-gray-300">
-            In these terms and conditions, "Your Content" shall mean any audio, video, text, images, or other material you choose to display on this website. By displaying Your Content, you grant Chambers Consulting a non-exclusive, worldwide, irrevocable, royalty-free license to use, reproduce, adapt, publish, translate, and distribute it on any media.
+            In these terms and conditions, &quot;Your Content&quot; shall mean any audio, video, text, images, or other material you choose to display on this website. By displaying Your Content, you grant Chambers Consulting a non-exclusive, worldwide, irrevocable, royalty-free license to use, reproduce, adapt, publish, translate, and distribute it on any media.
           </p>
           
           <h2 className="text-2xl font-semibold text-white mt-8 mb-4">5. No Warranties</h2>
           <p className="text-gray-300">
-            This website is provided "as is," with all faults, and Chambers Consulting express no representations or warranties of any kind related to this website or the materials contained on this website.
+            This website is provided &quot;as is,&quot; with all faults, and Chambers Consulting express no representations or warranties of any kind related to this website or the materials contained on this website.
           </p>
           
           <h2 className="text-2xl font-semibold text-white mt-8 mb-4">6. Limitation of Liability</h2>
