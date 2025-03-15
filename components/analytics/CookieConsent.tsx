@@ -14,10 +14,16 @@ export default function CookieConsent() {
   });
   
   useEffect(() => {
-    // Only show banner if consent hasn't been given yet
-    if (!hasGivenConsent()) {
-      setShowBanner(true);
-    }
+    // Force immediate check when component mounts
+    // This is simpler and more reliable
+    const hasConsent = hasGivenConsent();
+    setShowBanner(!hasConsent);
+    
+    // Add a fallback check that runs after a delay
+    // in case client-side hydration isn't complete yet
+    setTimeout(() => {
+      setShowBanner(!hasGivenConsent());
+    }, 500);
   }, []);
   
   const acceptAll = () => {

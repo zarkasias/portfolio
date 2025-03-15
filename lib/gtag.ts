@@ -16,7 +16,15 @@ export const pageview = (url: string) => {
   if (typeof window.gtag === 'function' && consentStatus?.analytics) {
     window.gtag('config', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string, {
       page_location: url,
-      page_title: document.title
+      page_title: document.title,
+      
+      // Explicitly set consent parameters to ensure proper tracking
+      'consent': {
+        'analytics_storage': 'granted',
+        'ad_storage': consentStatus.marketing ? 'granted' : 'denied',
+        'ad_user_data': consentStatus.marketing ? 'granted' : 'denied',
+        'ad_personalization': consentStatus.marketing ? 'granted' : 'denied'
+      }
     });
   }
 };
@@ -35,10 +43,14 @@ export const event = ({ action, category, label, value }: GTagEvent) => {
   }
 };
 
-// Declare gtag as a global function
+// TypeScript declarations for global functions
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;
     dataLayer: any[];
+    // Utility functions for development purposes
+    checkConsentStatus: () => boolean;
+    clearConsent: () => void;
+    resetAllSiteData: () => void;
   }
 } 
