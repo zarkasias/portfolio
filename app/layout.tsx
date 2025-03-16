@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chambers-consulting.dev'),
-  title: "David Chambers | Front End Development Consultant",
+  title: "David Chambers | Web Development Consultant",
   description:
-    "Expert Front End Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
+    "Expert Web Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
   icons: {
     icon: [
       { url: '/favicon/favicon.ico' },
@@ -28,11 +28,10 @@ export const metadata: Metadata = {
     ],
   },
   keywords: [
-    "Front End Development",
+    "Web Development",
     "React",
     "TypeScript",
     "Technical Consulting",
-    "Web Development",
     "David Chambers",
     "Software Engineering",
   ],
@@ -40,9 +39,9 @@ export const metadata: Metadata = {
   creator: "David Chambers",
   openGraph: {
     type: "website",
-    title: "David Chambers | Front End Development Consultant",
+    title: "David Chambers | Web Development Consultant",
     description:
-      "Expert Front End Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
+      "Expert Web Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
     images: [
       {
         url: "/images/logos/cclogo-new.png",
@@ -53,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "David Chambers | Front End Development Consultant",
+    title: "David Chambers | Web Development Consultant",
     description:
-      "Expert Front End Development & Technical Consulting by David Chambers",
+      "Expert Web Development & Technical Consulting by David Chambers",
     images: ["/images/logos/cclogo-new.png"],
   },
 };
