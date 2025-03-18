@@ -1,10 +1,5 @@
 import { NextResponse } from 'next/server';
 
-/**
- * API endpoint that uses the Clear-Site-Data header to help browsers
- * clear site data including cookies, cache, and storage.
- * Used for development and testing purposes.
- */
 export async function GET() {
   return new NextResponse('Site data cleared', {
     status: 200,
