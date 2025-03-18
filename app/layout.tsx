@@ -66,8 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-      <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="137371" async data-cfasync="false"></script>     
+      <head> 
       </head>
       <body className={`${inter.className} dark:bg-[#04071D] bg-[#04071D]`} suppressHydrationWarning>
         <GoogleAnalytics />
