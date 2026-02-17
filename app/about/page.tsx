@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import PageLayout from "@/components/layout/PageLayout";
+import { Card, CardContent } from "@/components/ui/card";
 import { improvedExperience } from "@/data";
 
 export const metadata: Metadata = {
@@ -24,10 +25,10 @@ export default function AboutPage() {
     <PageLayout className="pt-24 md:w-[80%] mx-auto">
       {/* Hero Section */}
       <section className="text-center mb-12 px-4">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4">
+        <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">
           Accessibility First Development
         </h1>
-        <p className="text-xl text-gray-400 mb-12">
+        <p className="text-xl text-muted-foreground mb-12">
           Building Modern Web Experiences That Work for Everyone
         </p>
       </section>
@@ -47,17 +48,17 @@ export default function AboutPage() {
               />
             </div>
             <h2 className="text-xl font-bold mb-1">David Chambers</h2>
-            <p className="text-gray-400 text-md mb-4">Founder, Chambers Consulting</p>
+            <p className="text-muted-foreground text-md mb-4">Founder, Chambers Consulting</p>
           </div>
 
           {/* Bio Section */}
           <div className="md:w-2/3 lg:w-3/4 md:pt-8">
             <div className="space-y-6">
-              <p className="text-lg text-gray-400">
+              <p className="text-lg text-muted-foreground">
                 Founded in 2023, Chambers Consulting leverages over 27 years of experience in web development, 
                 helping businesses build high-performance, accessible digital solutions.
               </p>
-              <p className="text-lg text-gray-400">
+              <p className="text-lg text-muted-foreground">
                 Today, we focus on helping businesses build modern, accessible web applications 
                 that reach their full audience potential. Our approach combines technical excellence 
                 with a deep understanding of business needs.
@@ -71,7 +72,8 @@ export default function AboutPage() {
       <section className="mb-12 md:mb-16 px-4">
         <h2 className="text-2xl font-bold mb-8 md:mb-12 text-center">Our Values</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-6">
-          <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
+        <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+        <CardContent className="p-6">
             <div className="flex flex-row items-center gap-4 mb-4">
               <Image 
                 src="/images/icons/techno-excellence.png" 
@@ -86,8 +88,10 @@ export default function AboutPage() {
               We believe in writing clean, maintainable code that stands the test of time. 
               Every project deserves attention to detail and performance optimization.
             </p>
-          </div>
-          <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
+            </CardContent>
+            </Card>
+            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+        <CardContent className="p-6">
             <div className="flex flex-row items-center gap-4 mb-4">
               <Image 
                 src="/images/icons/mobile-access.png" 
@@ -102,8 +106,10 @@ export default function AboutPage() {
               Web applications should be accessible to everyone. We build with accessibility 
               in mind from the start, not as an afterthought.
             </p>
-          </div>
-          <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
+          </CardContent>
+          </Card>
+          <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+        <CardContent className="p-6">
             <div className="flex flex-row items-center gap-4 mb-4">
               <Image 
                 src="/images/icons/forecasting.png" 
@@ -118,8 +124,10 @@ export default function AboutPage() {
               Technology should drive business growth. We focus on solutions that not only 
               work well technically but also deliver measurable business results.
             </p>
-          </div>
-          <div className="bg-neutral-800/50 rounded-xl p-6 backdrop-blur-sm min-w-[280px]">
+          </CardContent>
+          </Card>
+          <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+        <CardContent className="p-6">
             <div className="flex flex-row items-center gap-4 mb-4">
               <Image 
                 src="/images/icons/online-learning.png" 
@@ -134,7 +142,8 @@ export default function AboutPage() {
               The web evolves constantly, and so do we. We stay current with the latest 
               technologies and best practices to deliver modern solutions.
             </p>
-          </div>
+          </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -143,14 +152,15 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold mb-8 md:mb-12 text-center">Professional Journey</h2>
         <div className="space-y-8 md:space-y-12">
           {improvedExperience.map((exp) => (
-            <div key={exp.id} className="bg-neutral-800/50 rounded-xl p-6 md:p-8 backdrop-blur-sm">
+            <Card key={exp.id} className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-6">
               <div className="flex items-start gap-4 md:gap-6 mb-6">
                 <div className="w-12 h-12 md:w-16 md:h-16 relative flex-shrink-0">
                   <Image
                     src={exp.thumbnail}
                     alt={exp.title}
                     fill
-                    className="object-contain"
+                    className="object-contain bg-primary/90 rounded-full p-2"
                   />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold break-words">{exp.title}</h3>
@@ -190,7 +200,8 @@ export default function AboutPage() {
                   ))}
                 </ul>
               )}
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </section>

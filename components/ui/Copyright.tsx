@@ -9,7 +9,7 @@ const Copyright = () => {
       <div className="grid md:grid-cols-3 grid-cols-1 items-center w-full">
         <div className="md:text-left text-center">
           <p className="md:text-base text-sm md:font-normal font-light opacity-70 md:mb-0 mb-4">
-            Copyright © {currentYear} Chambers Consulting
+            © {currentYear} Chambers Consulting. All rights reserved.
           </p>
         </div>
 

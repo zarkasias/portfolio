@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { Card, CardContent } from "@/components/ui/card";
 import { ThreeDots } from "react-loader-spinner";
 
 import PageLayout from "../../components/layout/PageLayout";
@@ -76,7 +77,7 @@ const BlogPage = () => {
 
   return (
     <PageLayout className="pt-24 md:w-[60%]" showFooterBlurb={false}>
-      <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4">
+      <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">
         Insights & Ideas
       </h1>
       <BlogTableHeader onSearch={handleSearch} onSort={handleSort} />
@@ -89,8 +90,8 @@ const BlogPage = () => {
               onClick={() => handleTagSelect(tag)}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
                 selectedTag === tag
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground"
               }`}
             >
               {tag}
@@ -108,12 +109,10 @@ const BlogPage = () => {
           ) : filteredAndSortedPosts.length > 0 ? (
             <div className="grid gap-6">
               {filteredAndSortedPosts.map((post) => (
-                <article
-                  key={post.id}
-                  className="bg-gray-800 p-6 rounded-lg shadow-lg"
-                >
+                  <Card key={post.id} className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                  <CardContent className="p-6">
                   <Link href={`/blog/${post.id}`}>
-                    <h2 className="text-blue-500 text-xl font-semibold mb-2">
+                    <h2 className="text-primary text-xl font-semibold mb-2">
                       {post.title}
                     </h2>
                     {post.tags && post.tags.length > 0 && (
@@ -121,18 +120,19 @@ const BlogPage = () => {
                         {post.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2 py-0.5 bg-gray-700 text-gray-300 rounded-full text-sm"
+                            className="px-2 py-0.5 bg-secondary text-secondary-foreground rounded-full text-sm"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
                     )}
-                    <p className="text-sm text-gray-500 mt-2">
+                    <p className="text-sm text-muted-foreground mt-2">
                       {new Date(post.createdAt).toLocaleDateString()}
                     </p>
                   </Link>
-                </article>
+                  </CardContent>
+                  </Card>
               ))}
             </div>
           ) : (

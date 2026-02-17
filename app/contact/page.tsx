@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 import PageLayout from "@/components/layout/PageLayout";
+import workspaceImg from "@/assets/workspace.png";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -24,10 +26,10 @@ export default function ContactPage() {
     <PageLayout className="pt-24 md:w-[80%] mx-auto" showFooterBlurb={false}>
       {/* Hero Section */}
       <section className="text-center mb-12 md:mb-20 px-4">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4">
+        <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">
           Let&apos;s Work Together
         </h1>
-        <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+        <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
           Looking to build something amazing? I specialize in creating accessible, high-performance web applications that drive business growth.
         </p>
       </section>
@@ -39,7 +41,8 @@ export default function ContactPage() {
           <div className="space-y-4">
             <div>
               <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
-              <div className="flex flex-col bg-neutral-800/50 rounded-xl p-4 backdrop-blur-sm">
+              <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-4">
               <h3 className="text-lg font-semibold mb-1">New Business</h3>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 relative flex-shrink-0">
@@ -51,20 +54,22 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-1">David Chambers</h3>
+                  <h3 className="text-lg font-semibold text-muted-foreground mb-1">David Chambers</h3>
                   <a 
                     href="mailto:david@chambers-consulting.dev" 
-                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                    className="text-primary hover:text-primary/80 transition-colors"
                   >
                     david@chambers-consulting.dev
                   </a>
                 </div>
                 </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
 
             <div className="space-y-4">
-              <div className="bg-neutral-800/50 rounded-xl p-4 backdrop-blur-sm">
+            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-4">
               <div className="flex gap-4">
                 <Image 
                   src="/images/icons/message.png" 
@@ -75,14 +80,16 @@ export default function ContactPage() {
                 />
                 <div className="flex flex-col">
                 <h3 className="text-lg font-semibold mb-1">General Inquiries</h3>
-                <a href="mailto:info@chambers-consulting.dev" className="text-blue-400 hover:text-blue-300 transition-colors">
+                <a href="mailto:info@chambers-consulting.dev" className="text-primary hover:text-primary/80 transition-colors">
                   info@chambers-consulting.dev
                 </a>
                 </div>
                 </div>
-              </div>
+              </CardContent>
+              </Card>
 
-              <div className="bg-neutral-800/50 rounded-xl p-4 backdrop-blur-sm">
+              <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-4">
               <div className="flex gap-4">
                 <Image 
                   src="/images/icons/linkedin.png" 
@@ -97,21 +104,22 @@ export default function ContactPage() {
                   href="https://linkedin.com/in/davidmachambers" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors break-all"
+                  className="text-primary hover:text-primary/80 transition-colors break-all"
                 >
                   linkedin.com/in/davidmachambers
                 </a>
               </div>
               </div>
-            </div>
+              </CardContent>
+              </Card>
             </div>
           </div>
 
           {/* Forest Image Section */}
-          <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden border-2 border-neutral-700">
+          <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden border-2 border-border">
             <Image
-              src="/images/backgrounds/forest.png"
-              alt="Forest landscape"
+              src={workspaceImg}
+              alt="Workspace"
               fill
               className="object-cover"
               priority
@@ -121,19 +129,23 @@ export default function ContactPage() {
       </section>
 
       <section className="mb-12 md:mb-20 px-4">
-        <div className="bg-neutral-800/50 rounded-xl p-8 backdrop-blur-sm text-center">
-          <h2 className="text-2xl font-bold mb-4">Get a Free Website Audit</h2>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+      <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+      <CardContent className="p-8">
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Get a Free Website Audit</h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Not sure where to start? I offer free website audits to help you understand what&apos;s working 
             and what could be improved in your current website.
           </p>
           <Link 
             href="/audit"
-            className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg transition-colors"
+            className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg transition-colors"
           >
             Request Free Audit
           </Link>
         </div>
+        </CardContent>
+        </Card>
       </section>
     </PageLayout>
   );

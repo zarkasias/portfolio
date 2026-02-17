@@ -68,13 +68,13 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <head> 
       </head>
-      <body className={`${inter.className} dark:bg-[#04071D] bg-[#04071D]`} suppressHydrationWarning>
+      <body className={`${inter.className} dark:bg-[#04071D] font-sans bg-background text-foreground`} suppressHydrationWarning>
         <GoogleAnalytics />
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
-          forcedTheme="dark"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           <RouteChangeTracker />

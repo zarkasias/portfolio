@@ -4,65 +4,83 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* Font families */
+    --font-sans: 'Inter', sans-serif;
+    --font-heading: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 
+    /* Calm, trustworthy, slate-based palette */
+    /* Background: Soft off-white/cool gray */
+    --background: 210 20% 98%;
+    /* Foreground: Deep slate, almost black but softer */
+    --foreground: 215 25% 27%;
+
+    /* Primary: Muted Blue/Slate - Trustworthy, professional */
+    --primary: 215 30% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Very light cool gray for backgrounds/cards */
+    --secondary: 210 15% 94%;
+    --secondary-foreground: 215 25% 27%;
+
+    /* Muted: For subtitles and de-emphasized text */
+    --muted: 210 10% 90%;
+    --muted-foreground: 215 15% 50%;
+
+    /* Accent: Soft Sage Green - Represents "Cleanup", "Fixing", "Go" */
+    --accent: 150 15% 92%;
+    --accent-foreground: 150 25% 25%;
+
+    /* Destructive */
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders */
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 215 30% 40%;
+
+    /* Cards */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 215 25% 27%;
 
+    /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-
-    --radius: 0.5rem;
+    /* Radius */
+    --radius: 0.25rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* Inverted for dark mode if needed, but primary design is light/clean */
+    --background: 215 25% 15%;
+    --foreground: 210 20% 98%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --primary: 215 30% 60%;
+    --primary-foreground: 215 25% 15%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 20% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --muted: 215 20% 25%;
+    --muted-foreground: 215 15% 65%;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --accent: 150 15% 20%;
+    --accent-foreground: 150 20% 90%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --border: 215 20% 25%;
+    --input: 215 20% 25%;
+    --ring: 215 30% 60%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --card: 215 25% 18%;
+    --card-foreground: 210 20% 98%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --popover: 215 25% 18%;
+    --popover-foreground: 210 20% 98%;
   }
 }
 
@@ -71,7 +89,10 @@
     @apply border-border !scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground selection:bg-accent selection:text-accent-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight font-medium;
   }
   button {
     @apply active:outline-none;
@@ -85,6 +106,21 @@
 
   .black-gradient {
     background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-sm border border-white/20 shadow-sm;
+  }
+
+  /* Custom grid pattern for subtle background texture */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
   }
 }
 

@@ -1,48 +1,67 @@
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import heroBg from "@/assets/hero-bg.png";
+import { Button } from "@/components/ui/button";
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
 
 export const Hero = () => {
+  const router = useRouter();
+  
   return (
-    <div className="relative mt-12 md:mt-24 overflow-hidden">
-      {/* Spotlights */}
-      <Spotlight
-        className="fixed -top-40 -left-10 md:-left-32 md:-top-20"
-        fill="white"
-      />
-      <Spotlight
-        className="fixed -right-20 top-10 md:right-0 h-[80vh] w-[50vw]"
-        fill="purple"
-      />
-      <Spotlight
-        className="fixed top-28 left-1/4 h-[80vh] w-[50vw]"
-        fill="blue"
-      />
+    <div className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
 
       {/* Content */}
-      <div className="relative h-auto pb-8 md:h-[56vh] w-full bg-gray-200/4 rounded-lg dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-start pt-4 md:pt-10 justify-start">
-        <div className="relative flex justify-center mb-5 z-10 w-full">
-          <div className="max-w-[90%] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
-            <div className="flex-1 min-w-0">
-              <TextGenerateEffect
-                className="text-[20px] mt-6 md:mt-10 md:text-4xl lg:text-5xl"
-                words="Crafting Digital Experiences That Drive Business Growth"
-              />
-            </div>
-            
-            <div className="flex-1 min-w-0">
-              <Image 
-                src="/images/backgrounds/hero_new.jpg" 
-                className="rounded-lg border-2 border-gray-900 w-full shadow-lg h-auto max-w-[600px] mx-auto" 
-                width={646} 
-                height={360}
-                alt="Hero image showing modern web development"
-                priority
-              />
-            </div>
-          </div>
+      <div className="absolute inset-0 -z-10 opacity-30">
+           <Image src={heroBg} alt="Abstract Background" fill className="w-full h-full object-cover" />
+           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background"></div>
         </div>
-      </div>
+      
+        <div className="container mx-auto px-6">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="max-w-3xl"
+          >
+            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/50 text-accent-foreground text-sm font-medium mb-6 border border-accent">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              Accepting New Audits for Q1
+            </motion.div>
+            
+            <motion.h1 variants={fadeIn} className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight text-foreground mb-8 leading-[1.1]">
+              Improve your existing frontend. <br className="hidden md:block" />
+              <span className="text-primary/80">Without the rewrite.</span>
+            </motion.h1>
+            
+            <motion.p variants={fadeIn} className="text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+              I help businesses clean up, stabilize, and refine their existing front-end codebases. 
+              Clearer, faster, and more maintainable — no full redesign required.
+            </motion.p>
+            
+            <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="text-base h-12 px-8 shadow-lg hover:shadow-xl transition-all" onClick={() => router.push('/audit')}>
+                Request a Front-End Audit
+              </Button>
+              <Button variant="outline" size="lg" className="text-base h-12 px-8 bg-background/50 backdrop-blur-sm hover:bg-background" onClick={() => router.push("/services")}>
+                View Services
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { Blog, Comment } from "@/app/types/blogInterface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { ThreeDots } from "react-loader-spinner";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function BlogClient() {
   const router = useRouter();
@@ -79,7 +80,7 @@ export default function BlogClient() {
           ) : (
             <>
               <div className="flex items-start justify-between mb-6">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-6">
+                <h1 className="text-3xl md:text-4xl font-heading font-bold mb-6">
                   {blog?.title}
                 </h1>
                 {isAdmin && (
@@ -92,8 +93,9 @@ export default function BlogClient() {
                 )}
               </div>
               <div className="mt-6 space-y-6">
-                <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <p className="text-gray-400 mt-0 text-sm">
+                <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <p className="text-muted-foreground mt-0 text-sm">
                     Author: {blog?.author}
                   </p>
 
@@ -102,7 +104,7 @@ export default function BlogClient() {
                       {blog.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-1 bg-gray-700 text-gray-300 rounded-full text-sm"
+                          className="px-2 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
                         >
                           {tag}
                         </span>
@@ -115,13 +117,13 @@ export default function BlogClient() {
                       {blog.sections.map((section, index) => (
                         <div
                           key={index}
-                          className="border-t border-gray-700 pt-4"
+                          className="border-t border-gray-300 pt-4"
                         >
-                          <h3 className="text-xl font-semibold text-gray-200">
+                          <h3 className="text-xl font-semibold text-foreground">
                             {section.subtitle}
                           </h3>
                           <div
-                            className="text-gray-200 mt-2 prose prose-invert max-w-none prose-a:text-blue-500 prose-a:no-underline hover:prose-a:text-blue-400 hover:prose-a:underline prose-p:text-gray-200 [&_a]:text-blue-500 [&_a:hover]:text-blue-400 [&_a]:transition-colors"
+                            className="text-muted-foreground mt-2 prose prose-invert max-w-none prose-a:text-blue-500 prose-a:no-underline hover:prose-a:text-blue-400 hover:prose-a:underline prose-p:text-gray-200 [&_a]:text-blue-500 [&_a:hover]:text-blue-400 [&_a]:transition-colors"
                             dangerouslySetInnerHTML={{
                               __html: section.content,
                             }}
@@ -132,13 +134,15 @@ export default function BlogClient() {
                   ) : (
                     <p className="text-gray-400 mt-4">No sections available.</p>
                   )}
-                </div>
+                  </CardContent>
+                </Card>
               </div>
             </>
           )}
         </div>
-        <div className="mt-8 bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-100 mb-4">
+        <Card className="mt-8 border-border/50 shadow-sm hover:shadow-md transition-shadow">
+        <CardContent className="p-6">
+          <h2 className="text-2xl font-bold text-primary mb-4">
             Comments ({comments.length})
           </h2>
 
@@ -173,7 +177,7 @@ export default function BlogClient() {
                 type="text"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-200"
+                className="w-full p-2 rounded-lg bg-secondary text-secondary-foreground"
                 placeholder="Add a comment..."
               />
               <div className="flex flex-col sm:flex-row justify-between gap-2">
@@ -181,19 +185,20 @@ export default function BlogClient() {
                   type="text"
                   value={authorName}
                   onChange={(e) => setAuthorName(e.target.value)}
-                  className="p-2 rounded-lg bg-gray-700 text-gray-200 w-full sm:max-w-xs"
+                  className="p-2 rounded-lg bg-secondary text-secondary-foreground w-full sm:max-w-xs"
                   placeholder="Your name (optional)"
                 />
                 <button
                   onClick={handleCommentSubmit}
-                  className="w-full sm:w-24 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="w-full sm:w-24 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
                 >
                   Post
                 </button>
               </div>
             </div>
           </div>
-        </div>
+        </CardContent>
+        </Card>
       </main>
     </div>
   );

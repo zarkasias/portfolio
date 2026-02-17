@@ -20,16 +20,16 @@ export const GetStartedButton = ({ isMobile = false }: { isMobile?: boolean }) =
   }, []);
 
   const buttonClass = isMobile 
-    ? "w-full text-left px-4 py-2 hover:bg-neutral-800" 
-    : "px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-400 text-white hover:opacity-90 transition-all relative";
+    ? "w-full text-left px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground" 
+    : "px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all relative";
 
   const dropdownClass = isMobile
-    ? "pl-8 space-y-2"
-    : "absolute top-full right-0 mt-1 w-47 bg-neutral-900 border-2 border-neutral-600 rounded-lg shadow-lg overflow-hidden z-50";
+    ? "pl-8 space-y-2 bg-primary border-border/50"
+    : "absolute top-full right-0 mt-1 w-47 bg-primary border-2 border-border/50 rounded-lg shadow-lg overflow-hidden z-50";
 
   const linkClass = isMobile
-    ? "block px-4 py-2 hover:bg-neutral-700 text-gray-300"
-    : "block px-4 py-2 hover:bg-neutral-700 text-white";
+    ? "block px-4 py-2 hover:bg-primary/90 text-primary-foreground"
+    : "block px-4 py-2 hover:bg-neutral-700 text-primary-foreground";
 
   return (
     <div className="relative" ref={buttonRef}>

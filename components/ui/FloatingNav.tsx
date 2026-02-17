@@ -58,7 +58,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "fixed top-0 inset-x-0 border-b border-gray-700 bg-gray-900 z-[5000]",
+          "fixed top-0 inset-x-0 border-b border-border/50 bg-background/80 backdrop-blur-md z-[5000]",
           className
         )}
       >
@@ -71,9 +71,9 @@ export const FloatingNav = ({
                   alt="Logo"
                   width={40}
                   height={40}
-                  className="h-10 w-auto"
+                  className="h-10 w-auto bg-primary p-1 rounded-lg"
                 />
-                <p className="ml-4 text-lg font-medium text-gray-100">Chambers Consulting</p>
+                <p className="ml-4 text-lg font-bold font-heading">Chambers Consulting</p>
               </Link>
             </div>
 
@@ -82,7 +82,7 @@ export const FloatingNav = ({
                 <Link
                   key={`link-${idx}`}
                   href={navItem.link}
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {navItem.name}
                 </Link>
@@ -129,7 +129,9 @@ export const FloatingNav = ({
                   <Link
                     key={`mobile-link-${idx}`}
                     href={navItem.link}
-                    className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    className="text-muted-foreground hover:text-foreground block px-3 py-2 rounded-md text-base font-medium transition-colors"
+
+                      
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {navItem.name}

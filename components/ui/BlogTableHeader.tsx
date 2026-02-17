@@ -19,11 +19,11 @@ const BlogTableHeader = ({ onSearch, onSort }: BlogTableHeaderProps) => {
           type="text"
           placeholder="Search blogs..."
           onChange={handleSearch}
-          className="w-full px-4 py-1 rounded-lg bg-gray-800 text-gray-100 border border-gray-600 focus:outline-none focus:border-blue-500"
+          className="w-full px-4 py-1 rounded-lg bg-secondary text-secondary-foreground border border-border focus:outline-none focus:border-primary"
         />
       </div>
       <button
-        className="ml-4 pr-2 text-gray-400 hover:text-gray-100 transition-colors"
+        className="ml-4 pr-2 text-muted-foreground hover:text-foreground transition-colors"
         onClick={onSort}
       >
         <FontAwesomeIcon icon={faSort} />

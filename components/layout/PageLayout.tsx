@@ -13,7 +13,7 @@ export default function PageLayout({ children, className = "", showFooterBlurb =
   return (
     <main className="min-h-screen w-full">
       <FloatingNav navItems={navItems} alwaysVisible={true} />
-      <div className={`w-[80%] max-w-[1920px] mx-auto ${className}`}>
+      <div className={`w-[90%] max-w-[1920px] mx-auto ${className}`}>
         {children}
       </div>
       <Footer showBlurb={showFooterBlurb} />

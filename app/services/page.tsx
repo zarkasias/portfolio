@@ -1,18 +1,20 @@
 import { services } from "@/data";
 import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 import PageLayout from "@/components/layout/PageLayout";
 
 export default function ServicesPage() {
   return (
-    <PageLayout className="pt-24 md:w-[60%]">
-      <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4">Services</h1>
-      <p className="text-xl mb-8 text-gray-400">
+    <PageLayout className="pt-20 md:w-[80%]">
+      <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">Services</h1>
+      <p className="text-xl mb-8 text-muted-foreground">
         Leveraging over 27 years of experience to deliver exceptional web development solutions
       </p>
       
       <div className="grid gap-12 pb-20">
         {services.map((service) => (
-          <div key={service.id} className="service-card bg-neutral-800/50 rounded-xl p-8 backdrop-blur-sm">
+            <Card key={service.id} className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-8">
             <div className="flex flex-row items-center gap-6 mb-4">
               {service.icon && (
                 <div className="w-16 h-16 relative">
@@ -40,7 +42,8 @@ export default function ServicesPage() {
                   ))}
                 </div>
               </div>
-          </div>
+              </CardContent>
+              </Card>
            
         ))}
       </div>
