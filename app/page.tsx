@@ -3,7 +3,7 @@ import { Hero } from "@/components/Hero";
 import PageLayout from "@/components/layout/PageLayout";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
-import { Layout, Smartphone, Eye, Zap, FileCode } from "lucide-react";
+import { Layout, Smartphone, Eye, Zap, FileCode, Search, ListTodo, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -172,6 +172,53 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="process" className="py-14 bg-slate-50 border-y border-border/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">How It Works</h2>
+            <p className="text-muted-foreground">
+              A transparent, low-friction process designed to get results without disrupting your team&apos;s flow.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12 relative">
+            {/* Connector Line (Desktop) */}
+            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-slate-200 -z-10"></div>
+
+            <div className="relative flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center mb-6 shadow-sm z-10">
+                <Search className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">1. Review & Audit</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+                I dive into your codebase and UI. I identify the pain points, inconsistencies, and quick wins.
+              </p>
+            </div>
+
+            <div className="relative flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center mb-6 shadow-sm z-10">
+                <ListTodo className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">2. Recommendations</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+                You get a clear, prioritized action plan. We agree on the scope and high-impact fixes.
+              </p>
+            </div>
+
+            <div className="relative flex flex-col items-center text-center">
+              <div className="w-24 h-24 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center mb-6 shadow-sm z-10">
+                <Wrench className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">3. Targeted Fixes</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+                I implement the improvements directly. Code is cleaned, UI is polished, and debt is reduced.
+              </p>
+            </div>
           </div>
         </div>
       </section>
