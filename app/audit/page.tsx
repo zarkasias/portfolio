@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import PageLayout from "@/components/layout/PageLayout";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function AuditPage() {
   const [formData, setFormData] = useState({
@@ -75,18 +76,20 @@ Website: ${formData.website}
     return (
       <PageLayout className="pt-24 md:w-[80%] h-[80vh] mx-auto" showFooterBlurb={false}>
         <div className="px-4 py-12 text-center">
-          <div className="bg-neutral-800/50 rounded-xl p-12 pb-14 backdrop-blur-sm max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4 text-green-400">Audit Request Sent!</h2>
-            <p className="text-gray-400 mb-6">
+          <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+          <CardContent className="p-6">
+            <h2 className="text-3xl font-bold mb-4 text-primary">Audit Request Sent!</h2>
+            <p className="text-muted-foreground mb-6">
               Thank you for requesting a website audit. I&apos;ll analyze your website and get back to you within 24 hours with detailed insights and recommendations.
             </p>
             <button
               onClick={() => setSubmitSuccess(false)}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors"
+              className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg transition-colors"
             >
               Request Another Audit
             </button>
-          </div>
+          </CardContent>
+          </Card>
         </div>
       </PageLayout>
     );
@@ -95,10 +98,10 @@ Website: ${formData.website}
   return (
     <PageLayout className="pt-24 md:w-[80%] mx-auto">
       <section className="text-center mb-12 px-4">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4">
+        <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">
           Free Website Audit | Improve Your Site&apos;s Performance
         </h1>
-        <p className="text-xl text-gray-400 mb-8">
+        <p className="text-xl text-muted-foreground mb-8">
           Get actionable insights to improve your website&apos;s performance, accessibility, and user experience.
         </p>
       </section>
@@ -116,7 +119,7 @@ Website: ${formData.website}
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 rounded-lg bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none"
+                className="w-full px-4 py-2 rounded-lg bg-primary/10 border-2 border-border focus:border-primary focus:outline-none"
               />
             </div>
 
@@ -130,7 +133,7 @@ Website: ${formData.website}
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 rounded-lg bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none"
+                className="w-full px-4 py-2 rounded-lg bg-primary/10 border-2 border-border focus:border-primary focus:outline-none"
               />
             </div>
 
@@ -145,7 +148,7 @@ Website: ${formData.website}
                 onChange={handleInputChange}
                 required
                 placeholder="https://"
-                className="w-full px-4 py-2 rounded-lg bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none"
+                className="w-full px-4 py-2 rounded-lg bg-primary/10 border-2 border-border focus:border-primary focus:outline-none"
               />
             </div>
 
@@ -156,7 +159,7 @@ Website: ${formData.website}
             <button 
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-purple-600 to-blue-400 text-white py-3 rounded-lg hover:opacity-90 transition-all disabled:opacity-50 flex items-center justify-center"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-lg transition-all disabled:opacity-20 flex items-center justify-center"
             >
               {isSubmitting ? (
                 <>
@@ -173,7 +176,8 @@ Website: ${formData.website}
           </form>
 
           <div className="space-y-8">
-            <div className="bg-neutral-800/50 rounded-xl p-8 backdrop-blur-sm">
+            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
               <h2 className="text-2xl font-bold mb-6">What You&apos;ll Get</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -221,20 +225,23 @@ Website: ${formData.website}
                   </div>
                 </div>
               </div>
-            </div>
+            </CardContent>
+            </Card>
 
-            <div className="bg-neutral-800/50 rounded-xl p-8 backdrop-blur-sm">
+            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
               <h2 className="text-2xl font-bold mb-4">Ready to Start a Project?</h2>
               <p className="text-gray-400 mb-6">
                 Already know what you need? Let&apos;s discuss your project requirements and create something amazing together.
               </p>
               <a 
                 href="/start-project"
-                className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-colors"
+                className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg transition-colors"
               >
                 Start a Project
               </a>
-            </div>
+            </CardContent>
+            </Card>
           </div>
         </div>
       </div>

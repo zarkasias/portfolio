@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import PageLayout from "@/components/layout/PageLayout";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function StartProjectPage() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -110,18 +111,20 @@ ${formData.details}
     return (
       <PageLayout className="pt-24 md:w-[80%] h-[80vh] mx-auto" showFooterBlurb={false}>
         <div className="px-4 py-12 text-center">
-          <div className="bg-neutral-800/50 rounded-xl p-12 pb-14 backdrop-blur-sm max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4 text-green-400">Message Sent Successfully!</h2>
-            <p className="text-gray-400 mb-6">
+          <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+          <CardContent className="p-6">
+            <h2 className="text-3xl font-bold mb-4 text-primary">Message Sent Successfully!</h2>
+            <p className="text-muted-foreground mb-6">
               Thank you for reaching out. I&apos;ll review your project details and get back to you within 24 hours.
             </p>
             <button
               onClick={() => setSubmitSuccess(false)}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors"
+              className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg transition-colors"
             >
               Submit Another Inquiry
             </button>
-          </div>
+          </CardContent>
+          </Card>
         </div>
       </PageLayout>
     );
@@ -130,10 +133,10 @@ ${formData.details}
   return (
     <PageLayout className="pt-24 md:w-[80%] mx-auto" showFooterBlurb={false}>
       <div className="px-4">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-100 mb-4">
+        <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">
           Tell Us About Your Project
         </h1>
-        <p className="text-xl text-gray-400 mb-8">
+        <p className="text-xl text-muted-foreground mb-8">
           You want a website that grows with your business, expands your reach, and boosts your brand perception, 
           leading to more sales, leads, and an enhanced reputation. I&apos;m here to guide you towards that success.
         </p>
@@ -151,8 +154,8 @@ ${formData.details}
                     onClick={() => handleServiceToggle(service.id)}
                     className={`p-3 rounded-lg border-2 transition-colors text-left ${
                       selectedServices.includes(service.id)
-                        ? "border-blue-500 bg-blue-500/10"
-                        : "border-neutral-700 hover:border-neutral-500"
+                        ? "border-primary bg-primary/10"
+                        : "border-border hover:border-primary"
                     }`}
                   >
                     {service.label}
@@ -175,7 +178,7 @@ ${formData.details}
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 rounded-lg bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none"
+                  className="w-full px-4 py-2 rounded-lg bg-primary/10 border-2 border-border focus:border-primary focus:outline-none"
                 />
               </div>
 
@@ -189,7 +192,7 @@ ${formData.details}
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 rounded-lg bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none"
+                  className="w-full px-4 py-2 rounded-lg bg-primary/10 border-2 border-border focus:border-primary focus:outline-none"
                 />
               </div>
 
@@ -205,8 +208,8 @@ ${formData.details}
                       onClick={() => setBudget(option.id)}
                       className={`p-3 rounded-lg border-2 transition-colors text-left ${
                         budget === option.id
-                          ? "border-blue-500 bg-blue-500/10"
-                          : "border-neutral-700 hover:border-neutral-500"
+                           ? "border-primary bg-primary/10"
+                          : "border-border hover:border-primary"
                       }`}
                     >
                       {option.label}
@@ -227,7 +230,7 @@ ${formData.details}
                   id="deadline"
                   value={formData.deadline}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-lg bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none"
+                  className="w-full px-4 py-2 rounded-lg bg-primary/10 border-2 border-border focus:border-primary focus:outline-none"
                 />
               </div>
 
@@ -241,7 +244,7 @@ ${formData.details}
                   value={formData.details}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 rounded-lg bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none"
+                  className="w-full px-4 py-2 rounded-lg bg-primary/10 border-2 border-border focus:border-primary focus:outline-none"
                 ></textarea>
               </div>
 
@@ -252,7 +255,7 @@ ${formData.details}
               <button 
                 type="submit"
                 disabled={isSubmitting || selectedServices.length === 0 || budget === ""}
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-400 text-white py-3 rounded-lg hover:opacity-90 transition-all disabled:opacity-50 flex items-center justify-center"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-lg transition-all disabled:opacity-20 flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
@@ -271,9 +274,10 @@ ${formData.details}
 
           {/* Email Alternative Section */}
           <div className="space-y-8">
-            <div className="bg-neutral-800/50 rounded-xl p-8 backdrop-blur-sm">
+            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
               <h2 className="text-2xl font-bold mb-4">Prefer to email?</h2>
-              <p className="text-gray-400 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Feel free to send your project details directly to my inbox. I&apos;ll get back to you within 24 hours.
               </p>
               <div className="flex items-center gap-4 mb-6">
@@ -289,26 +293,29 @@ ${formData.details}
                   <h3 className="text-lg font-semibold mb-1">David Chambers</h3>
                   <a 
                     href="mailto:david@chambers-consulting.dev" 
-                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                    className="text-primary hover:text-primary/80 transition-colors"
                   >
                     david@chambers-consulting.dev
                   </a>
                 </div>
               </div>
-            </div>
+            </CardContent>
+            </Card>
 
-            <div className="bg-neutral-800/50 rounded-xl p-8 backdrop-blur-sm">
+            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
               <h2 className="text-2xl font-bold mb-4">Not sure where to start?</h2>
               <p className="text-gray-400 mb-6">
                 Get a free website audit to understand what&apos;s working and what could be improved in your current website.
               </p>
               <a 
                 href="/audit"
-                className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-colors"
+                className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg transition-colors"
               >
                 Request Free Audit
               </a>
-            </div>
+            </CardContent>
+            </Card>
           </div>
         </div>
       </div>
