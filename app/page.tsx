@@ -3,7 +3,7 @@ import { Hero } from "@/components/Hero";
 import PageLayout from "@/components/layout/PageLayout";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
-import { Layout, Smartphone, Eye, Zap, FileCode, Search, ListTodo, Wrench } from "lucide-react";
+import { Layout, Smartphone, Eye, Zap, FileCode, Search, ListTodo, Wrench, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -43,47 +43,84 @@ export default function Home() {
             </div>
 
             <div className="bg-white rounded-xl shadow-xl border border-border overflow-hidden">
-              <div className="bg-slate-900 text-slate-400 p-4 text-xs font-mono flex items-center gap-2 border-b border-slate-800">
+              {/* Browser chrome */}
+              <div className="bg-slate-100 p-3 flex items-center gap-2 border-b border-border">
                 <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/20"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/20"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/20"></div>
+                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
                 </div>
-                <span className="ml-2">style.css vs modern-component.tsx</span>
+                <div className="ml-2 flex-1 bg-white border border-border rounded px-3 py-1 text-xs text-muted-foreground truncate">
+                  yourbusiness.com
+                </div>
               </div>
-              <div className="p-6 md:p-8 font-mono text-sm leading-relaxed">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="opacity-50 blur-[0.5px]">
-                    <div className="text-red-400 mb-2">{`// Before: Cluttered`}</div>
-                    <div className="text-slate-600">
-                      .btn-primary &#123;<br />
-                      &nbsp;&nbsp;float: left;<br />
-                      &nbsp;&nbsp;margin: 10px !important;<br />
-                      &nbsp;&nbsp;width: 95%;<br />
-                      &#125;<br /><br />
-                      &lt;div class=&quot;wrapper&quot;&gt;<br />
-                      &nbsp;&nbsp;&lt;center&gt;<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;font size=&quot;3&quot;&gt;<br />
-                    </div>
-                  </div>
 
-                  <div>
-                    <div className="text-green-600 mb-2">{`// After: Uncluttered`}</div>
-                    <div className="text-slate-800">
-                      .btn &#123;<br />
-                      &nbsp;&nbsp;display: inline-flex;<br />
-                      &nbsp;&nbsp;align-items: center;<br />
-                      &nbsp;&nbsp;padding: 1rem;<br />
-                      &#125;<br /><br />
-                      .btn--primary &#123;<br />
-                      &nbsp;&nbsp;width: 100%;<br />
-                      &#125;<br /><br />
-                      &lt;button class=&quot;btn btn--primary&quot;&gt;<br />
-                      &nbsp;&nbsp;Submit request<br />
-                      &lt;/button&gt;
+              {/* Before / After visual mockups */}
+              <div className="grid grid-cols-2 divide-x divide-border">
+                {/* Before: cluttered */}
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-semibold text-red-600 uppercase tracking-wide">Before</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-red-100 text-red-600 font-medium">Cluttered</span>
+                  </div>
+                  <div className="space-y-2.5">
+                    <div className="flex items-center gap-2">
+                      <div className="h-5 w-10 bg-orange-400 rounded-sm"></div>
+                      <div className="h-3 w-14 bg-slate-300 rounded-sm rotate-1"></div>
+                      <div className="h-6 w-9 bg-fuchsia-500 rounded ml-auto -rotate-2"></div>
+                    </div>
+                    <div className="h-2.5 w-full bg-slate-200 rounded"></div>
+                    <div className="h-2.5 w-3/4 bg-slate-200 rounded rotate-1"></div>
+                    <div className="h-2.5 w-5/6 bg-slate-200 rounded"></div>
+                    <div className="h-2.5 w-2/3 bg-slate-200 rounded -rotate-1"></div>
+                    <div className="h-7 w-24 bg-lime-500 rounded-full mt-3 ml-6 shadow"></div>
+                    <div className="flex gap-2 pt-1">
+                      <div className="h-10 w-10 bg-cyan-300 rounded -rotate-2"></div>
+                      <div className="h-8 w-16 bg-slate-200 rounded mt-1"></div>
                     </div>
                   </div>
                 </div>
+
+                {/* After: clean */}
+                <div className="p-5 bg-slate-50/60">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-semibold text-green-600 uppercase tracking-wide">After</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-green-100 text-green-700 font-medium">Clean</span>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <div className="h-5 w-5 bg-primary rounded"></div>
+                      <div className="h-3 w-14 bg-slate-300 rounded"></div>
+                      <div className="flex gap-1.5 ml-auto">
+                        <div className="h-2 w-6 bg-slate-200 rounded"></div>
+                        <div className="h-2 w-6 bg-slate-200 rounded"></div>
+                      </div>
+                    </div>
+                    <div className="h-2.5 w-full bg-slate-200 rounded"></div>
+                    <div className="h-2.5 w-full bg-slate-200 rounded"></div>
+                    <div className="h-2.5 w-2/3 bg-slate-200 rounded"></div>
+                    <div className="h-8 w-28 bg-primary rounded-md mt-3"></div>
+                    <div className="grid grid-cols-2 gap-2 pt-1">
+                      <div className="h-12 bg-white border border-border rounded"></div>
+                      <div className="h-12 bg-white border border-border rounded"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Plain-language outcomes */}
+              <div className="border-t border-border p-4 flex flex-wrap gap-2 justify-center">
+                {[
+                  { icon: Sparkles, label: "Looks professional" },
+                  { icon: Zap, label: "Loads faster" },
+                  { icon: CheckCircle2, label: "Easier to use" },
+                  { icon: Smartphone, label: "Works on mobile" },
+                ].map(({ icon: Icon, label }) => (
+                  <span key={label} className="inline-flex items-center gap-1.5 text-xs text-foreground/70 bg-secondary rounded-full px-3 py-1">
+                    <Icon className="w-3.5 h-3.5 text-primary" />
+                    {label}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -196,7 +233,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3">1. Review & Audit</h3>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                I dive into your codebase and UI. I identify the pain points, inconsistencies, and quick wins.
+                We dive into your codebase and UI to identify the pain points, inconsistencies, and quick wins.
               </p>
             </div>
 
@@ -216,91 +253,12 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3">3. Targeted Fixes</h3>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                I implement the improvements directly. Code is cleaned, UI is polished, and debt is reduced.
+                We implement the improvements directly. Code is cleaned, UI is polished, and debt is reduced.
               </p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* <section className="pt-8 md:py-20">
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-neutral-800/40 rounded-xl p-8 backdrop-blur-sm">
-            <div className="w-full md:w-14 h-14 relative flex-shrink-0 mb-4">
-              <Image
-                src="/images/icons/information.png"
-                alt="information"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">
-              Is your website attracting customers?
-            </h3>
-            <p className="text-gray-400">
-              Your website should be your best salesperson, working 24/7 to bring in new business.
-            </p>
-          </div>
-          <div className="bg-neutral-800/40 rounded-xl p-8 backdrop-blur-sm">
-            <div className="w-full md:w-14 h-14 relative flex-shrink-0 mb-4">
-              <Image
-                src="/images/icons/growth.png"
-                alt="growth"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">
-              Not sure if your site is helping your business grow?
-            </h3>
-            <p className="text-gray-400">
-              Understanding your website&apos;s performance is crucial for business growth.
-            </p>
-          </div>
-          <div className="bg-neutral-800/40 rounded-xl p-8 backdrop-blur-sm md:col-span-2 lg:col-span-1">
-            <div className="w-full md:w-14 h-14 relative flex-shrink-0 mb-4">
-              <Image
-                src="/images/icons/ai-technology.png"
-                alt="audit"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">
-              Get a Free Website Audit
-            </h3>
-            <p className="text-gray-400 mb-6">
-              I offer free website audits to help you understand what&apos;s working and what needs improvement.
-            </p>
-            <Link 
-              href="/audit"
-              className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors text-sm"
-            >
-              Request Free Audit
-            </Link>
-          </div>
-        </div>
-      </section> */}
-
-
-
-      {/* Call to Action */}
-      {/* <section className="py-20">
-        <div className="bg-neutral-800/40 rounded-xl p-12 text-center backdrop-blur-sm">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Let&apos;s Work Together</h2>
-          <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
-            Looking for a senior frontend developer to help with your next project? 
-            Let&apos;s discuss how I can contribute to your success.
-          </p>
-          <Link 
-            href="/contact"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors"
-          >
-            Get in Touch
-          </Link>
-        </div>
-      </section> */}
     </PageLayout>
   );
 }

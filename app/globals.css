@@ -4,10 +4,7 @@
 
 @layer base {
   :root {
-    /* Font families */
-    --font-sans: 'Inter', sans-serif;
-    --font-heading: 'DM Sans', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    /* Font families are provided by next/font (see app/layout.tsx) */
 
     /* Calm, trustworthy, slate-based palette */
     /* Background: Soft off-white/cool gray */
@@ -104,10 +101,6 @@
     @apply font-bold text-4xl md:text-4xl text-center;
   }
 
-  .black-gradient {
-    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
-  }
-
   .text-balance {
     text-wrap: balance;
   }
@@ -122,30 +115,6 @@
     background-image: linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
                       linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
   }
-}
-
-@keyframes pop {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.pop-effect {
-  animation: pop 6s ease-in-out infinite;
-  text-shadow: 0 0 5px rgba(0, 0, 255, 0.5), 0 0 7px rgba(0, 0, 255, 0.5),
-    0 0 9px rgba(0, 0, 255, 0.5);
-  transition: text-shadow 0.3s ease-in-out;
-}
-
-.pop-effect:hover {
-  text-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 20px rgba(0, 0, 255, 0.7),
-    0 0 30px rgba(0, 0, 255, 0.7);
 }
 
 .prose ul {

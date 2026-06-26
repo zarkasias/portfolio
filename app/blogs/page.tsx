@@ -76,7 +76,7 @@ const BlogPage = () => {
   }, [posts, searchTerm, selectedTag, sortDirection, sortPosts]);
 
   return (
-    <PageLayout className="pt-24 md:w-[60%]" showFooterBlurb={false}>
+    <PageLayout className="pt-24 md:w-[80%]" showFooterBlurb={false}>
       <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">
         Insights & Ideas
       </h1>

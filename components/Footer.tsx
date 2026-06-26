@@ -1,7 +1,5 @@
-import Link from "next/link";
-import Copyright from "./ui/Copyright";
 import Image from "next/image";
-import { Code2, Github, Linkedin, Mail } from "lucide-react";
+import { Code2, Linkedin, Mail } from "lucide-react";
 
 const Footer = ({ showBlurb = true }: { showBlurb?: boolean }) => {
   return (
@@ -33,7 +31,6 @@ const Footer = ({ showBlurb = true }: { showBlurb?: boolean }) => {
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li><a href="/about" className="hover:text-foreground transition-colors">About</a></li>
                 <li><a href="/services" className="hover:text-foreground transition-colors">Services</a></li>
-                <li><a href="/blogs" className="hover:text-foreground transition-colors">Blog</a></li>
                 <li><a href="/contact" className="hover:text-foreground transition-colors">Contact</a></li>
               </ul>
             </div>
@@ -57,8 +54,6 @@ const Footer = ({ showBlurb = true }: { showBlurb?: boolean }) => {
           </div>
         </div>
       </div>
-
-      {/* <Copyright /> */}
     </footer>
   );
 };

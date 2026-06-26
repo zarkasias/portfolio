@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 import RouteChangeTracker from "@/components/analytics/RouteChangeTracker";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import CookieConsent from "@/components/analytics/CookieConsent";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chambers-consulting.dev'),
-  title: "David Chambers | Web Development Consultant",
+  title: "Chambers Consulting | Front-End UI Cleanup for Small Businesses",
   description:
-    "Expert Web Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
+    "We help small businesses clean up and improve their existing websites. Clearer, faster, and more accessible front-end UIs, without a full rebuild.",
   icons: {
     icon: [
       { url: '/favicon/favicon.ico' },
@@ -28,20 +30,20 @@ export const metadata: Metadata = {
     ],
   },
   keywords: [
-    "Web Development",
-    "React",
-    "TypeScript",
-    "Technical Consulting",
-    "David Chambers",
-    "Software Engineering",
+    "Front-End UI Cleanup",
+    "Website Improvement",
+    "Web Accessibility",
+    "Performance Optimization",
+    "Small Business Websites",
+    "Chambers Consulting",
   ],
-  authors: [{ name: "David Chambers" }],
-  creator: "David Chambers",
+  authors: [{ name: "Chambers Consulting" }],
+  creator: "Chambers Consulting",
   openGraph: {
     type: "website",
-    title: "David Chambers | Web Development Consultant",
+    title: "Chambers Consulting | Front-End UI Cleanup for Small Businesses",
     description:
-      "Expert Web Development & Technical Consulting by David Chambers. Specializing in React, TypeScript, and creating seamless user experiences.",
+      "We help small businesses clean up and improve their existing websites. Clearer, faster, and more accessible front-end UIs, without a full rebuild.",
     images: [
       {
         url: "/images/logos/cclogo-new.png",
@@ -52,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "David Chambers | Web Development Consultant",
+    title: "Chambers Consulting | Front-End UI Cleanup for Small Businesses",
     description:
-      "Expert Web Development & Technical Consulting by David Chambers",
+      "We help small businesses clean up and improve their existing websites, without a full rebuild.",
     images: ["/images/logos/cclogo-new.png"],
   },
 };
@@ -65,10 +67,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head> 
       </head>
-      <body className={`${inter.className} dark:bg-[#04071D] font-sans bg-background text-foreground`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans bg-background text-foreground`} suppressHydrationWarning>
         <GoogleAnalytics />
         <ThemeProvider
           attribute="class"

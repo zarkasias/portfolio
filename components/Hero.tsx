@@ -19,10 +19,10 @@ export const Hero = () => {
   const router = useRouter();
   
   return (
-    <div className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+    <div className="relative pt-32 pb-20 md:pt-48 md:pb-32">
 
-      {/* Content */}
-      <div className="absolute inset-0 -z-10 opacity-30">
+      {/* Full-bleed background that breaks out of the page container */}
+      <div className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 -z-10 overflow-hidden opacity-30">
            <Image src={heroBg} alt="Abstract Background" fill className="w-full h-full object-cover" />
            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background"></div>
         </div>
@@ -48,7 +48,7 @@ export const Hero = () => {
             </motion.h1>
             
             <motion.p variants={fadeIn} className="text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              I help businesses clean up, stabilize, and refine their existing front-end codebases. 
+              We help small businesses clean up, stabilize, and refine their existing front-end codebases. 
               Clearer, faster, and more maintainable — no full redesign required.
             </motion.p>
             

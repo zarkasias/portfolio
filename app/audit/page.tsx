@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
+import { Zap, Eye, ListTodo } from "lucide-react";
 
 export default function AuditPage() {
   const [formData, setFormData] = useState({
@@ -80,7 +80,7 @@ Website: ${formData.website}
           <CardContent className="p-6">
             <h2 className="text-3xl font-bold mb-4 text-primary">Audit Request Sent!</h2>
             <p className="text-muted-foreground mb-6">
-              Thank you for requesting a website audit. I&apos;ll analyze your website and get back to you within 24 hours with detailed insights and recommendations.
+              Thank you for requesting a website audit. We&apos;ll analyze your website and get back to you within 24 hours with detailed insights and recommendations.
             </p>
             <button
               onClick={() => setSubmitSuccess(false)}
@@ -181,47 +181,32 @@ Website: ${formData.website}
               <h2 className="text-2xl font-bold mb-6">What You&apos;ll Get</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 relative flex-shrink-0">
-                    <Image 
-                      src="/images/icons/performance.png" 
-                      alt="Performance" 
-                      fill
-                      className="object-contain"
-                    />
+                  <div className="w-10 h-10 flex-shrink-0 rounded-lg bg-secondary text-primary flex items-center justify-center">
+                    <Zap className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Performance Analysis</h3>
-                    <p className="text-gray-400">Detailed insights into your website&apos;s speed and performance metrics.</p>
+                    <p className="text-muted-foreground">Detailed insights into your website&apos;s speed and performance metrics.</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 relative flex-shrink-0">
-                    <Image 
-                      src="/images/icons/mobile-access.png" 
-                      alt="Accessibility" 
-                      fill
-                      className="object-contain"
-                    />
+                  <div className="w-10 h-10 flex-shrink-0 rounded-lg bg-secondary text-primary flex items-center justify-center">
+                    <Eye className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Accessibility Review</h3>
-                    <p className="text-gray-400">Assessment of how well your site serves all users, including those with disabilities.</p>
+                    <p className="text-muted-foreground">Assessment of how well your site serves all users, including those with disabilities.</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 relative flex-shrink-0">
-                    <Image 
-                      src="/images/icons/action.png" 
-                      alt="Recommendations" 
-                      fill
-                      className="object-contain"
-                    />
+                  <div className="w-10 h-10 flex-shrink-0 rounded-lg bg-secondary text-primary flex items-center justify-center">
+                    <ListTodo className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Action Items</h3>
-                    <p className="text-gray-400">Specific recommendations to improve your website&apos;s effectiveness.</p>
+                    <p className="text-muted-foreground">Specific recommendations to improve your website&apos;s effectiveness.</p>
                   </div>
                 </div>
               </div>
@@ -231,8 +216,8 @@ Website: ${formData.website}
             <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
             <CardContent className="p-6">
               <h2 className="text-2xl font-bold mb-4">Ready to Start a Project?</h2>
-              <p className="text-gray-400 mb-6">
-                Already know what you need? Let&apos;s discuss your project requirements and create something amazing together.
+              <p className="text-muted-foreground mb-6">
+                Already know what you need? Let&apos;s discuss your project requirements and create something great together.
               </p>
               <a 
                 href="/start-project"

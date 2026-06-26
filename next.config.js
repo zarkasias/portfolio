@@ -18,12 +18,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-  // Suppress hydration warnings
   reactStrictMode: true,
-  suppressHydrationWarning: true,
 }
 
 module.exports = nextConfig 

@@ -1,15 +1,14 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
-import { improvedExperience } from "@/data";
+import { Code2, Eye, TrendingUp, GraduationCap, Wrench, Users } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About David Chambers | Senior Frontend Development Consultant",
-  description: "With over 27 years of experience in web development, David Chambers specializes in building accessible, high-performance web applications that drive business growth.",
+  title: "About Chambers Consulting | Front-End UI Cleanup",
+  description: "Chambers Consulting helps small businesses clean up and improve their existing websites, building clearer, faster, more accessible front-end UIs without a full rebuild.",
   openGraph: {
-    title: "About David Chambers | Senior Frontend Development Consultant",
-    description: "With over 27 years of experience in web development, David Chambers specializes in building accessible, high-performance web applications that drive business growth.",
+    title: "About Chambers Consulting | Front-End UI Cleanup",
+    description: "Chambers Consulting helps small businesses clean up and improve their existing websites, building clearer, faster, more accessible front-end UIs without a full rebuild.",
     images: [
       {
         url: "/images/logos/cclogo-new.png",
@@ -20,51 +19,83 @@ export const metadata: Metadata = {
   },
 };
 
+const values = [
+  {
+    icon: Code2,
+    title: "Technical Excellence",
+    description:
+      "We write clean, maintainable code that stands the test of time. Every project deserves attention to detail and performance optimization.",
+  },
+  {
+    icon: Eye,
+    title: "Accessibility First",
+    description:
+      "Websites should work for everyone. We build accessibility in from the start, not as an afterthought, so you reach your full audience.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Business Focus",
+    description:
+      "Technology should drive business growth. We focus on improvements that work well technically and deliver measurable business results.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Continuous Learning",
+    description:
+      "The web evolves constantly, and so do we. We stay current with the latest standards and best practices to deliver modern solutions.",
+  },
+];
+
+const approach = [
+  {
+    icon: Wrench,
+    title: "We improve, not rebuild",
+    description:
+      "We work with the site you already have, cleaning up and refining it instead of pushing an expensive ground-up rewrite.",
+  },
+  {
+    icon: Users,
+    title: "Built for small businesses",
+    description:
+      "We focus on the practical, high-impact fixes that help small businesses look professional and convert more visitors.",
+  },
+  {
+    icon: TrendingUp,
+    title: "27+ years of experience",
+    description:
+      "Founded in 2023, Chambers Consulting draws on more than 27 years of hands-on web development to deliver dependable results.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <PageLayout className="pt-24 md:w-[80%] mx-auto">
       {/* Hero Section */}
       <section className="text-center mb-12 px-4">
         <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-          Accessibility First Development
+          About Chambers Consulting
         </h1>
-        <p className="text-xl text-muted-foreground mb-12">
-          Building Modern Web Experiences That Work for Everyone
+        <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+          We help small businesses clean up and improve their existing websites, clearer, faster,
+          and more accessible, without a full rebuild.
         </p>
       </section>
 
       {/* Introduction Section */}
       <section className="mb-12 md:mb-16 px-4">
-        <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12 lg:gap-16">
-          {/* Profile Section */}
-          <div className="flex flex-col items-center md:items-start md:w-1/3 lg:w-1/4">
-            <div className="w-48 h-48 md:w-full md:h-auto md:aspect-square max-w-[246px] relative rounded-full overflow-hidden mb-4 border-4 border-neutral-200">
-              <Image 
-                src="/dave2.png" 
-                alt="David Chambers" 
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 192px, (max-width: 1280px) 33vw, 25vw"
-              />
-            </div>
-            <h2 className="text-xl font-bold mb-1">David Chambers</h2>
-            <p className="text-muted-foreground text-md mb-4">Founder, Chambers Consulting</p>
-          </div>
-
-          {/* Bio Section */}
-          <div className="md:w-2/3 lg:w-3/4 md:pt-8">
-            <div className="space-y-6">
-              <p className="text-lg text-muted-foreground">
-                Founded in 2023, Chambers Consulting leverages over 27 years of experience in web development, 
-                helping businesses build high-performance, accessible digital solutions.
-              </p>
-              <p className="text-lg text-muted-foreground">
-                Today, we focus on helping businesses build modern, accessible web applications 
-                that reach their full audience potential. Our approach combines technical excellence 
-                with a deep understanding of business needs.
-              </p>
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto space-y-6 text-center">
+          <p className="text-lg text-muted-foreground">
+            Founded in 2023, Chambers Consulting leverages over 27 years of experience in web
+            development to help businesses build high-performance, accessible digital experiences.
+          </p>
+          <p className="text-lg text-muted-foreground">
+            We focus on improving the websites businesses already have, refining the front-end UI so
+            it&apos;s clearer, faster, and easier to use. Our approach combines technical excellence
+            with a deep understanding of business needs.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Founded by David Chambers.
+          </p>
         </div>
       </section>
 
@@ -72,134 +103,34 @@ export default function AboutPage() {
       <section className="mb-12 md:mb-16 px-4">
         <h2 className="text-2xl font-bold mb-8 md:mb-12 text-center">Our Values</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-6">
-        <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-        <CardContent className="p-6">
-            <div className="flex flex-row items-center gap-4 mb-4">
-              <Image 
-                src="/images/icons/techno-excellence.png" 
-                alt="Technical Excellence" 
-                width={40}
-                height={40}
-                className="w-10 h-10" 
-              />
-              <h3 className="text-xl font-bold">Technical Excellence</h3>
-            </div>
-            <p className="text-gray-400">
-              We believe in writing clean, maintainable code that stands the test of time. 
-              Every project deserves attention to detail and performance optimization.
-            </p>
-            </CardContent>
+          {values.map((value) => (
+            <Card key={value.title} className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex flex-row items-center gap-4 mb-4">
+                  <div className="w-10 h-10 shrink-0 rounded-lg bg-secondary text-primary flex items-center justify-center">
+                    <value.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl font-bold">{value.title}</h3>
+                </div>
+                <p className="text-muted-foreground">{value.description}</p>
+              </CardContent>
             </Card>
-            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-        <CardContent className="p-6">
-            <div className="flex flex-row items-center gap-4 mb-4">
-              <Image 
-                src="/images/icons/mobile-access.png" 
-                alt="Accessibility First" 
-                width={40}
-                height={40}
-                className="w-10 h-10" 
-              />
-              <h3 className="text-xl font-bold">Accessibility First</h3>
-            </div>
-            <p className="text-gray-400">
-              Web applications should be accessible to everyone. We build with accessibility 
-              in mind from the start, not as an afterthought.
-            </p>
-          </CardContent>
-          </Card>
-          <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-        <CardContent className="p-6">
-            <div className="flex flex-row items-center gap-4 mb-4">
-              <Image 
-                src="/images/icons/forecasting.png" 
-                alt="Business Focus" 
-                width={40}
-                height={40}
-                className="w-10 h-10" 
-              />
-              <h3 className="text-xl font-bold">Business Focus</h3>
-            </div>
-            <p className="text-gray-400">
-              Technology should drive business growth. We focus on solutions that not only 
-              work well technically but also deliver measurable business results.
-            </p>
-          </CardContent>
-          </Card>
-          <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-        <CardContent className="p-6">
-            <div className="flex flex-row items-center gap-4 mb-4">
-              <Image 
-                src="/images/icons/online-learning.png" 
-                alt="Continuous Learning" 
-                width={40}
-                height={40}
-                className="w-10 h-10" 
-              />
-              <h3 className="text-xl font-bold">Continuous Learning</h3>
-            </div>
-            <p className="text-gray-400">
-              The web evolves constantly, and so do we. We stay current with the latest 
-              technologies and best practices to deliver modern solutions.
-            </p>
-          </CardContent>
-          </Card>
+          ))}
         </div>
       </section>
 
-      {/* Experience Timeline */}
+      {/* Approach / Credibility Section */}
       <section className="mb-12 md:mb-20 px-4">
-        <h2 className="text-2xl font-bold mb-8 md:mb-12 text-center">Professional Journey</h2>
-        <div className="space-y-8 md:space-y-12">
-          {improvedExperience.map((exp) => (
-            <Card key={exp.id} className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-              <div className="flex items-start gap-4 md:gap-6 mb-6">
-                <div className="w-12 h-12 md:w-16 md:h-16 relative flex-shrink-0">
-                  <Image
-                    src={exp.thumbnail}
-                    alt={exp.title}
-                    fill
-                    className="object-contain bg-primary/90 rounded-full p-2"
-                  />
+        <h2 className="text-2xl font-bold mb-8 md:mb-12 text-center">How We Work</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {approach.map((item) => (
+            <Card key={item.title} className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-6 text-center">
+                <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-secondary text-primary flex items-center justify-center">
+                  <item.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold break-words">{exp.title}</h3>
-              </div>
-              {exp.clients && (
-                <div className="space-y-6">
-                  {exp.clients.map((client, index) => (
-                    <div key={index} className="break-words">
-                      <h4 className="text-lg md:text-xl font-semibold mb-3">{client.name}</h4>
-                      <ul className="list-disc space-y-2 text-gray-400 ml-4">
-                        {client.desc.map((item, i) => (
-                          <li key={i} className="text-base md:text-lg pl-2">{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {exp.roles && (
-                <div className="space-y-6">
-                  {exp.roles.map((role, index) => (
-                    <div key={index} className="break-words">
-                      <h4 className="text-lg md:text-xl font-semibold mb-3">{role.name}</h4>
-                      <ul className="list-disc space-y-2 text-gray-400 ml-4">
-                        {role.desc.map((item, i) => (
-                          <li key={i} className="text-base md:text-lg pl-2">{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {exp.desc && (
-                <ul className="list-disc space-y-2 text-gray-400 ml-4">
-                  {exp.desc.map((item, index) => (
-                    <li key={index} className="text-base md:text-lg pl-2 break-words">{item}</li>
-                  ))}
-                </ul>
-              )}
+                <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
           ))}

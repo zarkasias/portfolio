@@ -11,9 +11,9 @@ interface PageLayoutProps {
 
 export default function PageLayout({ children, className = "", showFooterBlurb = true }: PageLayoutProps) {
   return (
-    <main className="min-h-screen w-full">
+    <main className="min-h-screen w-full overflow-x-hidden">
       <FloatingNav navItems={navItems} alwaysVisible={true} />
-      <div className={`w-[90%] max-w-[1920px] mx-auto ${className}`}>
+      <div className={`w-[90%] max-w-7xl mx-auto ${className}`}>
         {children}
       </div>
       <Footer showBlurb={showFooterBlurb} />

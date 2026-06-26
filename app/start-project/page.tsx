@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
+import { Mail } from "lucide-react";
 
 export default function StartProjectPage() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -18,11 +18,12 @@ export default function StartProjectPage() {
   const [submitError, setSubmitError] = useState("");
 
   const services = [
-    { id: "website", label: "A New Website" },
-    { id: "modernization", label: "Modernization" },
-    { id: "ecommerce", label: "E-Commerce" },
-    { id: "support", label: "Technical Support" },
-    { id: "consulting", label: "Consulting" },
+    { id: "cleanup", label: "UI / Design Cleanup" },
+    { id: "responsive", label: "Responsive Fixes" },
+    { id: "accessibility", label: "Accessibility" },
+    { id: "performance", label: "Performance" },
+    { id: "codecleanup", label: "Code Cleanup" },
+    { id: "consulting", label: "Consulting / Review" },
   ];
 
   const budgetOptions = [
@@ -115,7 +116,7 @@ ${formData.details}
           <CardContent className="p-6">
             <h2 className="text-3xl font-bold mb-4 text-primary">Message Sent Successfully!</h2>
             <p className="text-muted-foreground mb-6">
-              Thank you for reaching out. I&apos;ll review your project details and get back to you within 24 hours.
+              Thank you for reaching out. We&apos;ll review your project details and get back to you within 24 hours.
             </p>
             <button
               onClick={() => setSubmitSuccess(false)}
@@ -137,15 +138,16 @@ ${formData.details}
           Tell Us About Your Project
         </h1>
         <p className="text-xl text-muted-foreground mb-8">
-          You want a website that grows with your business, expands your reach, and boosts your brand perception, 
-          leading to more sales, leads, and an enhanced reputation. I&apos;m here to guide you towards that success.
+          You want a website that feels clear, works everywhere, and earns your customers&apos; trust,
+          leading to more leads, sales, and a stronger reputation. We&apos;re here to clean up and refine
+          what you already have so it works harder for your business.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">
           <form onSubmit={handleSubmit} className="space-y-10">
             {/* Services Section */}
             <div>
-              <h2 className="text-xl font-semibold mb-4">What can I help you with? <span className="text-red-500">*</span></h2>
+              <h2 className="text-xl font-semibold mb-4">What can we help you with? <span className="text-red-500">*</span></h2>
               <div className="grid grid-cols-2 gap-3">
                 {services.map((service) => (
                   <button
@@ -236,7 +238,7 @@ ${formData.details}
 
               <div>
                 <label htmlFor="details" className="block text-sm font-medium mb-2">
-                  Tell me more about your project <span className="text-red-500">*</span>
+                  Tell us more about your project <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   id="details"
@@ -278,19 +280,14 @@ ${formData.details}
             <CardContent className="p-6">
               <h2 className="text-2xl font-bold mb-4">Prefer to email?</h2>
               <p className="text-muted-foreground mb-6">
-                Feel free to send your project details directly to my inbox. I&apos;ll get back to you within 24 hours.
+                Feel free to send your project details directly to our inbox. We&apos;ll get back to you within 24 hours.
               </p>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 relative flex-shrink-0">
-                  <Image 
-                    src="/dave2.png" 
-                    alt="David Chambers" 
-                    fill
-                    className="object-cover rounded-full"
-                  />
+                <div className="w-12 h-12 flex-shrink-0 rounded-full bg-secondary text-primary flex items-center justify-center">
+                  <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-1">David Chambers</h3>
+                  <h3 className="text-lg font-semibold mb-1">Email us</h3>
                   <a 
                     href="mailto:david@chambers-consulting.dev" 
                     className="text-primary hover:text-primary/80 transition-colors"
@@ -305,7 +302,7 @@ ${formData.details}
             <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
             <CardContent className="p-6">
               <h2 className="text-2xl font-bold mb-4">Not sure where to start?</h2>
-              <p className="text-gray-400 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Get a free website audit to understand what&apos;s working and what could be improved in your current website.
               </p>
               <a 
