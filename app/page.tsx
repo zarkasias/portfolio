@@ -14,7 +14,7 @@ export default function Home() {
     <PageLayout className="pt-4 md:pt-8">
       <Hero />
 
-      <section className="py-24 bg-secondary/30 relative">
+      <section className="md:py-24 py-12 bg-secondary/30 relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
         <div className="container mx-auto px-6 relative">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -56,7 +56,7 @@ export default function Home() {
               </div>
 
               {/* Before / After visual mockups */}
-              <div className="grid grid-cols-2 divide-x divide-border">
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-x divide-border">
                 {/* Before: cluttered */}
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-4">

@@ -19,7 +19,7 @@ export const Hero = () => {
   const router = useRouter();
   
   return (
-    <div className="relative pt-32 pb-20 md:pt-48 md:pb-32">
+    <div className="relative pt-32 pb-10 md:pt-48 md:pb-32">
 
       {/* Full-bleed background that breaks out of the page container */}
       <div className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 -z-10 overflow-hidden opacity-30">
