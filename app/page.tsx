@@ -18,8 +18,28 @@ import {
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
+import { motion, useReducedMotion } from "framer-motion";
+
+const MotionCard = motion.create(Card);
+
 export default function Home() {
   const router = useRouter();
+
+  const reducedMotion = useReducedMotion();
+
+  const cardEntrance = (index: number) => ({
+    initial: reducedMotion ? (false as const) : { opacity: 0, y: 28 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: {
+      once: true,
+      amount: 0.15,
+    },
+    transition: {
+      duration: reducedMotion ? 0 : 0.6,
+      delay: reducedMotion ? 0 : (index % 3) * 0.1,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  });
 
   return (
     <PageLayout className="pt-4 md:pt-8">
@@ -109,86 +129,87 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-6">
-                  <Layout className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Visual Consistency</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Audit and unify spacing, typography, and color usage. Creating
-                  a coherent design system from existing chaotic styles.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "Visual Consistency",
+                description:
+                  "Audit and unify spacing, typography, and color usage. Creating a coherent design system from existing chaotic styles.",
+                icon: Layout,
+                iconClassName: "bg-blue-50 text-blue-600",
+              },
+              {
+                title: "Responsive Triage",
+                description:
+                  "Fixing broken layouts on mobile and tablet. Ensuring your application works flawlessly across all device sizes.",
+                icon: Smartphone,
+                iconClassName: "bg-green-50 text-green-600",
+              },
+              {
+                title: "Accessibility (a11y)",
+                description:
+                  "Improving contrast, keyboard navigation, and screen reader support to make your product usable by everyone.",
+                icon: Eye,
+                iconClassName: "bg-purple-50 text-purple-600",
+              },
+              {
+                title: "Performance Tuning",
+                description:
+                  "Reducing bundle sizes, optimizing images, and improving Core Web Vitals for a snappier user experience.",
+                icon: Zap,
+                iconClassName: "bg-amber-50 text-amber-600",
+              },
+              {
+                title: "Code Cleanup",
+                description:
+                  "Refactoring massive components, removing dead CSS, and implementing better project structure for maintainability.",
+                icon: FileCode,
+                iconClassName: "bg-slate-50 text-slate-600",
+              },
+            ].map(
+              ({ title, description, icon: Icon, iconClassName }, index) => (
+                <MotionCard
+                  key={title}
+                  {...cardEntrance(index)}
+                  className="border-border/50 shadow-sm transition-shadow hover:shadow-md"
+                >
+                  <CardContent className="p-8">
+                    <div
+                      className={`mb-6 flex h-12 w-12 items-center justify-center rounded-lg ${iconClassName}`}
+                    >
+                      <Icon aria-hidden="true" className="h-6 w-6" />
+                    </div>
 
-            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-6">
-                  <Smartphone className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Responsive Triage</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Fixing broken layouts on mobile and tablet. Ensuring your
-                  application works flawlessly across all device sizes.
-                </p>
-              </CardContent>
-            </Card>
+                    <h3 className="mb-3 text-xl font-bold">{title}</h3>
 
-            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mb-6">
-                  <Eye className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Accessibility (a11y)</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Improving contrast, keyboard navigation, and screen reader
-                  support to make your product usable by everyone.
-                </p>
-              </CardContent>
-            </Card>
+                    <p className="leading-relaxed text-muted-foreground">
+                      {description}
+                    </p>
+                  </CardContent>
+                </MotionCard>
+              ),
+            )}
 
-            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-lg flex items-center justify-center mb-6">
-                  <Zap className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Performance Tuning</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Reducing bundle sizes, optimizing images, and improving Core
-                  Web Vitals for a snappier user experience.
-                </p>
-              </CardContent>
-            </Card>
+            <MotionCard
+              {...cardEntrance(5)}
+              className="border-border/50 bg-secondary/20 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <CardContent className="flex h-full flex-col items-center justify-center p-8 text-center">
+                <h3 className="mb-3 text-xl font-bold">Custom Request?</h3>
 
-            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-slate-50 text-slate-600 rounded-lg flex items-center justify-center mb-6">
-                  <FileCode className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Code Cleanup</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Refactoring massive components, removing dead CSS, and
-                  implementing better project structure for maintainability.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow bg-secondary/20">
-              <CardContent className="p-8 flex flex-col items-center justify-center text-center h-full">
-                <h3 className="text-xl font-bold mb-3">Custom Request?</h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="mb-6 text-muted-foreground">
                   Have a specific frontend headache?
                 </p>
+
                 <Button
                   variant="outline"
                   onClick={() => router.push("/contact")}
                 >
-                  Let&apos;s Discuss It <ArrowRight className="w-4 h-4 ml-2" />
+                  Let&apos;s Discuss It
+                  <ArrowRight aria-hidden="true" className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
-            </Card>
+            </MotionCard>
           </div>
         </div>
       </section>
