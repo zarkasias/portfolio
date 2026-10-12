@@ -176,11 +176,11 @@ interface PDFContentProps {
 }
 
 // Helper function to preserve URLs
-const preserveUrls = (text: string): (string | JSX.Element)[] => {
+const preserveUrls = (text: string): (string | React.JSX.Element)[] => {
   // Match URLs but don't include trailing punctuation
   const urlRegex = /(https?:\/\/[^\s)]+)([.,;:)])?/g;
   const parts = text.split(urlRegex);
-  const result: (string | JSX.Element)[] = [];
+  const result: (string | React.JSX.Element)[] = [];
   
   for (let i = 0; i < parts.length; i += 3) {
     // Add regular text
