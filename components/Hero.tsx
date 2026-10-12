@@ -1,67 +1,74 @@
+import Link from "next/link";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.png";
-import { Button } from "@/components/ui/button";
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-};
+import { HeroShowcase } from "./HeroShowcase";
 
 export const Hero = () => {
-  const router = useRouter();
-  
   return (
-    <div className="relative pt-32 pb-10 md:pt-48 md:pb-32">
+    <section
+      id="home"
+      aria-labelledby="hero-heading"
+      className="relative pt-24 pb-12 md:pt-28 md:pb-12"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-secondary/40 via-background to-background"
+      />
 
-      {/* Full-bleed background that breaks out of the page container */}
-      <div className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 -z-10 overflow-hidden opacity-30">
-           <Image src={heroBg} alt="Abstract Background" fill className="w-full h-full object-cover" />
-           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background"></div>
-        </div>
-      
-        <div className="container mx-auto px-6">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="max-w-3xl"
-          >
-            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/50 text-accent-foreground text-sm font-medium mb-6 border border-accent">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col gap-16 lg:gap-20">
+          <div className="w-full">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              Front-End Design & Development
+            </div>
+
+            <h1
+              id="hero-heading"
+              className="mb-4 font-heading text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl"
+            >
+              Your website deserves a{" "}
+              <span className="text-primary">better front end.</span>
+            </h1>
+
+            <p className="mb-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              We clean up outdated code and redesign existing interfaces to
+              create websites and applications that look better, work better,
+              and are easier to maintain.
+            </p>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                Let's Talk About Your Project
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+
+              <Link
+                href="#services"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-border bg-background px-6 py-3 font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                Explore Services
+                <ArrowDown className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-border pt-6 text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">27+ years</span>
+              <span>of front-end UI experience</span>
+              <span aria-hidden="true" className="hidden sm:inline">
+                ·
               </span>
-              Accepting New Audits for Q1
-            </motion.div>
-            
-            <motion.h1 variants={fadeIn} className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight text-foreground mb-8 leading-[1.1]">
-              Improve your existing frontend. <br className="hidden md:block" />
-              <span className="text-primary/80">Without the rewrite.</span>
-            </motion.h1>
-            
-            <motion.p variants={fadeIn} className="text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              We help small businesses clean up, stabilize, and refine their existing front-end codebases. 
-              Clearer, faster, and more maintainable — no full redesign required.
-            </motion.p>
-            
-            <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-base h-12 px-8 shadow-lg hover:shadow-xl transition-all" onClick={() => router.push('/audit')}>
-                Request a Front-End Audit
-              </Button>
-              <Button variant="outline" size="lg" className="text-base h-12 px-8 bg-background/50 backdrop-blur-sm hover:bg-background" onClick={() => router.push("/services")}>
-                View Services
-              </Button>
-            </motion.div>
-          </motion.div>
+              <span>Design-minded engineering</span>
+            </div> */}
+          </div>
+
+          {/* Right: Illustrative UI transformation */}
+          <HeroShowcase />
         </div>
-    </div>
+      </div>
+    </section>
   );
 };

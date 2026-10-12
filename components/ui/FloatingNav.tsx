@@ -9,7 +9,6 @@ import {
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 import Image from "next/image";
-import { GetStartedButton } from "./GetStartedButton";
 
 export const FloatingNav = ({
   navItems,
@@ -19,7 +18,7 @@ export const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
-    icon?: JSX.Element;
+    icon?: React.JSX.Element;
   }[];
   className?: string;
   alwaysVisible?: boolean;
@@ -30,7 +29,7 @@ export const FloatingNav = ({
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (alwaysVisible) return;
-    
+
     if (typeof current === "number") {
       let direction = current! - scrollYProgress.getPrevious()!;
       if (direction < 0) {
@@ -59,25 +58,33 @@ export const FloatingNav = ({
         }}
         className={cn(
           "fixed top-0 inset-x-0 border-b border-border/50 bg-background/80 backdrop-blur-md z-[5000]",
-          className
+          className,
         )}
       >
         <div className="mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <Image
-                  src="/images/logos/cclogo-new.png"
-                  alt="Logo"
-                  width={40}
-                  height={40}
-                  className="h-10 w-auto bg-primary p-1 rounded-lg"
-                />
-                <p className="ml-4 text-lg font-bold font-heading">Chambers Consulting</p>
+              <Link
+                href="/#home"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex min-w-0 items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <div className="bg-gray-300/80 p-1 rounded-full">
+                  <Image
+                    src="/images/logos/cclogo-new.png"
+                    alt=""
+                    width={170}
+                    height={168}
+                    className="h-10 w-10 shrink-0 object-contain"
+                  />
+                </div>
+                <span className="font-heading text-base font-bold tracking-tight text-foreground sm:text-lg">
+                  Chambers Consulting
+                </span>
               </Link>
             </div>
 
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-6 mr-4">
               {navItems.map((navItem, idx) => (
                 <Link
                   key={`link-${idx}`}
@@ -87,7 +94,6 @@ export const FloatingNav = ({
                   {navItem.name}
                 </Link>
               ))}
-              <GetStartedButton />
             </nav>
 
             <button
@@ -131,13 +137,11 @@ export const FloatingNav = ({
                     href={navItem.link}
                     className="text-muted-foreground hover:text-foreground block px-3 py-2 rounded-md text-base font-medium transition-colors"
 
-                      
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {navItem.name}
                   </Link>
                 ))}
-                <GetStartedButton isMobile={true} />
               </div>
             </div>
           )}

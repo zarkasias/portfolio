@@ -8,8 +8,8 @@ interface ConvertUrlsParams {
   isLight?: boolean;
 }
 
-export function convertUrlsToLinks({ text, isLight = false }: ConvertUrlsParams): (string | JSX.Element)[] {
-  const result: (string | JSX.Element)[] = [];
+export function convertUrlsToLinks({ text, isLight = false }: ConvertUrlsParams): (string | React.JSX.Element)[] {
+  const result: (string | React.JSX.Element)[] = [];
   let lastIndex = 0;
   let match;
 
