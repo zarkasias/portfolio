@@ -8,7 +8,7 @@ export const Hero = () => {
     <section
       id="home"
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-24 pb-20 md:pt-30 md:pb-28"
+      className="relative pt-24 pb-12 md:pt-28 md:pb-12"
     >
       <div
         aria-hidden="true"
@@ -18,20 +18,20 @@ export const Hero = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col gap-16 lg:gap-20">
           <div className="w-full">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 texts-xs font-semibold uppercase tracking-widest text-primary">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="h-2 w-2 rounded-full bg-primary" />
               Front-End Design & Development
             </div>
 
             <h1
               id="hero-heading"
-              className="mb-6 font-heading text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl"
+              className="mb-4 font-heading text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl"
             >
               Your website deserves a{" "}
               <span className="text-primary">better front end.</span>
             </h1>
 
-            <p className="mb-9 text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <p className="mb-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
               We clean up outdated code and redesign existing interfaces to
               create websites and applications that look better, work better,
               and are easier to maintain.
@@ -55,14 +55,14 @@ export const Hero = () => {
               </Link>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-border pt-6 text-sm text-muted-foreground">
+            {/* <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-border pt-6 text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">27+ years</span>
               <span>of front-end UI experience</span>
               <span aria-hidden="true" className="hidden sm:inline">
                 ·
               </span>
               <span>Design-minded engineering</span>
-            </div>
+            </div> */}
           </div>
 
           {/* Right: Illustrative UI transformation */}

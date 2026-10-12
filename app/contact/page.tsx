@@ -8,10 +8,12 @@ import { Mail, Linkedin, MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Chambers Consulting | Front-End UI Cleanup",
-  description: "Get in touch to clean up and improve your existing website. We help small businesses build clearer, faster, more accessible front-end UIs.",
+  description:
+    "Get in touch to clean up and improve your existing website. We help small businesses build clearer, faster, more accessible front-end UIs.",
   openGraph: {
     title: "Contact Chambers Consulting | Front-End UI Cleanup",
-    description: "Get in touch to clean up and improve your existing website. We help small businesses build clearer, faster, more accessible front-end UIs.",
+    description:
+      "Get in touch to clean up and improve your existing website. We help small businesses build clearer, faster, more accessible front-end UIs.",
     images: [
       {
         url: "/images/logos/cclogo-new.png",
@@ -27,12 +29,13 @@ export default function ContactPage() {
     <PageLayout className="pt-24 md:w-[80%] mx-auto" showFooterBlurb={false}>
       {/* Hero Section */}
       <section className="text-center mb-12 md:mb-20 px-4">
-        <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+        <h1 className="text-2xl md:text-3xl md:text-4xl font-heading font-bold mb-4">
           Let&apos;s Work Together
         </h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-          Looking to improve your existing website? We specialize in cleaning up and refining
-          front-end UIs so your site is clearer, faster, and easier to use.
+        <p className="text-md md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          Looking to improve your existing website? We specialize in cleaning up
+          and refining front-end UIs so your site is clearer, faster, and easier
+          to use.
         </p>
       </section>
 
@@ -51,10 +54,12 @@ export default function ContactPage() {
                       <Mail className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-muted-foreground mb-1">Start a conversation</h3>
+                      <h3 className="text-lg font-semibold text-muted-foreground mb-1">
+                        Start a conversation
+                      </h3>
                       <a
                         href="mailto:david@chambers-consulting.dev"
-                        className="text-primary hover:text-primary/80 transition-colors"
+                        className="text-sm md:text-md text-primary hover:text-primary/80 transition-colors"
                       >
                         david@chambers-consulting.dev
                       </a>
@@ -72,8 +77,13 @@ export default function ContactPage() {
                       <MessageSquare className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col">
-                      <h3 className="text-lg font-semibold mb-1">General Inquiries</h3>
-                      <a href="mailto:info@chambers-consulting.dev" className="text-primary hover:text-primary/80 transition-colors">
+                      <h3 className="text-lg font-semibold mb-1">
+                        General Inquiries
+                      </h3>
+                      <a
+                        href="mailto:info@chambers-consulting.dev"
+                        className="text-sm md:text-md text-primary hover:text-primary/80 transition-colors"
+                      >
                         info@chambers-consulting.dev
                       </a>
                     </div>
@@ -93,7 +103,7 @@ export default function ContactPage() {
                         href="https://linkedin.com/in/davidmachambers"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary hover:text-primary/80 transition-colors break-all"
+                        className="text-sm md:text-md text-primary hover:text-primary/80 transition-colors break-all"
                       >
                         linkedin.com/in/davidmachambers
                       </a>
@@ -110,31 +120,12 @@ export default function ContactPage() {
               src={workspaceImg}
               alt="Workspace"
               fill
+              sizes="(min-width: 1423px) 472px, (min-width: 768px) calc(36vw - 40px), calc(90vw - 32px)"
               className="object-cover"
               priority
             />
           </div>
         </div>
-      </section>
-
-      <section className="mb-12 md:mb-20 px-4">
-        <Card className="border-border/50 shadow-sm hover:shadow-md transition-shadow">
-          <CardContent className="p-8">
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Get a Free Website Audit</h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Not sure where to start? We offer free website audits to help you understand what&apos;s working
-                and what could be improved in your current website.
-              </p>
-              <Link
-                href="/audit"
-                className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg transition-colors"
-              >
-                Request Free Audit
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
       </section>
     </PageLayout>
   );

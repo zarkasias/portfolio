@@ -8,46 +8,89 @@ const Footer = ({ showBlurb = true }: { showBlurb?: boolean }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-            <Image
-                  src="/images/logos/cclogo-new.png"
-                  alt="Logo"
-                  width={40}
-                  height={40}
-                  className="h-10 w-auto bg-primary p-1 rounded-lg"
-                />
-              <span className="text-lg font-heading font-bold">Chambers Consulting</span>
+              <Image
+                src="/images/logos/cclogo-new.png"
+                alt="Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto bg-gray-300/80 p-1 rounded-full"
+              />
+              <span className="text-lg font-heading font-bold">
+                Chambers Consulting
+              </span>
             </div>
             <p className="text-muted-foreground max-w-sm mb-6">
-              Specializing in Front-End UI Cleanup & Improvement for existing web applications. Making the web clearer, faster, and more accessible.
+              Specializing in Front-End UI Cleanup & Improvement for existing
+              web applications. Making the web clearer, faster, and more
+              accessible.
             </p>
             <div className="flex gap-4">
-              <a href="https://linkedin.com/in/davidmachambers" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
-              <a href="mailto:david@chambers-consulting.dev" className="text-muted-foreground hover:text-primary transition-colors"><Mail className="w-5 h-5" /></a>
+              <a
+                href="https://linkedin.com/in/davidmachambers"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:david@chambers-consulting.dev"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
           </div>
-          
-          <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-2 gap-8 md:gap-12">
-            <div>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="/about" className="hover:text-foreground transition-colors">About</a></li>
-                <li><a href="/services" className="hover:text-foreground transition-colors">Services</a></li>
-                <li><a href="/contact" className="hover:text-foreground transition-colors">Contact</a></li>
-              </ul>
-            </div>
 
-            <div>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><a href="/start-project" className="hover:text-foreground transition-colors">Start a Project</a></li>
-                <li><a href="/audit" className="hover:text-foreground transition-colors">Audit</a></li>
-                <li><a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
-                <li><a href="/terms-conditions" className="hover:text-foreground transition-colors">Terms of Service</a></li>
+          <div className="grid grid-cols-2 gap-8 md:col-span-2 md:gap-12">
+            <nav aria-label="Footer navigation">
+              <ul className="space-y-2 md:space-y-3 text-sm text-muted-foreground">
+                {[
+                  { name: "Approach", href: "/#approach" },
+                  { name: "Services", href: "/#services" },
+                  { name: "Process", href: "/#process" },
+                  { name: "Contact", href: "/contact" },
+                ].map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className="transition-colors hover:text-foreground"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
-            </div>
+            </nav>
+
+            <nav aria-label="Legal">
+              <ul className="space-y-2 md:space-y-3 text-sm text-muted-foreground">
+                <li>
+                  <a
+                    href="/privacy-policy"
+                    className="transition-colors hover:text-foreground"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/terms-conditions"
+                    className="transition-colors hover:text-foreground"
+                  >
+                    Terms of Service
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
-        
-        <div className="pt-4 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Chambers Consulting. All rights reserved.</p>
+
+        <div className="pt-4 border-t border-border/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-muted-foreground">
+          <p>
+            &copy; {new Date().getFullYear()} Chambers Consulting. All rights
+            reserved.
+          </p>
           <div className="flex items-center gap-2">
             <Code2 className="w-4 h-4" />
             <span>Built with clean code and purpose.</span>

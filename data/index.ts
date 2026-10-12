@@ -1,6 +1,7 @@
 export const navItems = [
-  { name: "About", link: "/about" },
-  { name: "Services", link: "/services" },
+  { name: "Approach", link: "/#approach" },
+  { name: "Services", link: "/#services" },
+  { name: "Process", link: "/#process" },
   { name: "Contact", link: "/contact" },
 ];
 
@@ -24,7 +25,8 @@ export const services = [
   {
     id: 1,
     title: "Visual Consistency",
-    description: "We audit and unify the spacing, typography, and color usage across your site, turning inconsistent, ad-hoc styles into a coherent design system your customers can trust.",
+    description:
+      "We audit and unify the spacing, typography, and color usage across your site, turning inconsistent, ad-hoc styles into a coherent design system your customers can trust.",
     icon: "Layout",
     features: [
       "Spacing & layout cleanup",
@@ -37,7 +39,8 @@ export const services = [
   {
     id: 2,
     title: "Responsive Triage",
-    description: "We fix broken layouts on phones and tablets so your existing site works flawlessly across every device, without rebuilding it from scratch.",
+    description:
+      "We fix broken layouts on phones and tablets so your existing site works flawlessly across every device, without rebuilding it from scratch.",
     icon: "Smartphone",
     features: [
       "Mobile layout fixes",
@@ -50,7 +53,8 @@ export const services = [
   {
     id: 3,
     title: "Accessibility (a11y)",
-    description: "We improve contrast, keyboard navigation, and screen reader support so your site is usable by everyone and helps you reach your full audience.",
+    description:
+      "We improve contrast, keyboard navigation, and screen reader support so your site is usable by everyone and helps you reach your full audience.",
     icon: "Eye",
     features: [
       "Color contrast improvements",
@@ -63,7 +67,8 @@ export const services = [
   {
     id: 4,
     title: "Performance Tuning",
-    description: "We reduce bundle sizes, optimize images, and improve Core Web Vitals so your existing site loads faster and feels snappier for your customers.",
+    description:
+      "We reduce bundle sizes, optimize images, and improve Core Web Vitals so your existing site loads faster and feels snappier for your customers.",
     icon: "Zap",
     features: [
       "Image & asset optimization",
@@ -76,7 +81,8 @@ export const services = [
   {
     id: 5,
     title: "Code Cleanup",
-    description: "We refactor oversized components, remove dead CSS, and introduce a clearer structure so your codebase is easier and cheaper to maintain over time.",
+    description:
+      "We refactor oversized components, remove dead CSS, and introduce a clearer structure so your codebase is easier and cheaper to maintain over time.",
     icon: "FileCode",
     features: [
       "Component refactoring",
@@ -89,7 +95,8 @@ export const services = [
   {
     id: 6,
     title: "Technical Consulting & Code Review",
-    description: "Not sure where the problems are? We review your existing front end and give you a clear, prioritized plan of high-impact improvements you can act on.",
+    description:
+      "Not sure where the problems are? We review your existing front end and give you a clear, prioritized plan of high-impact improvements you can act on.",
     icon: "MessageSquare",
     features: [
       "Front-end code reviews",
@@ -100,5 +107,3 @@ export const services = [
     ],
   },
 ];
-
-
