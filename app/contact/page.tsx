@@ -29,7 +29,7 @@ export default function ContactPage() {
     <PageLayout className="pt-24 md:w-[80%] mx-auto" showFooterBlurb={false}>
       {/* Hero Section */}
       <section className="text-center mb-12 md:mb-20 px-4">
-        <h1 className="text-2xl md:text-3xl md:text-4xl font-heading font-bold mb-4">
+        <h1 className="text-2xl md:text-4xl font-heading font-bold mb-4">
           Let&apos;s Work Together
         </h1>
         <p className="text-md md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
