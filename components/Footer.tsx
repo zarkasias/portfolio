@@ -19,10 +19,9 @@ const Footer = ({ showBlurb = true }: { showBlurb?: boolean }) => {
                 Chambers Consulting
               </span>
             </div>
-            <p className="text-muted-foreground max-w-sm mb-6">
-              Specializing in Front-End UI Cleanup & Improvement for existing
-              web applications. Making the web clearer, faster, and more
-              accessible.
+            <p className="mb-6 max-w-sm text-muted-foreground">
+              Helping businesses refresh outdated sites, improve usability, and
+              clean up the code behind the experience.
             </p>
             <div className="flex gap-4">
               <a
@@ -48,6 +47,7 @@ const Footer = ({ showBlurb = true }: { showBlurb?: boolean }) => {
                 {[
                   { name: "Approach", href: "/#approach" },
                   { name: "Services", href: "/#services" },
+                  { name: "Why Chambers", href: "/#why-chambers" },
                   { name: "Process", href: "/#process" },
                   { name: "Contact", href: "/contact" },
                 ].map((item) => (
