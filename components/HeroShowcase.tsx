@@ -103,8 +103,8 @@ export function HeroShowcase() {
       } else {
         // Start when the section reaches 80% of the viewport.
         // Finish when it reaches 15%, while its content is still visible.
-        const startPosition = viewportHeight * 0.85;
-        const travel = Math.max(viewportHeight * 0.95, bounds.height * 0.85);
+        const startPosition = viewportHeight * 0.55;
+        const travel = Math.max(viewportHeight * 1.4, bounds.height * 1.1);
 
         nextProgress = (startPosition - bounds.top) / travel;
       }
