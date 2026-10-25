@@ -1,13 +1,21 @@
+
+# General search engine crawlers
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /.env
+Disallow: /.env.*
+
+# Meta AI training crawler
+User-agent: meta-externalagent
+Disallow: /
+
+# Meta AI content fetcher
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
 
 # Sitemap
 Sitemap: https://chambers-consulting.dev/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 10
-
-# Disallow sensitive routes
-Disallow: /api/
-Disallow: /.env
-Disallow: /.env.* 
