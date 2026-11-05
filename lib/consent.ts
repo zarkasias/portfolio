@@ -1,4 +1,4 @@
-import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import { parseCookies, setCookie } from 'nookies';
 
 export type ConsentStatus = {
   analytics: boolean;
@@ -6,6 +6,8 @@ export type ConsentStatus = {
 };
 
 const CONSENT_COOKIE_NAME = 'cookie_consent';
+
+export const OPEN_COOKIE_SETTINGS_EVENT = 'open-cookie-settings';
 
 export function getConsentStatus(): ConsentStatus | null {
   if (typeof window === 'undefined') return null;
@@ -31,6 +33,8 @@ export function setConsentStatus(status: ConsentStatus): void {
   });
   
   updateGoogleConsent(status);
+
+  if (!status.analytics) clearAnalyticsCookies();
 }
 
 export function updateGoogleConsent(status: ConsentStatus): void {
@@ -60,49 +64,21 @@ export function hasGivenConsent(): boolean {
   return document.cookie.indexOf(CONSENT_COOKIE_NAME + '=') !== -1;
 }
 
-// Function to clear consent cookie for testing purposes
-export function clearConsentCookie(): void {
-  if (typeof window === 'undefined') return;
-  
-  try {
-    // Use nookies to properly destroy the cookie
-    destroyCookie(null, CONSENT_COOKIE_NAME);
-    
-    // Also try the direct cookie setting approach with various paths and domains
-    const domain = window.location.hostname;
-    const possiblePaths = ['/', '/app', ''];
-    const possibleDomains = [
-      domain,
-      `.${domain}`,
-      domain.split('.').slice(1).join('.'),
-      `.${domain.split('.').slice(1).join('.')}`,
-      ''
-    ];
-    
-    // Try all combinations of paths and domains to ensure cookie is cleared
-    possiblePaths.forEach(path => {
-      possibleDomains.forEach(cookieDomain => {
-        // Standard expiration approach
-        document.cookie = `${CONSENT_COOKIE_NAME}=; path=${path}; expires=Thu, 01 Jan 1970 00:00:00 GMT${cookieDomain ? `; domain=${cookieDomain}` : ''}`;
-        
-        // Max-age approach for some browsers
-        document.cookie = `${CONSENT_COOKIE_NAME}=; path=${path}; max-age=0${cookieDomain ? `; domain=${cookieDomain}` : ''}`;
+// Google Analytics sets its cookies on the parent domain, so expire them on
+// each level of the current hostname.
+function clearAnalyticsCookies(): void {
+  const parts = window.location.hostname.split('.');
+  const domains = [''];
+  for (let i = 0; i < parts.length - 1; i++) {
+    const domain = parts.slice(i).join('.');
+    domains.push(`; domain=${domain}`, `; domain=.${domain}`);
+  }
+
+  Object.keys(parseCookies())
+    .filter((name) => name === '_ga' || name.startsWith('_ga_'))
+    .forEach((name) => {
+      domains.forEach((domain) => {
+        document.cookie = `${name}=; path=/; max-age=0${domain}`;
       });
     });
-    
-    // Clear Google Analytics cookies as well
-    const gaCookies = ['_ga', '_gid', '_gat', '_ga_.*'];
-    gaCookies.forEach(cookie => {
-      const cookieName = cookie.includes('*') 
-        ? Object.keys(parseCookies()).find(name => new RegExp(cookie).test(name))
-        : cookie;
-      
-      if (cookieName) {
-        destroyCookie(null, cookieName);
-        document.cookie = `${cookieName}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-      }
-    });
-  } catch (error) {
-    console.error('Error clearing cookies:', error);
-  }
-} 
+}

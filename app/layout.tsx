@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://chambers-consulting.dev"),
+  metadataBase: new URL("https://www.chambers-consulting.dev"),
   title: "Chambers Consulting | Website Redesigns for Small Businesses",
   description:
     "I help small businesses modernize the websites they already have, with better design, mobile fixes, and faster pages, without starting over.",
@@ -63,20 +63,12 @@ export const metadata: Metadata = {
     title: "Chambers Consulting | Website Redesigns for Small Businesses",
     description:
       "I help small businesses modernize the websites they already have, with better design, mobile fixes, and faster pages, without starting over.",
-    images: [
-      {
-        url: "/images/logos/cclogo-new.png",
-        width: 32,
-        height: 32,
-      },
-    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Chambers Consulting | Website Redesigns for Small Businesses",
     description:
       "I help small businesses modernize the websites they already have, without starting over.",
-    images: ["/images/logos/cclogo-new.png"],
   },
 };
 

@@ -79,9 +79,8 @@ export default function PrivacyPolicy() {
           and general browser and device information.
         </p>
         <p className="mt-3">
-          This site doesn't use advertising cookies. To change your choice,
-          clear this site's cookies in your browser, and the banner will appear
-          again on your next visit.
+          This site doesn't use advertising cookies. You can change your choice
+          at any time using the Cookie settings link at the bottom of each page.
         </p>
 
         <h2 className={heading}>Who else handles this information</h2>

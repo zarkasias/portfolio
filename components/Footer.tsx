@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
+import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
 
 const Footer = ({ spaced = true }: { spaced?: boolean }) => {
   return (
@@ -49,7 +50,7 @@ const Footer = ({ spaced = true }: { spaced?: boolean }) => {
           </div>
 
           <nav aria-label="Legal">
-            <ul className="flex gap-6 text-sm text-muted-foreground">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
               <li>
                 <a
                   href="/privacy-policy"
@@ -63,8 +64,11 @@ const Footer = ({ spaced = true }: { spaced?: boolean }) => {
                   href="/terms-conditions"
                   className="underline-offset-4 hover:text-foreground hover:underline"
                 >
-                  Terms of Service
+                  Terms of Use
                 </a>
+              </li>
+              <li>
+                <CookieSettingsButton />
               </li>
             </ul>
           </nav>

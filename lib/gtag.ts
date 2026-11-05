@@ -48,9 +48,5 @@ declare global {
   interface Window {
     gtag: (...args: any[]) => void;
     dataLayer: any[];
-    // Utility functions for development purposes
-    checkConsentStatus: () => boolean;
-    clearConsent: () => void;
-    resetAllSiteData: () => void;
   }
 } 

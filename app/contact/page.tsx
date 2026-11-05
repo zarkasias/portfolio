@@ -11,13 +11,7 @@ export const metadata: Metadata = {
     title: "Contact Chambers Consulting",
     description:
       "Tell me what's bothering you about your website and get a reply within one business day.",
-    images: [
-      {
-        url: "/images/logos/cclogo-new.png",
-        width: 32,
-        height: 32,
-      },
-    ],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 

@@ -1,12 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { hasGivenConsent, setConsentStatus } from '@/lib/consent';
+import { useState, useEffect, useRef } from 'react';
+import {
+  getConsentStatus,
+  hasGivenConsent,
+  OPEN_COOKIE_SETTINGS_EVENT,
+  setConsentStatus,
+} from '@/lib/consent';
 import type { ConsentStatus } from '@/lib/consent';
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
   const [showCustomize, setShowCustomize] = useState(false);
+  const panel = useRef<HTMLDivElement>(null);
   const [consents, setConsents] = useState<ConsentStatus>({
     analytics: false,
     preferences: false
@@ -23,7 +29,24 @@ export default function CookieConsent() {
     setTimeout(() => {
       setShowBanner(!hasGivenConsent());
     }, 500);
+
+    const openSettings = () => {
+      const saved = getConsentStatus();
+      setConsents({
+        analytics: Boolean(saved?.analytics),
+        preferences: Boolean(saved?.preferences),
+      });
+      setShowCustomize(true);
+      setShowBanner(true);
+    };
+
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings);
+    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings);
   }, []);
+
+  useEffect(() => {
+    if (showBanner && showCustomize) panel.current?.focus();
+  }, [showBanner, showCustomize]);
   
   const acceptAll = () => {
     const consentStatus: ConsentStatus = {
@@ -64,7 +87,13 @@ export default function CookieConsent() {
   if (!showBanner) return null;
   
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-gray-900 border-t border-gray-800 p-4 z-50">
+    <div
+      ref={panel}
+      tabIndex={-1}
+      role="region"
+      aria-label="Cookie settings"
+      className="fixed bottom-0 left-0 w-full bg-gray-900 border-t border-gray-800 p-4 z-50 outline-none"
+    >
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="text-sm text-gray-300">
