@@ -9,10 +9,9 @@ export default function CookieConsent() {
   const [showCustomize, setShowCustomize] = useState(false);
   const [consents, setConsents] = useState<ConsentStatus>({
     analytics: false,
-    preferences: false,
-    marketing: false
+    preferences: false
   });
-  
+
   useEffect(() => {
     // Force immediate check when component mounts
     // This is simpler and more reliable
@@ -28,9 +27,8 @@ export default function CookieConsent() {
   
   const acceptAll = () => {
     const consentStatus: ConsentStatus = {
-      analytics: true, 
-      preferences: true,
-      marketing: true
+      analytics: true,
+      preferences: true
     };
     
     setConsentStatus(consentStatus);
@@ -40,8 +38,7 @@ export default function CookieConsent() {
   const acceptNecessary = () => {
     const consentStatus: ConsentStatus = {
       analytics: false,
-      preferences: false,
-      marketing: false
+      preferences: false
     };
     
     setConsentStatus(consentStatus);
@@ -71,8 +68,11 @@ export default function CookieConsent() {
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="text-sm text-gray-300">
-            <p>This website uses cookies to enhance your experience. By continuing to browse, you consent to our use of cookies.</p>
-            <p className="mt-1">We use cookies for analytics and to provide you with relevant content.</p>
+            <p>Analytics cookies stay off unless you accept them.</p>
+            <p className="mt-1">
+              Without cookies, Google Analytics may still receive limited visit data.{' '}
+              <a href="/privacy-policy" className="underline hover:text-white">Privacy Policy</a>
+            </p>
           </div>
           <div className="flex gap-3">
             <button
@@ -89,7 +89,7 @@ export default function CookieConsent() {
             </button>
             <button
               onClick={acceptAll}
-              className="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              className="px-4 py-2 text-sm bg-gray-700 text-white rounded hover:bg-gray-600 transition"
             >
               Accept All
             </button>
@@ -109,7 +109,7 @@ export default function CookieConsent() {
                   className="rounded text-blue-600 focus:ring-blue-600"
                 />
                 <label htmlFor="analytics-consent" className="text-sm text-gray-300">
-                  Analytics cookies help us understand how visitors interact with our website
+                  Analytics cookies show me how visitors use this site
                 </label>
               </div>
               <div className="flex items-center gap-2">
@@ -121,25 +121,13 @@ export default function CookieConsent() {
                   className="rounded text-blue-600 focus:ring-blue-600"
                 />
                 <label htmlFor="preferences-consent" className="text-sm text-gray-300">
-                  Preference cookies enable website functionality that personalizes your experience
-                </label>
-              </div>
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="marketing-consent"
-                  checked={consents.marketing}
-                  onChange={() => handleConsentChange('marketing')}
-                  className="rounded text-blue-600 focus:ring-blue-600"
-                />
-                <label htmlFor="marketing-consent" className="text-sm text-gray-300">
-                  Marketing cookies are used to track visitors across websites to display relevant advertisements
+                  Preference cookies remember choices you make on this site
                 </label>
               </div>
               <div className="flex justify-end mt-4">
                 <button
                   onClick={savePreferences}
-                  className="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                  className="px-4 py-2 text-sm bg-gray-700 text-white rounded hover:bg-gray-600 transition"
                 >
                   Save Preferences
                 </button>

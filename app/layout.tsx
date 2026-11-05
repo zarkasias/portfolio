@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 import RouteChangeTracker from "@/components/analytics/RouteChangeTracker";
@@ -8,25 +8,20 @@ import CookieConsent from "@/components/analytics/CookieConsent";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--f-inter",
   display: "swap",
 });
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--f-dm",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chambers-consulting.dev"),
-  title: "Chambers Consulting | Front-End UI Cleanup for Small Businesses",
+  title: "Chambers Consulting | Website Redesigns for Small Businesses",
   description:
-    "We help small businesses clean up and improve their existing websites. Clearer, faster, and more accessible front-end UIs, without a full rebuild.",
+    "I help small businesses modernize the websites they already have, with better design, mobile fixes, and faster pages, without starting over.",
   icons: {
     icon: [
       { url: "/favicon/favicon.ico" },
@@ -65,9 +60,9 @@ export const metadata: Metadata = {
   creator: "Chambers Consulting",
   openGraph: {
     type: "website",
-    title: "Chambers Consulting | Front-End UI Cleanup for Small Businesses",
+    title: "Chambers Consulting | Website Redesigns for Small Businesses",
     description:
-      "We help small businesses clean up and improve their existing websites. Clearer, faster, and more accessible front-end UIs, without a full rebuild.",
+      "I help small businesses modernize the websites they already have, with better design, mobile fixes, and faster pages, without starting over.",
     images: [
       {
         url: "/images/logos/cclogo-new.png",
@@ -78,9 +73,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Chambers Consulting | Front-End UI Cleanup for Small Businesses",
+    title: "Chambers Consulting | Website Redesigns for Small Businesses",
     description:
-      "We help small businesses clean up and improve their existing websites, without a full rebuild.",
+      "I help small businesses modernize the websites they already have, without starting over.",
     images: ["/images/logos/cclogo-new.png"],
   },
 };
@@ -94,12 +89,12 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className="scroll-smooth motion-reduce:scroll-auto"
+      className={`${inter.variable} ${dmSans.variable} scroll-smooth motion-reduce:scroll-auto`}
       suppressHydrationWarning
     >
       <head></head>
       <body
-        className={`${inter.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans bg-background text-foreground`}
+        className="font-sans bg-background text-foreground"
         suppressHydrationWarning
       >
         <GoogleAnalytics />

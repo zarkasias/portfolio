@@ -6,19 +6,32 @@ import { ReactNode } from "react";
 interface PageLayoutProps {
   children: ReactNode;
   className?: string;
-  showFooterBlurb?: boolean;
+  /** Sections manage their own width and run edge to edge. */
+  fullWidth?: boolean;
 }
 
 export default function PageLayout({
   children,
   className = "",
-  showFooterBlurb = true,
+  fullWidth = false,
 }: PageLayoutProps) {
   return (
-    <main className="min-h-screen w-full overflow-x-clip">
-      <FloatingNav navItems={navItems} alwaysVisible={true} />
-      <div className={`w-[90%] max-w-7xl mx-auto ${className}`}>{children}</div>
-      <Footer showBlurb={showFooterBlurb} />
-    </main>
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[6000] focus:rounded-lg focus:bg-cta focus:px-4 focus:py-2 focus:font-bold focus:text-cta-foreground"
+      >
+        Skip to main content
+      </a>
+      <FloatingNav navItems={navItems} />
+      <main id="main" className="min-h-screen w-full overflow-x-clip">
+        {fullWidth ? (
+          children
+        ) : (
+          <div className={`page-width ${className}`}>{children}</div>
+        )}
+      </main>
+      <Footer spaced={!fullWidth} />
+    </>
   );
 }

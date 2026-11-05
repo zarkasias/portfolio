@@ -1,12 +1,8 @@
 export const navItems = [
-  { name: "Approach", link: "/#approach" },
-  { name: "Services", link: "/#services" },
-  {
-    name: "Why Chambers",
-    link: "/#why-chambers",
-  },
-  { name: "Process", link: "/#process" },
-  { name: "Contact", link: "/contact" },
+  { name: "What I fix", link: "/#services" },
+  { name: "About", link: "/#about" },
+  { name: "How it works", link: "/#process" },
+  { name: "Contact", link: "/#contact", isCta: true },
 ];
 
 export const socialMedia = [

@@ -8,7 +8,7 @@ export const metadata = {
 
 const TermsAndConditions: React.FC = () => {
   return (
-    <PageLayout className="pt-24 md:w-[80%] mx-auto" showFooterBlurb={false}>
+    <PageLayout className="pt-24 md:w-[80%] mx-auto">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl md:text-4xl font-heading font-bold mb-8">Terms and Conditions</h1>
         

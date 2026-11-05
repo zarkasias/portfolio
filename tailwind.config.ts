@@ -29,7 +29,6 @@ const config = {
       fontFamily: {
         sans: ['var(--font-sans)', 'sans-serif'],
         heading: ['var(--font-heading)', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
       },
       colors: {
         black: {
@@ -54,6 +53,11 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        hero: "hsl(var(--hero))",
+        cta: {
+          DEFAULT: "hsl(var(--cta))",
+          foreground: "hsl(var(--cta-foreground))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

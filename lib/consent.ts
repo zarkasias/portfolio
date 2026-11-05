@@ -3,7 +3,6 @@ import { parseCookies, setCookie, destroyCookie } from 'nookies';
 export type ConsentStatus = {
   analytics: boolean;
   preferences: boolean;
-  marketing: boolean;
 };
 
 const CONSENT_COOKIE_NAME = 'cookie_consent';
@@ -40,10 +39,10 @@ export function updateGoogleConsent(status: ConsentStatus): void {
       // Behavioral analytics consent signal
       'analytics_storage': status.analytics ? 'granted' : 'denied',
       
-      // Advertising consent signals
-      'ad_storage': status.marketing ? 'granted' : 'denied',
-      'ad_user_data': status.marketing ? 'granted' : 'denied',
-      'ad_personalization': status.marketing ? 'granted' : 'denied',
+      // Advertising is not used, so these stay denied even for older cookies
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
       
       // Other storage settings
       'functionality_storage': status.preferences ? 'granted' : 'denied',
