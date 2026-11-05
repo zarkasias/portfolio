@@ -1,152 +1,104 @@
 "use client";
-import React, { useState } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
-import { cn } from "@/utils/cn";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export const FloatingNav = ({
   navItems,
-  className,
-  alwaysVisible = false,
 }: {
-  navItems: {
-    name: string;
-    link: string;
-    icon?: React.JSX.Element;
-  }[];
-  className?: string;
-  alwaysVisible?: boolean;
+  navItems: { name: string; link: string; isCta?: boolean }[];
 }) => {
-  const { scrollYProgress } = useScroll();
-  const [visible, setVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (alwaysVisible) return;
-
-    if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
-      if (direction < 0) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
-    }
-  });
-
-  const isVisible = alwaysVisible ? true : visible;
-
   return (
-    <AnimatePresence mode="wait">
-      <motion.header
-        initial={{
-          opacity: 1,
-          y: 0,
-        }}
-        animate={{
-          y: isVisible ? 0 : -100,
-          opacity: isVisible ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.2,
-        }}
-        className={cn(
-          "fixed top-0 inset-x-0 border-b border-border/50 bg-background/80 backdrop-blur-md z-[5000]",
-          className,
-        )}
-      >
-        <div className="mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
+    <header className="fixed inset-x-0 top-0 z-[5000] border-b border-border bg-background">
+      <div className="page-width">
+        <div className="flex h-16 items-center justify-between">
+          <Link
+            href="/#home"
+            onClick={() => setIsMenuOpen(false)}
+            className="flex min-w-0 items-center gap-3 font-heading text-lg font-semibold text-foreground"
+          >
+            <span className="shrink-0 rounded-full bg-gray-300/80 p-1">
+              <Image
+                src="/images/logos/cclogo-new.png"
+                alt=""
+                width={170}
+                height={168}
+                sizes="40px"
+                priority
+                className="h-10 w-10 object-contain"
+              />
+            </span>
+            Chambers Consulting
+          </Link>
+
+          <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
+            {navItems.map((item) => (
               <Link
-                href="/#home"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex min-w-0 items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                key={item.link}
+                href={item.link}
+                className={
+                  item.isCta
+                    ? "btn-cta !min-h-10 !px-4 !py-2"
+                    : "font-bold text-foreground underline-offset-4 hover:underline"
+                }
               >
-                <div className="bg-gray-300/80 p-1 rounded-full">
-                  <Image
-                    src="/images/logos/cclogo-new.png"
-                    alt=""
-                    width={170}
-                    height={168}
-                    className="h-10 w-10 shrink-0 object-contain"
-                  />
-                </div>
-                <span className="font-heading text-base font-bold tracking-tight text-foreground sm:text-lg">
-                  Chambers Consulting
-                </span>
+                {item.name}
               </Link>
-            </div>
+            ))}
+          </nav>
 
-            <nav className="hidden md:flex items-center space-x-6 mr-4">
-              {navItems.map((navItem, idx) => (
-                <Link
-                  key={`link-${idx}`}
-                  href={navItem.link}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {navItem.name}
-                </Link>
-              ))}
-            </nav>
-
-            <button
-              type="button"
-              className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background focus:ring-primary"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+          >
+            <span className="sr-only">
+              {isMenuOpen ? "Close main menu" : "Open main menu"}
+            </span>
+            <svg
+              aria-hidden="true"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
-
-          {isMenuOpen && (
-            <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                {navItems.map((navItem, idx) => (
-                  <Link
-                    key={`mobile-link-${idx}`}
-                    href={navItem.link}
-                    className="text-muted-foreground hover:text-foreground block px-3 py-2 rounded-md text-base font-medium transition-colors"
-
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {navItem.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={
+                  isMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
+              />
+            </svg>
+          </button>
         </div>
-      </motion.header>
-    </AnimatePresence>
+
+        {isMenuOpen && (
+          <nav aria-label="Mobile" className="space-y-1 pb-4 md:hidden">
+            {navItems.map((item) => (
+              <Link
+                key={item.link}
+                href={item.link}
+                onClick={() => setIsMenuOpen(false)}
+                className={
+                  item.isCta
+                    ? "btn-cta mt-2 w-full"
+                    : "block rounded-lg py-2.5 text-lg font-bold text-foreground"
+                }
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+        )}
+      </div>
+    </header>
   );
 };

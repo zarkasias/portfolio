@@ -1,100 +1,77 @@
 import Image from "next/image";
-import { Code2, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
+import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
 
-const Footer = ({ showBlurb = true }: { showBlurb?: boolean }) => {
+const Footer = ({ spaced = true }: { spaced?: boolean }) => {
   return (
-    <footer className="bg-secondary/50 border-t border-border mt-24 py-12">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-4">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <Image
-                src="/images/logos/cclogo-new.png"
-                alt="Logo"
-                width={40}
-                height={40}
-                className="h-10 w-auto bg-gray-300/80 p-1 rounded-full"
-              />
-              <span className="text-lg font-heading font-bold">
-                Chambers Consulting
-              </span>
-            </div>
-            <p className="mb-6 max-w-sm text-muted-foreground">
-              Helping businesses refresh outdated sites, improve usability, and
-              clean up the code behind the experience.
+    <footer className={`${spaced ? "mt-24 " : ""}border-t border-border py-10`}>
+      <div className="page-width flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div>
+          <div className="flex items-center gap-2">
+            <Image
+              src="/images/logos/cclogo-new.png"
+              alt=""
+              width={40}
+              height={40}
+              className="h-10 w-auto rounded-full bg-gray-300/80 p-1"
+            />
+            <p className="font-heading text-lg font-semibold">
+              Chambers Consulting
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://linkedin.com/in/davidmachambers"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:david@chambers-consulting.dev"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
           </div>
-
-          <div className="grid grid-cols-2 gap-8 md:col-span-2 md:gap-12">
-            <nav aria-label="Footer navigation">
-              <ul className="space-y-2 md:space-y-3 text-sm text-muted-foreground">
-                {[
-                  { name: "Approach", href: "/#approach" },
-                  { name: "Services", href: "/#services" },
-                  { name: "Why Chambers", href: "/#why-chambers" },
-                  { name: "Process", href: "/#process" },
-                  { name: "Contact", href: "/contact" },
-                ].map((item) => (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      className="transition-colors hover:text-foreground"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <nav aria-label="Legal">
-              <ul className="space-y-2 md:space-y-3 text-sm text-muted-foreground">
-                <li>
-                  <a
-                    href="/privacy-policy"
-                    className="transition-colors hover:text-foreground"
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/terms-conditions"
-                    className="transition-colors hover:text-foreground"
-                  >
-                    Terms of Service
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-        <div className="pt-4 border-t border-border/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-muted-foreground">
-          <p>
+          <p className="mt-2 max-w-md text-muted-foreground">
+            Helping small businesses improve the websites they already have.
+            Based in Northern Virginia, working with businesses anywhere.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Chambers Consulting. All rights
             reserved.
           </p>
-          <div className="flex items-center gap-2">
-            <Code2 className="w-4 h-4" />
-            <span>Built with clean code and purpose.</span>
+        </div>
+
+        <div className="flex flex-col gap-4 md:items-end">
+          <div className="flex gap-4">
+            <a
+              href="https://linkedin.com/in/davidmachambers"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="David Chambers on LinkedIn"
+              className="p-1 text-foreground transition-colors hover:text-primary"
+            >
+              <Linkedin aria-hidden="true" className="h-5 w-5" />
+            </a>
+            <a
+              href="mailto:david@chambers-consulting.dev"
+              aria-label="Email David Chambers"
+              className="p-1 text-foreground transition-colors hover:text-primary"
+            >
+              <Mail aria-hidden="true" className="h-5 w-5" />
+            </a>
           </div>
+
+          <nav aria-label="Legal">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              <li>
+                <a
+                  href="/privacy-policy"
+                  className="underline-offset-4 hover:text-foreground hover:underline"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms-conditions"
+                  className="underline-offset-4 hover:text-foreground hover:underline"
+                >
+                  Terms of Use
+                </a>
+              </li>
+              <li>
+                <CookieSettingsButton />
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>

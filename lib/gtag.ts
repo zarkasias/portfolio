@@ -21,9 +21,9 @@ export const pageview = (url: string) => {
       // Explicitly set consent parameters to ensure proper tracking
       'consent': {
         'analytics_storage': 'granted',
-        'ad_storage': consentStatus.marketing ? 'granted' : 'denied',
-        'ad_user_data': consentStatus.marketing ? 'granted' : 'denied',
-        'ad_personalization': consentStatus.marketing ? 'granted' : 'denied'
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
       }
     });
   }
@@ -48,9 +48,5 @@ declare global {
   interface Window {
     gtag: (...args: any[]) => void;
     dataLayer: any[];
-    // Utility functions for development purposes
-    checkConsentStatus: () => boolean;
-    clearConsent: () => void;
-    resetAllSiteData: () => void;
   }
 } 

@@ -18,4 +18,4 @@ User-agent: FacebookBot
 Disallow: /
 
 # Sitemap
-Sitemap: https://chambers-consulting.dev/sitemap.xml
+Sitemap: https://www.chambers-consulting.dev/sitemap.xml

@@ -21,46 +21,36 @@ export function Process() {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="scroll-mt-24 py-16 md:py-24"
+      className="scroll-mt-16 py-16 md:py-24"
     >
-      <div className="container mx-auto px-6">
-        <div className="mb-12">
-          <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-primary">
-            The Process
-          </span>
+      <div className="page-width">
+        <h2
+          id="process-heading"
+          className="font-heading text-4xl font-semibold leading-[1.05] md:text-5xl"
+        >
+          Simple from start to finish.
+        </h2>
 
-          <h2
-            id="process-heading"
-            className="font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl"
-          >
-            Simple from start to finish.
-          </h2>
-
-          <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-            No complicated process. Just a clear path to a better site.
-          </p>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-3 md:gap-10">
+        <ol className="mt-10 grid gap-8 md:mt-14 md:grid-cols-3 md:gap-10">
           {steps.map((step, index) => (
-            <div key={step.title} className="border-t border-border pt-6">
+            <li key={step.title} className="border-t-2 border-foreground pt-5">
               <span
                 aria-hidden="true"
-                className="font-heading text-4xl font-semibold tracking-tight text-primary/40"
+                className="font-heading text-6xl font-semibold leading-none text-primary"
               >
-                {String(index + 1).padStart(2, "0")}
+                {index + 1}
               </span>
 
-              <h3 className="mt-5 font-heading text-xl font-semibold text-foreground">
+              <h3 className="mt-4 font-sans text-xl font-bold tracking-normal">
                 {step.title}
               </h3>
 
-              <p className="mt-3 max-w-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 max-w-sm text-lg leading-relaxed text-muted-foreground">
                 {step.description}
               </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
