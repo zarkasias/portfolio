@@ -19,6 +19,15 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   reactStrictMode: true,
+  async redirects() {
+    return [
+      { source: '/about', destination: '/', permanent: true },
+      { source: '/services', destination: '/#services', permanent: true },
+      { source: '/start-project', destination: '/contact', permanent: true },
+      { source: '/audit', destination: '/contact', permanent: true },
+      { source: '/audit/report', destination: '/', permanent: true },
+    ]
+  },
 }
 
 module.exports = nextConfig 
