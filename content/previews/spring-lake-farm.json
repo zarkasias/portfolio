@@ -1,0 +1,32 @@
+{
+  "slug": "spring-lake-farm",
+  "token": "f81f3568e2b05c8e",
+  "businessName": "Spring Lake Farm HOA",
+  "siteUrl": "http://www.springlakefarm.org/",
+  "preparedOn": "2026-11-12",
+  "mockupUrl": "https://slf-redesign.vercel.app/",
+  "findings": [
+    { "title": "Browsers mark the site \"Not Secure\"", "detail": "The site only works over plain http, so browsers warn visitors, which is especially off-putting on a site that links to dues payments." },
+    { "title": "The homepage is one long block of text", "detail": "It has a single heading (\"Come and Visit\"), so residents have to read everything to find what they came for." },
+    { "title": "Common tasks are hidden or hard to find", "detail": "Payments, documents and newsletters are only in the top menu, and architectural review and the pavilion reservation aren't in the menu at all." },
+    { "title": "\"Upcoming Events\" is out of date", "detail": "It still shows the 2024 annual meeting minutes, as a Word file download that's awkward to open on a phone." },
+    { "title": "Photos are small and unlabeled", "detail": "The entrance photo is only 329×226 pixels, so it looks blurry on today's screens, and none of the images have descriptions for screen readers." }
+  ],
+  "fixes": [
+    "A clear \"common tasks\" row: payments, documents & forms, home projects, contact the board",
+    "News and meeting records in one place, kept current",
+    "Works well on phones",
+    "A secure (https) site with descriptive image labels",
+    "A large, sharp neighborhood photo"
+  ],
+  "images": {
+    "beforeDesktop": "/previews/spring-lake-farm/before-desktop.png",
+    "beforePhone": "/previews/spring-lake-farm/before-phone.png",
+    "afterDesktop": "/previews/spring-lake-farm/after-desktop.png",
+    "afterPhone": "/previews/spring-lake-farm/after-phone.png"
+  },
+  "imageAlt": {
+    "before": "Current Spring Lake Farm HOA homepage: a large entrance-sign banner, a long column of text, and small photos low on the page",
+    "after": "Redesigned Spring Lake Farm HOA homepage: a headline with a neighborhood photo, a row of four common tasks, and a news section"
+  }
+}
