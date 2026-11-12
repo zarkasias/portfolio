@@ -77,7 +77,10 @@ export default async function PreviewPage({
           <ul className="mt-6 space-y-3 text-lg">
             {preview.fixes.map((fix) => (
               <li key={fix} className="flex items-start gap-3">
-                <Check aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <Check
+                  aria-hidden="true"
+                  className="mt-1 h-5 w-5 shrink-0 text-primary"
+                />
                 {fix}
               </li>
             ))}
@@ -106,7 +109,7 @@ export default async function PreviewPage({
             Or use the contact form
           </a>
         </div>
-        {preview.mockupUrl && (
+        {/* {preview.mockupUrl && (
           <p className="mt-8">
             <a
               href={preview.mockupUrl}
@@ -117,7 +120,7 @@ export default async function PreviewPage({
               Open the full redesign
             </a>
           </p>
-        )}
+        )} */}
       </section>
     </PageLayout>
   );
