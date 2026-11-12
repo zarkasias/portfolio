@@ -1,0 +1,24 @@
+{
+  "slug": "example",
+  "token": "510430152e143c37",
+  "businessName": "Example Bakery",
+  "siteUrl": "https://example.com/",
+  "preparedOn": "2026-11-12",
+  "mockupUrl": "https://example.com/mockups/example-bakery",
+  "findings": [
+    { "title": "Phone number isn't tappable", "detail": "On a phone, customers have to copy your number by hand, so some of them give up instead of calling." },
+    { "title": "Opening hours are hard to find", "detail": "They sit at the bottom of the page in small grey text, so people can't tell if you're open." },
+    { "title": "Menu is a PDF", "detail": "PDFs are slow and awkward on phones, which means fewer people see what you sell." }
+  ],
+  "fixes": ["Every phone number tappable", "Opening hours right at the top", "A menu that reads well on phones", "Faster on phones"],
+  "images": {
+    "beforeDesktop": "/previews/example/before-desktop.png",
+    "beforePhone": "/previews/example/before-phone.png",
+    "afterDesktop": "/previews/example/after-desktop.png",
+    "afterPhone": "/previews/example/after-phone.png"
+  },
+  "imageAlt": {
+    "before": "Current homepage of Example Bakery (placeholder image)",
+    "after": "Redesigned homepage of Example Bakery (placeholder image)"
+  }
+}

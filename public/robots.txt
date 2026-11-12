@@ -3,6 +3,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /preview/
 Disallow: /.env
 Disallow: /.env.*
 
