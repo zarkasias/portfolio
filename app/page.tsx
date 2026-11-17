@@ -6,12 +6,14 @@ import { Process } from "@/components/Process";
 import { ContactCta } from "@/components/ContactCta";
 import { Pricing } from "@/components/Pricing";
 import { Faq } from "@/components/Faq";
+import { Checkup } from "@/components/Checkup";
 
 export default function Home() {
   return (
     <PageLayout fullWidth>
       <Hero />
       <WhatIFix />
+      <Checkup />
       <Process />
       <Pricing />
       <About />

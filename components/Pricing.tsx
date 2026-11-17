@@ -117,7 +117,7 @@ export function Pricing() {
               and a simple report on visits and calls.
             </p>
           </div>
-          <a href="#contact" className="btn-cta w-full md:w-auto">
+          <a href="#checkup" className="btn-cta w-full md:w-auto">
             Get a free site checkup
           </a>
         </div>
