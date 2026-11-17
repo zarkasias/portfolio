@@ -1,4 +1,5 @@
 import { HeroVisual } from "./HeroVisual";
+import { bookingLink } from "@/data";
 
 export const Hero = () => {
   return (
@@ -23,9 +24,14 @@ export const Hero = () => {
             book, or get in touch.
           </p>
 
-          <a href="#contact" className="btn-cta mt-8 w-full sm:w-auto">
-            Tell me about your site
-          </a>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#contact" className="btn-cta w-full sm:w-auto">
+              Tell me about your site
+            </a>
+            <a href={bookingLink.href} className="btn-secondary w-full sm:w-auto">
+              {bookingLink.label}
+            </a>
+          </div>
 
           <ul className="mt-8 space-y-1 text-muted-foreground">
             <li>I work with your existing site.</li>
