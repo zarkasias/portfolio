@@ -8,7 +8,7 @@ const steps = [
   },
   {
     title: "A fixed-price plan",
-    when: "A 15-minute call",
+    when: "A short call",
     cost: "Free",
     description:
       "We agree on what's worth fixing. I send a one-page proposal with the price and start date within a day. A 50% deposit books your spot.",

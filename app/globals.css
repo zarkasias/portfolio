@@ -130,13 +130,8 @@
     @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-cta px-6 py-3 font-bold text-cta-foreground transition-colors hover:bg-cta/85;
   }
 
-  .btn-secondary {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 border-foreground bg-transparent px-6 py-3 font-bold text-foreground transition-colors hover:bg-foreground/5;
-  }
-
   /* The white ring and cobalt outline stay visible on light and dark sections. */
-  .btn-cta:focus-visible,
-  .btn-secondary:focus-visible {
+  .btn-cta:focus-visible {
     outline: 3px solid hsl(var(--primary));
     outline-offset: 2px;
     box-shadow: 0 0 0 2px #fff;

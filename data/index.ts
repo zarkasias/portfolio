@@ -3,12 +3,6 @@ export const contactPhone = {
   href: "tel:+14086858012",
 };
 
-// Point href at a Calendly or Cal.com link once one exists.
-export const bookingLink = {
-  label: "Book a 15-minute call",
-  href: "/#contact",
-};
-
 export const navItems = [
   { name: "What I fix", link: "/#services" },
   { name: "About", link: "/#about" },
