@@ -50,8 +50,8 @@ export function Checkup() {
             Get a free site checkup.
           </h2>
           <p className="mt-6 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
-            Within 2 business days, I'll send you a short video or report on
-            what's holding your site back and what I'd fix first. No call, no
+            Within 2 business days, I&apos;ll send you a short video or report on
+            what&apos;s holding your site back and what I&apos;d fix first. No call, no
             obligation.
           </p>
         </div>
@@ -62,7 +62,7 @@ export function Checkup() {
             className="rounded-lg border border-border bg-card p-6 md:p-8"
           >
             <h3 className="font-heading text-xl font-semibold text-foreground">
-              Thanks, I'm on it.
+              Thanks, I&apos;m on it.
             </h3>
             <p className="mt-3 leading-relaxed text-foreground">
               Your checkup will arrive by email within 2 business days.

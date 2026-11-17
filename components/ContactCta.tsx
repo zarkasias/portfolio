@@ -14,7 +14,7 @@ export function ContactCta() {
             id="contact-cta-heading"
             className="font-heading text-4xl font-semibold leading-[1.1] [text-wrap:balance] md:text-5xl"
           >
-            Have a site that isn't working for you?
+            Have a site that isn&apos;t working for you?
           </h2>
 
           <p className="mt-6 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">

@@ -59,8 +59,8 @@ export function Pricing() {
         </h2>
 
         <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
-          You'll know the full cost up front. Half to start, half when your
-          updated site goes live, and you own everything when it's done.
+          You&apos;ll know the full cost up front. Half to start, half when your
+          updated site goes live, and you own everything when it&apos;s done.
         </p>
 
         <ul className="mt-10 grid gap-6 md:mt-14 lg:grid-cols-3">

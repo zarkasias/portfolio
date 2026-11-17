@@ -20,7 +20,7 @@ export function ConceptRedesigns() {
         </h2>
         <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
           Concept redesigns of real Northern Virginia businesses, shared with
-          the owners' permission. These are proposals, not client projects.
+          the owners&apos; permission. These are proposals, not client projects.
         </p>
 
         <ul className="mt-10 space-y-16 md:mt-14">

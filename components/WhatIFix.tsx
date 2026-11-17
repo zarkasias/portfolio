@@ -56,7 +56,7 @@ export function WhatIFix() {
             href="#contact"
             className="font-bold text-primary underline underline-offset-4 hover:text-foreground"
           >
-            Tell me what's bothering you.
+            Tell me what&apos;s bothering you.
           </a>
         </p>
       </div>

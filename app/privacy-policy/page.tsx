@@ -25,8 +25,8 @@ export default function PrivacyPolicy() {
 
         <p className="mt-8">
           Chambers Consulting is run by David Chambers in Northern Virginia.
-          This policy explains what information this website collects, how it's
-          used, and the choices you have. In this policy, "I" and "me" refer to
+          This policy explains what information this website collects, how it&apos;s
+          used, and the choices you have. In this policy, &quot;I&quot; and &quot;me&quot; refer to
           Chambers Consulting.
         </p>
 
@@ -37,9 +37,9 @@ export default function PrivacyPolicy() {
           directly, I receive your email address and whatever you include.
         </p>
         <p className="mt-3">
-          I use this information to reply to you and to discuss any work you've
+          I use this information to reply to you and to discuss any work you&apos;ve
           asked about. I keep messages for as long as I need them for that
-          purpose and for my business records. Please don't send passwords or
+          purpose and for my business records. Please don&apos;t send passwords or
           other sensitive information through the form.
         </p>
 
@@ -61,31 +61,31 @@ export default function PrivacyPolicy() {
           <li>
             <strong>Your cookie choice:</strong> a cookie named{" "}
             <code>cookie_consent</code> remembers your choice for one year. It
-            doesn't identify you.
+            doesn&apos;t identify you.
           </li>
           <li>
             <strong>Analytics cookies:</strong> Google Analytics cookies, such
             as <code>_ga</code>, are set only if you accept them.
           </li>
           <li>
-            <strong>Preference cookies:</strong> this site doesn't currently
-            use these for any feature of its own. The banner's preference
+            <strong>Preference cookies:</strong> this site doesn&apos;t currently
+            use these for any feature of its own. The banner&apos;s preference
             setting is passed to Google as part of your consent choice.
           </li>
         </ul>
         <p className="mt-3">
-          If you don't accept analytics cookies, Google Analytics may still
+          If you don&apos;t accept analytics cookies, Google Analytics may still
           receive limited visit data without cookies, such as the page visited
           and general browser and device information.
         </p>
         <p className="mt-3">
-          This site doesn't use advertising cookies. You can change your choice
+          This site doesn&apos;t use advertising cookies. You can change your choice
           at any time using the Cookie settings link at the bottom of each page.
         </p>
 
         <h2 className={heading}>Who else handles this information</h2>
         <p>
-          I don't sell your personal information. I use these service providers
+          I don&apos;t sell your personal information. I use these service providers
           to run the site:
         </p>
         <ul className={list}>
@@ -109,7 +109,7 @@ export default function PrivacyPolicy() {
         <p>
           You can ask me what information I hold about you from your messages,
           or ask me to correct or delete it, by emailing me. Depending on where
-          you live, the law may give you additional privacy rights. I'll respond
+          you live, the law may give you additional privacy rights. I&apos;ll respond
           to requests as the applicable law requires.
         </p>
 
@@ -122,14 +122,14 @@ export default function PrivacyPolicy() {
 
         <h2 className={heading}>Children</h2>
         <p>
-          This site is intended for businesses and isn't directed at children
+          This site is intended for businesses and isn&apos;t directed at children
           under 13. If you believe a child has sent me personal information,
-          please contact me and I'll delete it.
+          please contact me and I&apos;ll delete it.
         </p>
 
         <h2 className={heading}>Changes to this policy</h2>
         <p>
-          If I change this policy, I'll post the new version here and update the
+          If I change this policy, I&apos;ll post the new version here and update the
           date at the top.
         </p>
 
