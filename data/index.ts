@@ -7,6 +7,7 @@ export const navItems = [
   { name: "What I fix", link: "/#services" },
   { name: "About", link: "/#about" },
   { name: "How it works", link: "/#process" },
+  { name: "Pricing", link: "/#pricing" },
   { name: "Contact", link: "/#contact", isCta: true },
 ];
 

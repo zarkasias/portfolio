@@ -4,14 +4,16 @@ import { WhatIFix } from "@/components/WhatIFix";
 import { About } from "@/components/About";
 import { Process } from "@/components/Process";
 import { ContactCta } from "@/components/ContactCta";
+import { Pricing } from "@/components/Pricing";
 
 export default function Home() {
   return (
     <PageLayout fullWidth>
       <Hero />
       <WhatIFix />
-      <About />
       <Process />
+      <Pricing />
+      <About />
       <ContactCta />
     </PageLayout>
   );

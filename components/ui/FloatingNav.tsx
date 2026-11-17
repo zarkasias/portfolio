@@ -20,7 +20,7 @@ export const FloatingNav = ({
           <Link
             href="/#home"
             onClick={() => setIsMenuOpen(false)}
-            className="flex min-w-0 items-center gap-3 font-heading text-lg font-semibold text-foreground"
+            className="flex min-w-0 items-center gap-3 whitespace-nowrap font-heading text-lg font-semibold text-foreground"
           >
             <span className="shrink-0 rounded-full bg-gray-300/80 p-1">
               <Image
@@ -36,14 +36,13 @@ export const FloatingNav = ({
             Chambers Consulting
           </Link>
 
-          <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
+          <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
             <a
               href={contactPhone.href}
               className="inline-flex items-center gap-2 whitespace-nowrap font-bold text-foreground underline-offset-4 hover:underline"
             >
               <Phone aria-hidden="true" className="h-4 w-4" />
-              <span className="hidden lg:inline">{contactPhone.display}</span>
-              <span className="sr-only lg:hidden">Call {contactPhone.display}</span>
+              {contactPhone.display}
             </a>
             {navItems.map((item) => (
               <Link
@@ -60,7 +59,7 @@ export const FloatingNav = ({
             ))}
           </nav>
 
-          <div className="flex items-center gap-1 md:hidden">
+          <div className="flex items-center gap-1 lg:hidden">
             <a
               href={contactPhone.href}
               className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary"
@@ -100,7 +99,7 @@ export const FloatingNav = ({
         </div>
 
         {isMenuOpen && (
-          <nav aria-label="Mobile" className="space-y-1 pb-4 md:hidden">
+          <nav aria-label="Mobile" className="space-y-1 pb-4 lg:hidden">
             {navItems.map((item) => (
               <Link
                 key={item.link}
