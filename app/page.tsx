@@ -7,6 +7,7 @@ import { ContactCta } from "@/components/ContactCta";
 import { Pricing } from "@/components/Pricing";
 import { Faq } from "@/components/Faq";
 import { Checkup } from "@/components/Checkup";
+import { ConceptRedesigns } from "@/components/ConceptRedesigns";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <WhatIFix />
       <Checkup />
+      <ConceptRedesigns />
       <Process />
       <Pricing />
       <About />
