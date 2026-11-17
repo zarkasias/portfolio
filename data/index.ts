@@ -1,3 +1,8 @@
+export const contactPhone = {
+  display: "(408) 685-8012",
+  href: "tel:+14086858012",
+};
+
 export const navItems = [
   { name: "What I fix", link: "/#services" },
   { name: "About", link: "/#about" },

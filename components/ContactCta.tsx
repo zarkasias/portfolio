@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/ContactForm";
+import { contactPhone } from "@/data";
 
 export function ContactCta() {
   return (
@@ -19,6 +20,16 @@ export function ContactCta() {
           <p className="mt-6 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
             Tell me what's bothering you about it. I'll reply within one
             business day, and there's no obligation.
+          </p>
+
+          <p className="mt-6 text-lg text-muted-foreground">
+            Rather talk it through?
+            <a
+              href={contactPhone.href}
+              className="mt-1 block font-bold text-primary underline underline-offset-4 hover:text-foreground"
+            >
+              Call {contactPhone.display}
+            </a>
           </p>
 
           <p className="mt-6 text-lg text-muted-foreground">
