@@ -18,9 +18,9 @@ export function ContactCta() {
           </h2>
 
           <p className="mt-6 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
-            Tell me what's bothering you about it. I'll reply within one
-            business day, and there's no obligation. If you'd rather talk,
-            mention a good time for a 15-minute call and I'll ring you.
+            Tell me what&apos;s bothering you about it. I&apos;ll reply within one
+            business day, and there&apos;s no obligation. If you&apos;d rather talk,
+            mention a good time for a 15-minute call and I&apos;ll ring you.
           </p>
 
           <p className="mt-6 text-lg text-muted-foreground">
