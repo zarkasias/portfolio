@@ -17,7 +17,7 @@ export const Hero = () => {
           </h1>
 
           <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
-            I'm David Chambers, a website specialist with 27+ years of
+            I&apos;m David Chambers, a website specialist with 27+ years of
             experience. I help small businesses modernize how their sites look,
             fix problems on phones, and make it easier for customers to call,
             book, or get in touch.

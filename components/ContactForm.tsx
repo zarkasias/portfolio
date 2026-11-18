@@ -31,7 +31,7 @@ export function ContactForm() {
           Thanks, your message is on its way.
         </h2>
         <p className="mt-3 leading-relaxed text-foreground">
-          I'll reply by email within one business day.
+          I&apos;ll reply by email within one business day.
         </p>
       </div>
     );

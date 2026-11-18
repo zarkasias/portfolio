@@ -35,7 +35,6 @@ export default async function OpenGraphImage() {
             backgroundColor: "#d1d5db",
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logoSrc} width={84} height={83} alt="" />
         </div>
         <div style={{ fontSize: 40, fontWeight: 600 }}>Chambers Consulting</div>

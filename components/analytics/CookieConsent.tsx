@@ -19,16 +19,11 @@ export default function CookieConsent() {
   });
 
   useEffect(() => {
-    // Force immediate check when component mounts
-    // This is simpler and more reliable
-    const hasConsent = hasGivenConsent();
-    setShowBanner(!hasConsent);
-    
-    // Add a fallback check that runs after a delay
-    // in case client-side hydration isn't complete yet
-    setTimeout(() => {
+    // The consent cookie is only readable in the browser, so check it on the
+    // first frame after mount rather than synchronously in the effect body.
+    const frame = requestAnimationFrame(() => {
       setShowBanner(!hasGivenConsent());
-    }, 500);
+    });
 
     const openSettings = () => {
       const saved = getConsentStatus();
@@ -41,7 +36,10 @@ export default function CookieConsent() {
     };
 
     window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings);
-    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings);
+    };
   }, []);
 
   useEffect(() => {

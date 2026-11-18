@@ -1,7 +1,13 @@
+// Phone links are hidden site-wide while this is null. Set it to
+// { display: "(555) 555-5555", href: "tel:+15555555555" } once the
+// Google Voice number is ready.
+export const contactPhone: { display: string; href: string } | null = null;
+
 export const navItems = [
   { name: "What I fix", link: "/#services" },
   { name: "About", link: "/#about" },
   { name: "How it works", link: "/#process" },
+  { name: "Pricing", link: "/#pricing" },
   { name: "Contact", link: "/#contact", isCta: true },
 ];
 

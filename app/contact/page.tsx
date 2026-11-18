@@ -31,7 +31,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="mt-6 max-w-2xl leading-relaxed text-foreground md:text-lg">
-            What's bothering you about your website? I read every message
+            What&apos;s bothering you about your website? I read every message
             myself and reply within one business day, with no obligation.
           </p>
         </div>

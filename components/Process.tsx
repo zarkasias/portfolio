@@ -1,18 +1,31 @@
 const steps = [
   {
-    title: "Let's Talk",
+    title: "Free site checkup",
+    when: "Within 2 business days",
+    cost: "Free",
     description:
-      "Tell me about your site, what's not working, and what you'd like to improve.",
+      "Send me your website address. You'll get a short video or report showing what's holding your site back and what I'd fix first.",
   },
   {
-    title: "Make a Plan",
+    title: "A fixed-price plan",
+    when: "A short call",
+    cost: "Free",
     description:
-      "I'll recommend the best approach, and we'll agree on what needs to be done.",
+      "We agree on what's worth fixing. I send a one-page proposal with the price and start date within a day. A 50% deposit books your spot.",
   },
   {
-    title: "Make It Better",
+    title: "I make it better",
+    when: "Usually 1 to 4 weeks",
+    cost: "Your fixed price",
     description:
-      "I'll make the improvements, test the changes, and get your site ready to go.",
+      "You get a short update every week and a private preview to review. Two rounds of changes are included, and nothing goes live until you approve it.",
+  },
+  {
+    title: "Launch and look after it",
+    when: "Launch day and beyond",
+    cost: "Care plans from $99 a month",
+    description:
+      "I launch the site, check your Google listing and redirects, and walk you through it. A care plan keeps it updated and backed up.",
   },
 ];
 
@@ -31,7 +44,7 @@ export function Process() {
           Simple from start to finish.
         </h2>
 
-        <ol className="mt-10 grid gap-8 md:mt-14 md:grid-cols-3 md:gap-10">
+        <ol className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 md:gap-10 xl:grid-cols-4">
           {steps.map((step, index) => (
             <li key={step.title} className="border-t-2 border-foreground pt-5">
               <span
@@ -45,7 +58,18 @@ export function Process() {
                 {step.title}
               </h3>
 
-              <p className="mt-2 max-w-sm text-lg leading-relaxed text-muted-foreground">
+              <dl className="mt-3 space-y-1 text-sm">
+                <div className="flex gap-2">
+                  <dt className="font-bold">When:</dt>
+                  <dd className="text-muted-foreground">{step.when}</dd>
+                </div>
+                <div className="flex gap-2">
+                  <dt className="font-bold">Cost:</dt>
+                  <dd className="text-muted-foreground">{step.cost}</dd>
+                </div>
+              </dl>
+
+              <p className="mt-3 max-w-sm text-lg leading-relaxed text-muted-foreground">
                 {step.description}
               </p>
             </li>

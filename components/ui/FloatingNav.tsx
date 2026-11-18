@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Phone } from "lucide-react";
+import { contactPhone } from "@/data";
 
 export const FloatingNav = ({
   navItems,
@@ -18,7 +20,7 @@ export const FloatingNav = ({
           <Link
             href="/#home"
             onClick={() => setIsMenuOpen(false)}
-            className="flex min-w-0 items-center gap-3 font-heading text-lg font-semibold text-foreground"
+            className="flex min-w-0 items-center gap-3 whitespace-nowrap font-heading text-lg font-semibold text-foreground"
           >
             <span className="shrink-0 rounded-full bg-gray-300/80 p-1">
               <Image
@@ -34,7 +36,16 @@ export const FloatingNav = ({
             Chambers Consulting
           </Link>
 
-          <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
+          <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
+            {contactPhone && (
+              <a
+                href={contactPhone.href}
+                className="inline-flex items-center gap-2 whitespace-nowrap font-bold text-foreground underline-offset-4 hover:underline"
+              >
+                <Phone aria-hidden="true" className="h-4 w-4" />
+                {contactPhone.display}
+              </a>
+            )}
             {navItems.map((item) => (
               <Link
                 key={item.link}
@@ -42,7 +53,7 @@ export const FloatingNav = ({
                 className={
                   item.isCta
                     ? "btn-cta !min-h-10 !px-4 !py-2"
-                    : "font-bold text-foreground underline-offset-4 hover:underline"
+                    : "whitespace-nowrap font-bold text-foreground underline-offset-4 hover:underline"
                 }
               >
                 {item.name}
@@ -50,38 +61,49 @@ export const FloatingNav = ({
             ))}
           </nav>
 
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-expanded={isMenuOpen}
-          >
-            <span className="sr-only">
-              {isMenuOpen ? "Close main menu" : "Open main menu"}
-            </span>
-            <svg
-              aria-hidden="true"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className="flex items-center gap-1 lg:hidden">
+            {contactPhone && (
+              <a
+                href={contactPhone.href}
+                className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary"
+              >
+                <Phone aria-hidden="true" className="h-6 w-6" />
+                <span className="sr-only">Call {contactPhone.display}</span>
+              </a>
+            )}
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-expanded={isMenuOpen}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={
-                  isMenuOpen
-                    ? "M6 18L18 6M6 6l12 12"
-                    : "M4 6h16M4 12h16M4 18h16"
-                }
-              />
-            </svg>
-          </button>
+              <span className="sr-only">
+                {isMenuOpen ? "Close main menu" : "Open main menu"}
+              </span>
+              <svg
+                aria-hidden="true"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={
+                    isMenuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
+                  }
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {isMenuOpen && (
-          <nav aria-label="Mobile" className="space-y-1 pb-4 md:hidden">
+          <nav aria-label="Mobile" className="space-y-1 pb-4 lg:hidden">
             {navItems.map((item) => (
               <Link
                 key={item.link}

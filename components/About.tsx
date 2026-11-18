@@ -10,20 +10,20 @@ export function About() {
           id="about-heading"
           className="font-heading text-4xl font-semibold leading-[1.1] [text-wrap:balance] md:text-5xl"
         >
-          You'll work directly with me.
+          You&apos;ll work directly with me.
         </h2>
 
         <div className="max-w-[60ch] space-y-4 text-lg leading-relaxed">
           <p>
-            I'm David Chambers, and I've spent more than 27 years building and
-            improving websites. I'm based in Northern Virginia and work with
+            I&apos;m David Chambers, and I&apos;ve spent more than 27 years building and
+            improving websites. I&apos;m based in Northern Virginia and work with
             businesses anywhere.
           </p>
 
           <p>
-            There's no account manager and no handoff. The person you talk to is
-            the person doing the work. I'll explain what I find in plain
-            English, recommend what's worth fixing, and tell you what can wait.
+            There&apos;s no account manager and no handoff. The person you talk to is
+            the person doing the work. I&apos;ll explain what I find in plain
+            English, recommend what&apos;s worth fixing, and tell you what can wait.
           </p>
         </div>
       </div>
