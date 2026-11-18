@@ -7,11 +7,11 @@ const steps = [
       "Send me your website address. You'll get a short video or report showing what's holding your site back and what I'd fix first.",
   },
   {
-    title: "A clear, written price",
+    title: "Clear written price",
     when: "A short call",
     cost: "Free",
     description:
-      "We agree on what's worth fixing. I send a one-page proposal with the price and start date within a day. A 50% deposit books your spot.",
+      "After a short free call, you'll get a one-page proposal within a day. Your first payment books your spot.",
   },
   {
     title: "I make it better",
