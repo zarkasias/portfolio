@@ -37,13 +37,15 @@ export const FloatingNav = ({
           </Link>
 
           <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
-            <a
-              href={contactPhone.href}
-              className="inline-flex items-center gap-2 whitespace-nowrap font-bold text-foreground underline-offset-4 hover:underline"
-            >
-              <Phone aria-hidden="true" className="h-4 w-4" />
-              {contactPhone.display}
-            </a>
+            {contactPhone && (
+              <a
+                href={contactPhone.href}
+                className="inline-flex items-center gap-2 whitespace-nowrap font-bold text-foreground underline-offset-4 hover:underline"
+              >
+                <Phone aria-hidden="true" className="h-4 w-4" />
+                {contactPhone.display}
+              </a>
+            )}
             {navItems.map((item) => (
               <Link
                 key={item.link}
@@ -60,13 +62,15 @@ export const FloatingNav = ({
           </nav>
 
           <div className="flex items-center gap-1 lg:hidden">
-            <a
-              href={contactPhone.href}
-              className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary"
-            >
-              <Phone aria-hidden="true" className="h-6 w-6" />
-              <span className="sr-only">Call {contactPhone.display}</span>
-            </a>
+            {contactPhone && (
+              <a
+                href={contactPhone.href}
+                className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary"
+              >
+                <Phone aria-hidden="true" className="h-6 w-6" />
+                <span className="sr-only">Call {contactPhone.display}</span>
+              </a>
+            )}
             <button
               type="button"
               className="inline-flex items-center justify-center rounded-lg p-2 text-foreground hover:bg-secondary"

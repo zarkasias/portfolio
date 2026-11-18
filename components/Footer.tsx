@@ -31,13 +31,15 @@ const Footer = ({ spaced = true }: { spaced?: boolean }) => {
         </div>
 
         <div className="flex flex-col gap-4 md:items-end">
-          <a
-            href={contactPhone.href}
-            className="inline-flex items-center gap-2 font-bold text-foreground underline-offset-4 hover:underline"
-          >
-            <Phone aria-hidden="true" className="h-4 w-4" />
-            {contactPhone.display}
-          </a>
+          {contactPhone && (
+            <a
+              href={contactPhone.href}
+              className="inline-flex items-center gap-2 font-bold text-foreground underline-offset-4 hover:underline"
+            >
+              <Phone aria-hidden="true" className="h-4 w-4" />
+              {contactPhone.display}
+            </a>
+          )}
           <div className="flex gap-4">
             <a
               href="https://linkedin.com/in/davidmachambers"
