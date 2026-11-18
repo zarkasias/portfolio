@@ -4,7 +4,7 @@ const faqs = [
   {
     question: "How much will it cost?",
     answer:
-      "Most projects are a fixed $1,500 or $3,500, and bigger ones start at $6,500. After a free checkup and a short call, you'll get the exact price in writing before any work starts. No hourly billing and no surprise invoices.",
+      "Quick fixes start at $300, a Refresh is $1,500, a Redesign is $3,500, and bigger projects start at $6,500. After a free checkup and a short call, you'll get the exact price in writing before any work starts, and you can split the cost into payments. No hourly billing and no surprise invoices.",
   },
   {
     question: "How long does it take?",
