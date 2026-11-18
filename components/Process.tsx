@@ -7,7 +7,7 @@ const steps = [
       "Send me your website address. You'll get a short video or report showing what's holding your site back and what I'd fix first.",
   },
   {
-    title: "A fixed-price plan",
+    title: "A clear, written price",
     when: "A short call",
     cost: "Free",
     description:
@@ -15,8 +15,8 @@ const steps = [
   },
   {
     title: "I make it better",
-    when: "Usually 1 to 4 weeks",
-    cost: "Your fixed price",
+    when: "Usually a few days to 4 weeks",
+    cost: "The price we agreed",
     description:
       "You get a short update every week and a private preview to review. Two rounds of changes are included, and nothing goes live until you approve it.",
   },
