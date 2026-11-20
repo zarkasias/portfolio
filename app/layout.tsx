@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 import RouteChangeTracker from "@/components/analytics/RouteChangeTracker";
@@ -9,11 +9,6 @@ import CookieConsent from "@/components/analytics/CookieConsent";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--f-inter",
-  display: "swap",
-});
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--f-dm",
   display: "swap",
 });
 
@@ -81,7 +76,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${dmSans.variable} scroll-smooth motion-reduce:scroll-auto`}
+      className={`${inter.variable} scroll-smooth motion-reduce:scroll-auto`}
       suppressHydrationWarning
     >
       <head></head>

@@ -26,7 +26,7 @@ export function WhatIFix() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="scroll-mt-20 py-16 md:py-24"
+      className="scroll-mt-16 py-16 md:py-20"
     >
       <div className="page-width">
         <h2
@@ -36,13 +36,13 @@ export function WhatIFix() {
           Not happy with how your site feels or performs?
         </h2>
 
-        <dl className="mt-10 border-t-2 border-foreground md:mt-14">
+        <dl className="mt-8 border-t-2 border-foreground md:mt-12">
           {fixes.map(({ problem, fix }) => (
             <div
               key={problem}
-              className="grid gap-2 border-b border-border py-5 md:grid-cols-[2fr_3fr] md:gap-10 md:py-6"
+              className="grid gap-2 border-b border-border py-5 md:grid-cols-[2fr_3fr] md:gap-10"
             >
-              <dt className="text-xl font-bold">{problem}</dt>
+              <dt className="text-xl font-semibold">{problem}</dt>
               <dd className="max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
                 {fix}
               </dd>
@@ -54,9 +54,9 @@ export function WhatIFix() {
           Not sure what your website needs?{" "}
           <a
             href="#contact"
-            className="font-bold text-primary underline underline-offset-4 hover:text-foreground"
+            className="font-medium text-foreground underline underline-offset-4 hover:decoration-2"
           >
-            Tell me what&apos;s bothering you.
+            Tell me what&apos;s bothering you
           </a>
         </p>
       </div>

@@ -58,31 +58,34 @@ export function Faq() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="scroll-mt-16 py-16 md:py-24"
+      className="scroll-mt-16 py-16 md:py-20"
     >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="page-width grid gap-10 lg:grid-cols-[2fr_3fr] lg:gap-16">
+      <div className="page-width grid gap-8 lg:grid-cols-[2fr_3fr] lg:gap-16">
         <h2
           id="faq-heading"
           className="font-heading text-4xl font-semibold leading-[1.1] [text-wrap:balance] md:text-5xl"
         >
-          Questions owners usually ask.
+          Questions owners usually ask
         </h2>
 
-        <div className="border-t-2 border-foreground">
+        <div className="self-start overflow-hidden rounded-2xl border border-border bg-card shadow-card">
           {faqs.map(({ question, answer }) => (
-            <details key={question} className="group border-b border-border">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-xl font-bold [&::-webkit-details-marker]:hidden">
+            <details
+              key={question}
+              className="group border-b border-border last:border-b-0"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-lg font-semibold transition-colors hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-foreground md:px-6 [&::-webkit-details-marker]:hidden">
                 {question}
                 <ChevronDown
                   aria-hidden="true"
                   className="h-5 w-5 shrink-0 transition-transform group-open:rotate-180"
                 />
               </summary>
-              <p className="max-w-[60ch] pb-6 text-lg leading-relaxed text-muted-foreground">
+              <p className="max-w-[60ch] px-5 pb-6 leading-relaxed text-muted-foreground md:px-6 md:text-lg">
                 {answer}
               </p>
             </details>

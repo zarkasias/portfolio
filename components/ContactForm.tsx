@@ -23,10 +23,7 @@ export function ContactForm() {
 
   if (state.status === "success") {
     return (
-      <div
-        role="status"
-        className="rounded-xl border border-border bg-card p-6 md:p-8"
-      >
+      <div role="status">
         <h2 className="font-heading text-xl font-semibold text-foreground">
           Thanks, your message is on its way.
         </h2>

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Phone } from "lucide-react";
 import { contactPhone } from "@/data";
 
@@ -20,19 +19,8 @@ export const FloatingNav = ({
           <Link
             href="/#home"
             onClick={() => setIsMenuOpen(false)}
-            className="flex min-w-0 items-center gap-3 whitespace-nowrap font-heading text-lg font-semibold text-foreground"
+            className="min-w-0 whitespace-nowrap font-heading text-xl font-semibold text-foreground"
           >
-            <span className="shrink-0 rounded-full bg-gray-300/80 p-1">
-              <Image
-                src="/images/logos/cclogo-new.png"
-                alt=""
-                width={170}
-                height={168}
-                sizes="40px"
-                priority
-                className="h-10 w-10 object-contain"
-              />
-            </span>
             Chambers Consulting
           </Link>
 
@@ -40,7 +28,7 @@ export const FloatingNav = ({
             {contactPhone && (
               <a
                 href={contactPhone.href}
-                className="inline-flex items-center gap-2 whitespace-nowrap font-bold text-foreground underline-offset-4 hover:underline"
+                className="inline-flex items-center gap-2 whitespace-nowrap font-medium text-foreground underline-offset-4 hover:underline"
               >
                 <Phone aria-hidden="true" className="h-4 w-4" />
                 {contactPhone.display}
@@ -53,7 +41,7 @@ export const FloatingNav = ({
                 className={
                   item.isCta
                     ? "btn-cta !min-h-10 !px-4 !py-2"
-                    : "whitespace-nowrap font-bold text-foreground underline-offset-4 hover:underline"
+                    : "whitespace-nowrap font-medium text-foreground underline-offset-4 hover:underline"
                 }
               >
                 {item.name}
@@ -112,7 +100,7 @@ export const FloatingNav = ({
                 className={
                   item.isCta
                     ? "btn-cta mt-2 w-full"
-                    : "block rounded-lg py-2.5 text-lg font-bold text-foreground"
+                    : "block rounded-lg py-2.5 text-lg font-medium text-foreground"
                 }
               >
                 {item.name}
