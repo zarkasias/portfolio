@@ -34,37 +34,37 @@ export function Process() {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="scroll-mt-16 py-16 md:py-24"
+      className="scroll-mt-16 py-16 md:py-20"
     >
       <div className="page-width">
         <h2
           id="process-heading"
           className="font-heading text-4xl font-semibold leading-[1.05] md:text-5xl"
         >
-          Simple from start to finish.
+          From checkup to launch
         </h2>
 
-        <ol className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 md:gap-10 xl:grid-cols-4">
+        <ol className="mt-8 grid gap-8 md:mt-12 md:grid-cols-2 md:gap-10 xl:grid-cols-4">
           {steps.map((step, index) => (
             <li key={step.title} className="border-t-2 border-foreground pt-5">
               <span
                 aria-hidden="true"
-                className="font-heading text-6xl font-semibold leading-none text-primary"
+                className="font-heading text-6xl font-semibold leading-none text-muted-foreground tabular-nums"
               >
                 {index + 1}
               </span>
 
-              <h3 className="mt-4 font-sans text-xl font-bold tracking-normal">
+              <h3 className="mt-4 font-sans text-xl font-semibold tracking-normal">
                 {step.title}
               </h3>
 
               <dl className="mt-3 space-y-1 text-sm">
                 <div className="flex gap-2">
-                  <dt className="font-bold">When:</dt>
+                  <dt className="font-medium">When:</dt>
                   <dd className="text-muted-foreground">{step.when}</dd>
                 </div>
                 <div className="flex gap-2">
-                  <dt className="font-bold">Cost:</dt>
+                  <dt className="font-medium">Cost:</dt>
                   <dd className="text-muted-foreground">{step.cost}</dd>
                 </div>
               </dl>

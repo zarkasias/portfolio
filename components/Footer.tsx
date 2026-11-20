@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Linkedin, Mail, Phone } from "lucide-react";
 import { contactPhone } from "@/data";
 import { CookieSettingsButton } from "@/components/analytics/CookieSettingsButton";
@@ -8,18 +7,9 @@ const Footer = ({ spaced = true }: { spaced?: boolean }) => {
     <footer className={`${spaced ? "mt-24 " : ""}border-t border-border py-10`}>
       <div className="page-width flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div>
-          <div className="flex items-center gap-2">
-            <Image
-              src="/images/logos/cclogo-new.png"
-              alt=""
-              width={40}
-              height={40}
-              className="h-10 w-auto rounded-full bg-gray-300/80 p-1"
-            />
-            <p className="font-heading text-lg font-semibold">
-              Chambers Consulting
-            </p>
-          </div>
+          <p className="font-heading text-xl font-semibold">
+            Chambers Consulting
+          </p>
           <p className="mt-2 max-w-md text-muted-foreground">
             Helping small businesses improve the websites they already have.
             Based in Northern Virginia, working with businesses anywhere.
@@ -34,7 +24,7 @@ const Footer = ({ spaced = true }: { spaced?: boolean }) => {
           {contactPhone && (
             <a
               href={contactPhone.href}
-              className="inline-flex items-center gap-2 font-bold text-foreground underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-2 font-medium text-foreground underline-offset-4 hover:underline"
             >
               <Phone aria-hidden="true" className="h-4 w-4" />
               {contactPhone.display}
@@ -46,14 +36,14 @@ const Footer = ({ spaced = true }: { spaced?: boolean }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="David Chambers on LinkedIn"
-              className="p-1 text-foreground transition-colors hover:text-primary"
+              className="p-1 text-foreground transition-colors hover:text-muted-foreground"
             >
               <Linkedin aria-hidden="true" className="h-5 w-5" />
             </a>
             <a
               href="mailto:david@chambers-consulting.dev"
               aria-label="Email David Chambers"
-              className="p-1 text-foreground transition-colors hover:text-primary"
+              className="p-1 text-foreground transition-colors hover:text-muted-foreground"
             >
               <Mail aria-hidden="true" className="h-5 w-5" />
             </a>

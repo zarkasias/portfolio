@@ -47,7 +47,7 @@ export function Checkup() {
             id="checkup-heading"
             className="font-heading text-4xl font-semibold leading-[1.1] [text-wrap:balance] md:text-5xl"
           >
-            Get a free site checkup.
+            Get a free site checkup
           </h2>
           <p className="mt-6 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
             Within 2 business days, I&apos;ll send you a short video or report on
@@ -59,10 +59,10 @@ export function Checkup() {
         {state.status === "success" ? (
           <div
             role="status"
-            className="rounded-lg border border-border bg-card p-6 md:p-8"
+            className="rounded-2xl border border-border bg-card p-6 shadow-card"
           >
             <h3 className="font-heading text-xl font-semibold text-foreground">
-              Thanks, I&apos;m on it.
+              Thanks, I&apos;m on it
             </h3>
             <p className="mt-3 leading-relaxed text-foreground">
               Your checkup will arrive by email within 2 business days.
@@ -71,7 +71,7 @@ export function Checkup() {
         ) : (
           <form
             action={formAction}
-            className="rounded-lg border border-border bg-card p-6 shadow-sm md:p-8"
+            className="rounded-2xl border border-border bg-card p-6 shadow-card"
           >
             {/* Honeypot: hidden from people and assistive technology. */}
             <div aria-hidden="true" className="hidden">

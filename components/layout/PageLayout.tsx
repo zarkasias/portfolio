@@ -19,7 +19,7 @@ export default function PageLayout({
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[6000] focus:rounded-lg focus:bg-cta focus:px-4 focus:py-2 focus:font-bold focus:text-cta-foreground"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[6000] focus:rounded-lg focus:bg-cta focus:px-4 focus:py-2 focus:font-semibold focus:text-cta-foreground"
       >
         Skip to main content
       </a>

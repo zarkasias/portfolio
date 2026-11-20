@@ -6,18 +6,19 @@
   :root {
     /* Font families are provided by next/font (see app/layout.tsx) */
 
-    /* Logo Blue: colors come from the logo, with red reserved for calls to action */
+    /* White and a barely cool grey for surfaces, navy ink, and one red accent
+       for calls to action and the checkup marks. Links are navy and underlined. */
     --background: 0 0% 100%;
     --foreground: 208 54% 19%;
-    --primary: 195 86% 30%;
-    --secondary: 195 55% 96%;
-    --muted: 195 55% 96%;
-    --accent: 195 55% 96%;
+    --primary: 208 54% 19%;
+    --secondary: 225 45% 98%;
+    --muted: 225 45% 98%;
+    --accent: 225 45% 98%;
     --cta: 355 72% 45%;
-    --hero: 195 55% 96%;
-    --border: 198 35% 87%;
-    --input: 203 18% 57%;
-    --ring: 195 86% 30%;
+    --hero: 225 45% 98%;
+    --border: 214 24% 90%;
+    --input: 212 14% 62%;
+    --ring: 208 54% 19%;
     --card: 0 0% 100%;
     --popover: 0 0% 100%;
     --muted-foreground: 208 20% 35%;
@@ -29,10 +30,10 @@
     --primary-foreground: 0 0% 100%;
     --destructive: 353 100% 35%;
     --destructive-foreground: 0 0% 100%;
-    --radius: 0.375rem;
+    --radius: 0.625rem;
 
     --font-sans: var(--f-inter);
-    --font-heading: var(--f-dm);
+    --font-heading: var(--f-inter);
   }
 
   .dark {
@@ -88,24 +89,8 @@
 }
 
 @layer utilities {
-  .heading {
-    @apply font-bold text-4xl md:text-4xl text-center;
-  }
-
   .text-balance {
     text-wrap: balance;
-  }
-
-  .glass-panel {
-    @apply bg-white/70 backdrop-blur-sm border border-white/20 shadow-sm;
-  }
-
-  /* Custom grid pattern for subtle background texture */
-  .bg-grid-pattern {
-    background-size: 40px 40px;
-    background-image:
-      linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
   }
 }
 
@@ -121,13 +106,19 @@
 
 @layer components {
   .page-width {
-    width: 90%;
-    max-width: 80rem;
+    max-width: calc(80rem + 4rem);
     margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .page-width {
+      padding-inline: 2rem;
+    }
   }
 
   .btn-cta {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-cta px-6 py-3 font-bold text-cta-foreground transition-colors hover:bg-cta/85;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-cta px-6 py-3 font-semibold text-cta-foreground transition-colors hover:bg-cta/85;
   }
 
   /* The white ring and cobalt outline stay visible on light and dark sections. */

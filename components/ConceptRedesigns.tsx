@@ -9,24 +9,24 @@ export function ConceptRedesigns() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="scroll-mt-16 py-16 md:py-24"
+      className="scroll-mt-16 py-16 md:py-20"
     >
       <div className="page-width">
         <h2
           id="work-heading"
           className="max-w-3xl font-heading text-4xl font-semibold leading-[1.05] [text-wrap:balance] md:text-5xl"
         >
-          What a few local sites could look like.
+          What a few local sites could look like
         </h2>
         <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
           Concept redesigns of real Northern Virginia businesses, shared with
           the owners&apos; permission. These are proposals, not client projects.
         </p>
 
-        <ul className="mt-10 space-y-16 md:mt-14">
+        <ul className="mt-8 space-y-16 md:mt-12">
           {approved.map((concept) => (
             <li key={concept.slug} className="border-t-2 border-foreground pt-6">
-              <h3 className="font-sans text-xl font-bold tracking-normal">
+              <h3 className="font-sans text-xl font-semibold tracking-normal">
                 {concept.business}
               </h3>
               <p className="mt-1 text-muted-foreground">
@@ -44,7 +44,7 @@ export function ConceptRedesigns() {
                   ] as const
                 ).map(([label, src]) => (
                   <figure key={label}>
-                    <div className="overflow-hidden rounded-lg border border-border shadow-sm">
+                    <div className="overflow-hidden rounded-xl border border-border shadow-card">
                       <Image
                         src={src}
                         alt={`${concept.business} website, ${label.toLowerCase()}`}
@@ -54,7 +54,7 @@ export function ConceptRedesigns() {
                         className="h-auto w-full"
                       />
                     </div>
-                    <figcaption className="mt-2 text-sm font-bold">
+                    <figcaption className="mt-2 text-sm font-medium">
                       {label}
                     </figcaption>
                   </figure>
