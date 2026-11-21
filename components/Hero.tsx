@@ -8,11 +8,8 @@ export const Hero = () => {
     <section
       id="home"
       aria-labelledby="hero-heading"
-      className="relative pb-12 md:pb-16"
+      className="relative scroll-mt-40 pb-12 md:pb-16"
     >
-      {/* The photo fills the hero behind both columns and fades out at the
-          bottom, so it blends into the page whatever the page's background is.
-          On phones it shows as a frame around the panel. */}
       <div className="hero-photo absolute inset-0">
         <Image
           src={heroPhoto}
@@ -50,7 +47,9 @@ export const Hero = () => {
 
           <ul className="mt-8 space-y-1 border-t border-foreground/15 pt-6 text-foreground">
             <li>I work with your existing site.</li>
-            <li>Based in Northern Virginia, working with businesses anywhere.</li>
+            <li>
+              Based in Northern Virginia, working with businesses anywhere.
+            </li>
           </ul>
         </div>
 
