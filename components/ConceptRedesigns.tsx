@@ -14,7 +14,7 @@ export function ConceptRedesigns() {
       <div className="page-width">
         <h2
           id="work-heading"
-          className="max-w-3xl font-heading text-4xl font-semibold leading-[1.05] [text-wrap:balance] md:text-5xl"
+          className="max-w-3xl font-heading text-4xl font-medium leading-[1.05] [text-wrap:balance] md:text-5xl"
         >
           What a few local sites could look like
         </h2>

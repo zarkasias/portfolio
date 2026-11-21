@@ -13,7 +13,7 @@ export const FloatingNav = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[5000] border-b border-border bg-background">
+    <header className="sticky top-0 z-[5000] border-b border-border bg-background/95 backdrop-blur">
       <div className="page-width">
         <div className="flex h-16 items-center justify-between">
           <Link

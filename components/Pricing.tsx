@@ -100,7 +100,7 @@ export function Pricing() {
         <div className="mx-auto max-w-3xl text-center">
           <h2
             id="pricing-heading"
-            className="font-heading text-4xl font-semibold leading-[1.05] [text-wrap:balance] md:text-5xl"
+            className="font-heading text-4xl font-medium leading-[1.05] [text-wrap:balance] md:text-5xl"
           >
             Clear prices, agreed in writing before any work starts
           </h2>
@@ -119,7 +119,7 @@ export function Pricing() {
 
         </div>
 
-        <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+        <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border border-border bg-card/80 shadow-card">
           <table className="w-full text-left text-sm md:text-base">
             <caption className="sr-only">
               How a fixed price compares with a monthly website plan
@@ -127,7 +127,7 @@ export function Pricing() {
             <thead>
               <tr className="border-b border-border">
                 <td className={`${cell} w-[28%]`} />
-                <th scope="col" className={`${cell} bg-secondary font-semibold`}>
+                <th scope="col" className={`${cell} bg-sun/60 font-semibold`}>
                   Working with me
                 </th>
                 <th
@@ -147,7 +147,7 @@ export function Pricing() {
                   <th scope="row" className={`${cell} font-medium`}>
                     {row.label}
                   </th>
-                  <td className={`${cell} bg-secondary`}>{row.mine}</td>
+                  <td className={`${cell} bg-sun/40`}>{row.mine}</td>
                   <td className={`${cell} text-muted-foreground`}>
                     {row.monthly}
                   </td>
@@ -161,13 +161,13 @@ export function Pricing() {
           {packages.map((pkg) => (
             <li
               key={pkg.name}
-              className="flex flex-col rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-card"
+              className="flex flex-col rounded-2xl border border-border bg-card/80 p-6 text-card-foreground shadow-card"
             >
               <h3 className="font-sans text-xl font-semibold tracking-normal">
                 {pkg.name}
               </h3>
 
-              <p className="mt-4 font-heading text-4xl font-semibold tabular-nums">
+              <p className="mt-4 font-heading text-4xl font-medium tabular-nums">
                 {pkg.price}
               </p>
               <p className="mt-1 font-medium text-foreground">
@@ -195,12 +195,12 @@ export function Pricing() {
           ))}
         </ul>
 
-        <div className="mt-6 grid gap-6 rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-card md:grid-cols-[2fr_3fr] md:gap-10">
+        <div className="mt-6 grid gap-6 rounded-2xl border border-border bg-card/80 p-6 text-card-foreground shadow-card md:grid-cols-[2fr_3fr] md:gap-10">
           <div>
             <h3 className="font-sans text-xl font-semibold tracking-normal">
               {quickFix.name}
             </h3>
-            <p className="mt-4 font-heading text-4xl font-semibold tabular-nums">
+            <p className="mt-4 font-heading text-4xl font-medium tabular-nums">
               {quickFix.price}{" "}
               <span className="font-sans text-lg font-normal text-muted-foreground">
                 {quickFix.unit}
@@ -237,7 +237,7 @@ export function Pricing() {
           </a>
         </p>
 
-        <div className="mt-8 grid gap-4 rounded-2xl bg-secondary p-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div className="mt-8 grid gap-4 rounded-2xl bg-secondary/80 p-6 md:grid-cols-[1fr_auto] md:items-center">
           <div>
             <h3 className="font-sans text-xl font-semibold tracking-normal">
               Ongoing care, from $99 a month

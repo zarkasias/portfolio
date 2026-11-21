@@ -67,12 +67,12 @@ export function Faq() {
       <div className="page-width grid gap-8 lg:grid-cols-[2fr_3fr] lg:gap-16">
         <h2
           id="faq-heading"
-          className="font-heading text-4xl font-semibold leading-[1.1] [text-wrap:balance] md:text-5xl"
+          className="font-heading text-4xl font-medium leading-[1.1] [text-wrap:balance] md:text-5xl"
         >
           Questions owners usually ask
         </h2>
 
-        <div className="self-start overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+        <div className="self-start overflow-hidden rounded-2xl border border-border bg-card/80 shadow-card">
           {faqs.map(({ question, answer }) => (
             <details
               key={question}

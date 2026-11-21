@@ -23,15 +23,21 @@ export default function PageLayout({
       >
         Skip to main content
       </a>
-      <FloatingNav navItems={navItems} />
-      <main id="main" className="min-h-screen w-full overflow-x-clip">
-        {fullWidth ? (
-          children
-        ) : (
-          <div className={`page-width ${className}`}>{children}</div>
-        )}
-      </main>
-      <Footer spaced={!fullWidth} />
+      {/* The blurred photo frames a white sheet that holds the whole page. */}
+      <div aria-hidden="true" className="frame-backdrop" />
+      <div className="p-2 lg:p-6">
+        <div className="overflow-clip rounded-2xl bg-background/80 shadow-panel lg:rounded-[1.75rem]">
+          <FloatingNav navItems={navItems} />
+          <main id="main" className="min-h-screen w-full">
+            {fullWidth ? (
+              children
+            ) : (
+              <div className={`page-width ${className}`}>{children}</div>
+            )}
+          </main>
+          <Footer spaced={!fullWidth} />
+        </div>
+      </div>
     </>
   );
 }

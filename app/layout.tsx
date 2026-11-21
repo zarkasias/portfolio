@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Hanken_Grotesk, Newsreader } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 import RouteChangeTracker from "@/components/analytics/RouteChangeTracker";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import CookieConsent from "@/components/analytics/CookieConsent";
 
-const inter = Inter({
+// Newsreader for headings (the warmth), Hanken Grotesk for everything else.
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--f-inter",
+  axes: ["opsz"],
+  variable: "--f-newsreader",
+  display: "swap",
+});
+
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--f-hanken",
   display: "swap",
 });
 
@@ -76,7 +84,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} scroll-smooth motion-reduce:scroll-auto`}
+      className={`${newsreader.variable} ${hanken.variable} scroll-smooth motion-reduce:scroll-auto`}
       suppressHydrationWarning
     >
       <head></head>

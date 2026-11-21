@@ -3,12 +3,12 @@ export function About() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="scroll-mt-16 bg-secondary py-16 md:py-20"
+      className="scroll-mt-16 bg-gradient-to-br from-sun/50 via-secondary/80 to-secondary/80 py-16 md:py-20"
     >
       <div className="page-width grid gap-8 lg:grid-cols-[2fr_3fr] lg:gap-16">
         <h2
           id="about-heading"
-          className="font-heading text-4xl font-semibold leading-[1.1] [text-wrap:balance] md:text-5xl"
+          className="font-heading text-4xl font-medium leading-[1.1] [text-wrap:balance] md:text-5xl"
         >
           You&apos;ll work directly with me
         </h2>

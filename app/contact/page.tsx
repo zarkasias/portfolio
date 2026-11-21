@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <PageLayout className="pt-24 md:pt-32">
+    <PageLayout className="pt-12 md:pt-16">
       <section
         aria-labelledby="contact-heading"
         className="mx-auto max-w-4xl px-4 pb-16 md:pb-24"

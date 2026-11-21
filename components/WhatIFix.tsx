@@ -31,7 +31,7 @@ export function WhatIFix() {
       <div className="page-width">
         <h2
           id="services-heading"
-          className="max-w-3xl font-heading text-4xl font-semibold leading-[1.05] [text-wrap:balance] md:text-5xl"
+          className="max-w-3xl font-heading text-4xl font-medium leading-[1.05] [text-wrap:balance] md:text-5xl"
         >
           Not happy with how your site feels or performs?
         </h2>

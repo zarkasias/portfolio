@@ -39,7 +39,7 @@ export function Process() {
       <div className="page-width">
         <h2
           id="process-heading"
-          className="font-heading text-4xl font-semibold leading-[1.05] md:text-5xl"
+          className="font-heading text-4xl font-medium leading-[1.05] md:text-5xl"
         >
           From checkup to launch
         </h2>
@@ -49,7 +49,7 @@ export function Process() {
             <li key={step.title} className="border-t-2 border-foreground pt-5">
               <span
                 aria-hidden="true"
-                className="font-heading text-6xl font-semibold leading-none text-muted-foreground tabular-nums"
+                className="font-heading text-6xl font-normal leading-none text-muted-foreground tabular-nums"
               >
                 {index + 1}
               </span>
