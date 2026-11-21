@@ -12,7 +12,7 @@ const link =
 
 export default function TermsOfUse() {
   return (
-    <PageLayout className="pt-28">
+    <PageLayout className="pt-12 md:pt-16">
       <article className="mx-auto max-w-[70ch] text-lg leading-relaxed">
         <h1 className="font-heading text-4xl font-semibold md:text-5xl">
           Terms of Use

@@ -34,6 +34,8 @@ const config = {
           foreground: "hsl(var(--primary-foreground))",
         },
         hero: "hsl(var(--hero))",
+        sky: "hsl(var(--sky))",
+        sun: "hsl(var(--sun))",
         cta: {
           DEFAULT: "hsl(var(--cta))",
           foreground: "hsl(var(--cta-foreground))",
@@ -65,7 +67,9 @@ const config = {
       },
       boxShadow: {
         // Soft and neutral: lifts cards off the page without any color.
-        card: "0 1px 2px rgb(16 24 40 / 0.04), 0 12px 32px -16px rgb(16 24 40 / 0.16)",
+        card: "0 1px 2px rgb(22 49 74 / 0.05), 0 12px 32px -16px rgb(22 49 74 / 0.18)",
+        // The frosted hero panel and the page sheet.
+        panel: "0 24px 64px -24px rgb(22 49 74 / 0.35)",
       },
       borderRadius: {
         lg: "var(--radius)",

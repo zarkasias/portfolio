@@ -6,34 +6,37 @@
   :root {
     /* Font families are provided by next/font (see app/layout.tsx) */
 
-    /* White and a barely cool grey for surfaces, navy ink, and one red accent
-       for calls to action and the checkup marks. Links are navy and underlined. */
+    /* "Sunlit": navy ink on white, a haze of sky blue for alternate sections,
+       a little sunlight for warm highlights, and one sunset orange accent for
+       calls to action and the checkup marks. Links are ink and underlined. */
     --background: 0 0% 100%;
-    --foreground: 208 54% 19%;
-    --primary: 208 54% 19%;
-    --secondary: 225 45% 98%;
-    --muted: 225 45% 98%;
-    --accent: 225 45% 98%;
-    --cta: 355 72% 45%;
-    --hero: 225 45% 98%;
-    --border: 214 24% 90%;
-    --input: 212 14% 62%;
-    --ring: 208 54% 19%;
+    --foreground: 209 54% 19%; /* ink #16314A */
+    --primary: 209 54% 19%;
+    --secondary: 206 47% 97%; /* haze #F4F8FB */
+    --muted: 206 47% 97%;
+    --accent: 206 47% 97%;
+    --sky: 207 64% 88%; /* #CFE3F4 */
+    --sun: 29 87% 89%; /* sunlight #FBE3CC */
+    --cta: 17 88% 40%; /* sunset orange #C2410C */
+    --hero: 206 47% 97%;
+    --border: 207 30% 88%;
+    --input: 210 16% 60%;
+    --ring: 209 54% 19%;
     --card: 0 0% 100%;
     --popover: 0 0% 100%;
-    --muted-foreground: 208 20% 35%;
-    --card-foreground: 208 54% 19%;
-    --popover-foreground: 208 54% 19%;
-    --secondary-foreground: 208 54% 19%;
-    --accent-foreground: 208 54% 19%;
+    --muted-foreground: 210 24% 38%; /* slate #4A6178 */
+    --card-foreground: 209 54% 19%;
+    --popover-foreground: 209 54% 19%;
+    --secondary-foreground: 209 54% 19%;
+    --accent-foreground: 209 54% 19%;
     --cta-foreground: 0 0% 100%;
     --primary-foreground: 0 0% 100%;
     --destructive: 353 100% 35%;
     --destructive-foreground: 0 0% 100%;
-    --radius: 0.625rem;
+    --radius: 0.75rem;
 
-    --font-sans: var(--f-inter);
-    --font-heading: var(--f-inter);
+    --font-sans: var(--f-hanken);
+    --font-heading: var(--f-newsreader);
   }
 
   .dark {
@@ -81,7 +84,7 @@
   h4,
   h5,
   h6 {
-    @apply font-heading tracking-tight font-medium;
+    @apply font-heading font-medium tracking-[-0.01em];
   }
   button {
     @apply active:outline-none;
@@ -118,7 +121,7 @@
   }
 
   .btn-cta {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-cta px-6 py-3 font-semibold text-cta-foreground transition-colors hover:bg-cta/85;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-cta px-6 py-3 font-semibold text-cta-foreground transition-colors hover:bg-[#A8380A];
   }
 
   /* The white ring and cobalt outline stay visible on light and dark sections. */
@@ -126,6 +129,68 @@
     outline: 3px solid hsl(var(--primary));
     outline-offset: 2px;
     box-shadow: 0 0 0 2px #fff;
+  }
+}
+
+/* The frame: a blurred copy of the hero photo, fixed behind the page, with
+   sunlight coming in from the top right. The page itself is a white sheet
+   laid on top (see PageLayout). The blur is baked into the file. */
+.frame-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 70% at 100% 0%, hsl(var(--sun) / 0.85), transparent 70%),
+    linear-gradient(hsl(0 0% 100% / 0.25), hsl(0 0% 100% / 0.25)),
+    url("/images/backgrounds/bg-new-blur.jpg") center / cover no-repeat,
+    hsl(var(--sky));
+}
+
+/* The hero photo fades to transparent at the bottom (8rem on phones, 14rem
+   on desktop) instead of to a fixed colour. */
+.hero-photo {
+  --fade: 8rem;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - var(--fade)), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - var(--fade)), transparent);
+}
+
+@media (min-width: 1024px) {
+  .hero-photo {
+    --fade: 14rem;
+  }
+}
+
+/* Light glass for the hero panel. What makes it read as glass: the photo
+   behind is softened but its shapes are still there, a bright rim and a
+   crisp highlight along the top edge catch the light, and the tint is
+   heavier at the top left than in the middle. Ink text on it stays at 4.5:1
+   or better against the darkest part of the photo. */
+.glass-panel {
+  background: linear-gradient(
+    145deg,
+    rgb(255 255 255 / 0.72) 0%,
+    rgb(255 255 255 / 0.5) 50%,
+    rgb(255 255 255 / 0.58) 100%
+  );
+  border: 1px solid rgb(255 255 255 / 0.75);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.95),
+    inset 0 -1px 0 rgb(255 255 255 / 0.3),
+    0 24px 64px -24px rgb(22 49 74 / 0.45);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  backdrop-filter: blur(12px) saturate(1.4);
+}
+
+/* On phones the photo behind the panel is cropped tight and mostly dark
+   trees, so the middle is a little more frosted to keep paragraphs calm. */
+@media (max-width: 1023px) {
+  .glass-panel {
+    background: linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.76) 0%,
+      rgb(255 255 255 / 0.6) 50%,
+      rgb(255 255 255 / 0.66) 100%
+    );
   }
 }
 

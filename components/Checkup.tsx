@@ -39,13 +39,13 @@ export function Checkup() {
     <section
       id="checkup"
       aria-labelledby="checkup-heading"
-      className="scroll-mt-16 bg-secondary py-16 md:py-20"
+      className="scroll-mt-16 bg-secondary/80 py-16 md:py-20"
     >
       <div className="page-width grid gap-8 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-16">
         <div>
           <h2
             id="checkup-heading"
-            className="font-heading text-4xl font-semibold leading-[1.1] [text-wrap:balance] md:text-5xl"
+            className="font-heading text-4xl font-medium leading-[1.1] [text-wrap:balance] md:text-5xl"
           >
             Get a free site checkup
           </h2>
@@ -59,7 +59,7 @@ export function Checkup() {
         {state.status === "success" ? (
           <div
             role="status"
-            className="rounded-2xl border border-border bg-card p-6 shadow-card"
+            className="rounded-2xl border border-border bg-card/80 p-6 shadow-card"
           >
             <h3 className="font-heading text-xl font-semibold text-foreground">
               Thanks, I&apos;m on it
@@ -71,7 +71,7 @@ export function Checkup() {
         ) : (
           <form
             action={formAction}
-            className="rounded-2xl border border-border bg-card p-6 shadow-card"
+            className="rounded-2xl border border-border bg-card/80 p-6 shadow-card"
           >
             {/* Honeypot: hidden from people and assistive technology. */}
             <div aria-hidden="true" className="hidden">
