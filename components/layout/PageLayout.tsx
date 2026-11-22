@@ -2,6 +2,7 @@ import { FloatingNav } from "@/components/ui/FloatingNav";
 import Footer from "@/components/Footer";
 import { navItems } from "@/data";
 import { ReactNode } from "react";
+import { heroImages } from "@/lib/heroImages";
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -24,7 +25,16 @@ export default function PageLayout({
         Skip to main content
       </a>
       {/* The blurred photo frames a white sheet that holds the whole page. */}
-      <div aria-hidden="true" className="frame-backdrop" />
+      <div aria-hidden="true" className="frame-backdrop">
+        {heroImages.map(({ blur }, i) => (
+          <div
+            key={i}
+            data-hero-layer={i + 1}
+            className="frame-backdrop-layer"
+            style={{ backgroundImage: `url(${blur})` }}
+          />
+        ))}
+      </div>
       <div className="p-2 lg:p-6">
         <div className="overflow-clip rounded-2xl bg-background/80 shadow-panel lg:rounded-[1.75rem]">
           <FloatingNav navItems={navItems} />

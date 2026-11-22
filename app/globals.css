@@ -134,16 +134,154 @@
 
 /* The frame: a blurred copy of the hero photo, fixed behind the page, with
    sunlight coming in from the top right. The page itself is a white sheet
-   laid on top (see PageLayout). The blur is baked into the file. */
+   laid on top (see PageLayout). The blur is baked into the files; there is
+   one layer per hero photo, switched by the rules below. */
 .frame-backdrop {
   position: fixed;
   inset: 0;
   z-index: -1;
+  background: hsl(var(--sky));
+}
+
+.frame-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
   background:
     radial-gradient(60% 70% at 100% 0%, hsl(var(--sun) / 0.85), transparent 70%),
-    linear-gradient(hsl(0 0% 100% / 0.25), hsl(0 0% 100% / 0.25)),
-    url("/images/backgrounds/bg-new-blur.jpg") center / cover no-repeat,
-    hsl(var(--sky));
+    linear-gradient(hsl(0 0% 100% / 0.25), hsl(0 0% 100% / 0.25));
+}
+
+.frame-backdrop-layer {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Hero photo switching, shared by the hero and the frame.
+   <html data-hero="n"> is set before paint from the hero_image cookie
+   (lib/heroImages). Layers that aren't shown stay display:none so their
+   images aren't downloaded; data-hero-warm (set when the picker is hovered
+   or focused) mounts them at opacity 0 so a pick can crossfade.
+   data-hero-prev keeps the outgoing photo underneath during the fade. */
+:root {
+  --hero-crossfade: 600ms;
+}
+
+[data-hero-layer] {
+  display: none;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity var(--hero-crossfade) ease;
+}
+
+html[data-hero-warm] [data-hero-layer] {
+  display: block;
+}
+
+html[data-hero-prev="1"] [data-hero-layer="1"],
+html[data-hero-prev="2"] [data-hero-layer="2"],
+html[data-hero-prev="3"] [data-hero-layer="3"],
+html[data-hero-prev="4"] [data-hero-layer="4"] {
+  display: block;
+  opacity: 1;
+  z-index: 1;
+}
+
+html:not([data-hero]) [data-hero-layer="1"],
+html[data-hero="1"] [data-hero-layer="1"],
+html[data-hero="2"] [data-hero-layer="2"],
+html[data-hero="3"] [data-hero-layer="3"],
+html[data-hero="4"] [data-hero-layer="4"] {
+  display: block;
+  opacity: 1;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hero-layer] {
+    transition: none;
+  }
+}
+
+/* Hero photo picker: a near-invisible row of dots that wakes on hover or
+   keyboard focus. Desktop with a real pointer only. Its sizes and colours
+   are CSS variables set at the top of components/HeroPicker.tsx. */
+.hero-picker {
+  display: none;
+}
+
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .hero-picker {
+    /* Positioned from the panel wrapper (see Hero): level with the panel's
+       bottom edge, and pushed across one column plus the gap so its right
+       edge meets the content edge. */
+    position: absolute;
+    right: calc(-100% - var(--hero-gap) + var(--picker-inset-x));
+    bottom: var(--picker-inset-y);
+    z-index: 10;
+    display: flex;
+    height: var(--picker-height);
+    padding-inline: var(--picker-pad);
+    border-radius: 9999px;
+    background: var(--picker-fill);
+    -webkit-backdrop-filter: blur(var(--picker-blur));
+    backdrop-filter: blur(var(--picker-blur));
+    opacity: var(--picker-rest);
+    /* Applies when returning to rest, so this is the fade out. */
+    transition: opacity var(--picker-fade-out) ease-in-out;
+  }
+
+  .hero-picker:hover,
+  .hero-picker:has(:focus-visible) {
+    opacity: var(--picker-hover);
+    transition-duration: var(--picker-fade);
+  }
+}
+
+.hero-picker button {
+  display: grid;
+  place-items: center;
+  width: var(--picker-hit);
+  height: 100%;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.hero-picker button::before {
+  content: "";
+  width: var(--picker-dot);
+  height: var(--picker-dot);
+  border-radius: 9999px;
+  background: var(--picker-dot-off);
+  transition: background-color var(--picker-fade) ease-out;
+}
+
+.hero-picker button:hover::before {
+  background: var(--picker-dot-hover);
+}
+
+.hero-picker button[aria-pressed="true"]::before {
+  background: var(--picker-dot-on);
+}
+
+.hero-picker button:focus-visible {
+  outline: none;
+}
+
+.hero-picker button:focus-visible::before {
+  outline: var(--picker-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-picker,
+  .hero-picker button::before {
+    transition: none;
+  }
 }
 
 /* The hero photo fades to transparent at the bottom (8rem on phones, 14rem
@@ -203,8 +341,9 @@
 
   @media (min-width: 1024px) {
     .hero-grid {
+      --hero-gap: 4rem; /* the photo picker uses this to reach the right edge */
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: var(--hero-gap);
     }
   }
 }
