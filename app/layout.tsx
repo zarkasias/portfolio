@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Newsreader } from "next/font/google";
 import "./globals.css";
+import { heroBootScript } from "@/lib/heroImages";
 import { ThemeProvider } from "./provider";
 import RouteChangeTracker from "@/components/analytics/RouteChangeTracker";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
@@ -87,7 +88,10 @@ export default function RootLayout({
       className={`${newsreader.variable} ${hanken.variable} scroll-smooth motion-reduce:scroll-auto`}
       suppressHydrationWarning
     >
-      <head></head>
+      <head>
+        {/* Picks the saved hero photo before first paint (see lib/heroImages). */}
+        <script dangerouslySetInnerHTML={{ __html: heroBootScript() }} />
+      </head>
       <body
         className="font-sans bg-background text-foreground"
         suppressHydrationWarning
